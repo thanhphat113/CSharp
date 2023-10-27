@@ -1,0 +1,12 @@
+C:\Users\hi\source\repos\Doanqlchdt\bin\Debug\Doanqlchdt.exe.config
+C:\Users\hi\source\repos\Doanqlchdt\bin\Debug\Doanqlchdt.exe
+C:\Users\hi\source\repos\Doanqlchdt\bin\Debug\Doanqlchdt.pdb
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.csproj.AssemblyReference.cache
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.Form1.resources
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.Properties.Resources.resources
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.csproj.GenerateResource.cache
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.csproj.CoreCompileInputs.cache
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.exe
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.pdb
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.GUI.Login.resources
+C:\Users\hi\source\repos\Doanqlchdt\obj\Debug\Doanqlchdt.GUI.register.resources
