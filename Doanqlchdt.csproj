@@ -46,9 +46,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\chitietdonbanbus.cs" />
+    <Compile Include="BUS\chitietdonnhapbus.cs" />
+    <Compile Include="BUS\donbaohanhbus.cs" />
+    <Compile Include="BUS\hoadonbanbus.cs" />
+    <Compile Include="BUS\hoadonnhapbus.cs" />
+    <Compile Include="BUS\khachhangbus.cs" />
+    <Compile Include="BUS\khuyenmaibus.cs" />
+    <Compile Include="BUS\loaisanphambus.cs" />
+    <Compile Include="BUS\nhacungcapbus.cs" />
+    <Compile Include="BUS\nhanvienbus.cs" />
+    <Compile Include="BUS\quyenbus.cs" />
+    <Compile Include="BUS\sanphambus.cs" />
     <Compile Include="BUS\taikhoanbus.cs" />
     <Compile Include="connect\connect.cs" />
+    <Compile Include="DAO\chitietdonbandao.cs" />
+    <Compile Include="DAO\chitietdonnhapdao.cs" />
+    <Compile Include="DAO\donbaohanhdao.cs" />
+    <Compile Include="DAO\hoadonbandao.cs" />
+    <Compile Include="DAO\hoadonnhapdao.cs" />
+    <Compile Include="DAO\khachhangdao.cs" />
+    <Compile Include="DAO\khuyenmaidao.cs" />
+    <Compile Include="DAO\loaisanphamdao.cs" />
+    <Compile Include="DAO\nhacungcapdao.cs" />
+    <Compile Include="DAO\nhanviendao.cs" />
+    <Compile Include="DAO\quyendao.cs" />
+    <Compile Include="DAO\sanphamdao.cs" />
     <Compile Include="DAO\taikhoandao.cs" />
+    <Compile Include="DTO\chitietdonbandto.cs" />
+    <Compile Include="DTO\chitietdonnhapdto.cs" />
+    <Compile Include="DTO\donbaohanhdto.cs" />
+    <Compile Include="DTO\hoadonbandto.cs" />
+    <Compile Include="DTO\hoadonnhapdto.cs" />
+    <Compile Include="DTO\khachhangdto.cs" />
+    <Compile Include="DTO\khuyenmaidto.cs" />
+    <Compile Include="DTO\loaisanphamdto.cs" />
+    <Compile Include="DTO\nhacungcapdto.cs" />
+    <Compile Include="DTO\nhanviendto.cs" />
+    <Compile Include="DTO\quyendto.cs" />
+    <Compile Include="DTO\sanphamdto.cs" />
     <Compile Include="DTO\taikhoandto.cs" />
     <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
