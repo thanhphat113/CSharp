@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 ﻿using Doanqlchdt.connect;
 using Doanqlchdt.DTO.nhanviendto;
 using System;
+=======
+﻿using System;
+>>>>>>> 7b2d96d55af908bcf2f14801a232804ed5647262
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+<<<<<<< HEAD
 using System.Data.SqlClient;
 
 
@@ -42,5 +47,12 @@ namespace Doanqlchdt.DAO
             }
             return employees;
         }
+=======
+
+namespace Doanqlchdt.DTO
+{
+    internal class nhanviendao
+    {
+>>>>>>> 7b2d96d55af908bcf2f14801a232804ed5647262
     }
 }

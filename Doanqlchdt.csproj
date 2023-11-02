@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,17 +52,106 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="BUS\nhanvienbus.cs" />
     <Compile Include="BUS\taikhoanbus.cs" />
     <Compile Include="connect\connect.cs" />
     <Compile Include="DAO\nhanviendao.cs" />
+=======
+    <Compile Include="BUS\chitietdonbanbus.cs" />
+    <Compile Include="BUS\chitietdonnhapbus.cs" />
+    <Compile Include="BUS\donbaohanhbus.cs" />
+    <Compile Include="BUS\hoadonbanbus.cs" />
+    <Compile Include="BUS\hoadonnhapbus.cs" />
+    <Compile Include="BUS\khachhangbus.cs" />
+    <Compile Include="BUS\khuyenmaibus.cs" />
+    <Compile Include="BUS\loaisanphambus.cs" />
+    <Compile Include="BUS\nhacungcapbus.cs" />
+    <Compile Include="BUS\nhanvienbus.cs" />
+    <Compile Include="BUS\quyenbus.cs" />
+    <Compile Include="BUS\sanphambus.cs" />
+    <Compile Include="BUS\taikhoanbus.cs" />
+    <Compile Include="connect\connect.cs" />
+    <Compile Include="DAO\chitietdonbandao.cs" />
+    <Compile Include="DAO\chitietdonnhapdao.cs" />
+    <Compile Include="DAO\donbaohanhdao.cs" />
+    <Compile Include="DAO\hoadonbandao.cs" />
+    <Compile Include="DAO\hoadonnhapdao.cs" />
+    <Compile Include="DAO\khachhangdao.cs" />
+    <Compile Include="DAO\khuyenmaidao.cs" />
+    <Compile Include="DAO\loaisanphamdao.cs" />
+    <Compile Include="DAO\nhacungcapdao.cs" />
+    <Compile Include="DAO\nhanviendao.cs" />
+    <Compile Include="DAO\quyendao.cs" />
+    <Compile Include="DAO\sanphamdao.cs" />
+>>>>>>> 7b2d96d55af908bcf2f14801a232804ed5647262
     <Compile Include="DAO\taikhoandao.cs" />
+    <Compile Include="DTO\chitietdonbandto.cs" />
+    <Compile Include="DTO\chitietdonnhapdto.cs" />
+    <Compile Include="DTO\donbaohanhdto.cs" />
+    <Compile Include="DTO\hoadonbandto.cs" />
+    <Compile Include="DTO\hoadonnhapdto.cs" />
+    <Compile Include="DTO\khachhangdto.cs" />
+    <Compile Include="DTO\khuyenmaidto.cs" />
+    <Compile Include="DTO\loaisanphamdto.cs" />
+    <Compile Include="DTO\nhacungcapdto.cs" />
+    <Compile Include="DTO\nhanviendto.cs" />
+    <Compile Include="DTO\quyendto.cs" />
+    <Compile Include="DTO\sanphamdto.cs" />
     <Compile Include="DTO\taikhoandto.cs" />
+    <Compile Include="GUI\donbaohanhgui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\donbaohanhgui.Designer.cs">
+      <DependentUpon>donbaohanhgui.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\hoadonbangui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\hoadonbangui.Designer.cs">
+      <DependentUpon>hoadonbangui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\hoadonnhapgui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\hoadonnhapgui.Designer.cs">
+      <DependentUpon>hoadonnhapgui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\khachhanggui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\khachhanggui.Designer.cs">
+      <DependentUpon>khachhanggui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\loaisanphamgui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\loaisanphamgui.Designer.cs">
+      <DependentUpon>loaisanphamgui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\nhacungcap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\nhacungcap.Designer.cs">
+      <DependentUpon>nhacungcap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\sanphamgui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\sanphamgui.Designer.cs">
+      <DependentUpon>sanphamgui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\taikhoangui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\taikhoangui.Designer.cs">
+      <DependentUpon>taikhoangui.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -127,6 +222,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -141,7 +237,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="obj\image\menuicon.png" />
+=======
+    <Content Include="Content\PagedList.css" />
+>>>>>>> 7b2d96d55af908bcf2f14801a232804ed5647262
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

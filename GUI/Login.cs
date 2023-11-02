@@ -34,5 +34,10 @@ namespace Doanqlchdt.GUI
                 MessageBox.Show("Sai rồi");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
