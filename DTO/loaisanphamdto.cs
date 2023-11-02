@@ -8,5 +8,16 @@ namespace Doanqlchdt.DTO
 {
     internal class loaisanphamdao
     {
+        private String maloai;
+        private String tenloai;
+
+        public loaisanphamdao(string maloai, string tenloai)
+        {
+            this.Maloai = maloai;
+            this.Tenloai = tenloai;
+        }
+
+        public string Maloai { get => maloai; set => maloai = value; }
+        public string Tenloai { get => tenloai; set => tenloai = value; }
     }
 }
