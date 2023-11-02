@@ -45,6 +45,7 @@ namespace Doanqlchdt.DAO
             sqlcommand.CommandText = "insert into KhachHang values(N'" + khdto.Mkh + "',N'" + khdto.Hoten + "',N'" + khdto.Sdt + "',N'" + khdto.Email + "','" + khdto.Ngaysinh + "','"+khdto.Matk+"')";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
             return kq;
         }
         public int update(khachhangdto khdto)
@@ -55,6 +56,7 @@ namespace Doanqlchdt.DAO
             sqlcommand.CommandText = "update KhachHang set HoTen= N'"+khdto.Hoten +"',SDT= N'"+khdto.Sdt+"' ,Email= N'"+khdto.Email+"',Ngaysinh='"+khdto.Ngaysinh+"' where MaKH='"+khdto.Mkh+"' ";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
             return kq;
         }
         public ArrayList getdsmakh(String mkh)

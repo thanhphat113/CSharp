@@ -48,6 +48,7 @@ namespace Doanqlchdt.DAO
             sqlcommand.CommandText = "insert into TaiKhoan values('" + tk.Matk + "',N'" + tk.Username + "',N'" + tk.Password + "','" + tk.Quyen + "','" + tk.Trangthai + "')";
             SqlConnection connect = cn.connection();
             int kq=sqlcommand.ExecuteNonQuery();
+            connect.Close();
             return kq;
         }
         public Boolean checkttk(String tk,String mk)
@@ -74,6 +75,7 @@ namespace Doanqlchdt.DAO
             sqlcommand.CommandText = "Update TaiKhoan set Username=N'"+tk.Username+"',MatKhau=N'"+tk.Password+"',Quyen='"+tk.Quyen+"',TrangThai='"+tk.Trangthai+"' where MaTK='"+tk.Matk+"'";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
             return kq;
         }
         public ArrayList getdsquyen(int quyen)

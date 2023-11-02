@@ -11,10 +11,10 @@ namespace Doanqlchdt.DTO
         private String masp;
         private String tensp;
         private String maloai;
-        private String gianhap;
-        private String giaban;
+        private int  gianhap;
+        private int giaban;
 
-        public sanphamdto(string masp, string tensp, string maloai, string gianhap, string giaban)
+        public sanphamdto(string masp, string tensp, string maloai, int gianhap, int giaban)
         {
             this.Masp = masp;
             this.Tensp = tensp;
@@ -26,7 +26,7 @@ namespace Doanqlchdt.DTO
         public string Masp { get => masp; set => masp = value; }
         public string Tensp { get => tensp; set => tensp = value; }
         public string Maloai { get => maloai; set => maloai = value; }
-        public string Gianhap { get => gianhap; set => gianhap = value; }
-        public string Giaban { get => giaban; set => giaban = value; }
+        public int Gianhap { get => gianhap; set => gianhap = value; }
+        public int Giaban { get => giaban; set => giaban = value; }
     }
 }

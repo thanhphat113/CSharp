@@ -92,17 +92,59 @@
     <Compile Include="DTO\quyendto.cs" />
     <Compile Include="DTO\sanphamdto.cs" />
     <Compile Include="DTO\taikhoandto.cs" />
+    <Compile Include="GUI\donbaohanhgui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\donbaohanhgui.Designer.cs">
+      <DependentUpon>donbaohanhgui.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Form2.cs">
+    <Compile Include="GUI\hoadonbangui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="GUI\hoadonbangui.Designer.cs">
+      <DependentUpon>hoadonbangui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\hoadonnhapgui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\hoadonnhapgui.Designer.cs">
+      <DependentUpon>hoadonnhapgui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\khachhanggui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\khachhanggui.Designer.cs">
+      <DependentUpon>khachhanggui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\loaisanphamgui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\loaisanphamgui.Designer.cs">
+      <DependentUpon>loaisanphamgui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\nhacungcap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\nhacungcap.Designer.cs">
+      <DependentUpon>nhacungcap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\sanphamgui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\sanphamgui.Designer.cs">
+      <DependentUpon>sanphamgui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\taikhoangui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\taikhoangui.Designer.cs">
+      <DependentUpon>taikhoangui.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>

@@ -44,6 +44,7 @@ namespace Doanqlchdt.DTO
             sqlcommand.CommandText = "insert into DonBaoHanh values(N'" + dbhdto.Madonbaohanh + "',N'" + dbhdto.Manv + "',N'" + dbhdto.Makh + "',N'" + dbhdto.Masp + "','" + dbhdto.Ngaytao + "','" + dbhdto.Ngaytra + "')";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
             return kq;
         }
         public int update(donbaohanhdto dbhdto)
@@ -54,6 +55,7 @@ namespace Doanqlchdt.DTO
             sqlcommand.CommandText = "update DonBaoHanh set MaNV= N'" + dbhdto.Manv + "',MaKH= N'" + dbhdto.Makh + "' ,MaSP= N'" + dbhdto.Masp + "',NgayTao='" + dbhdto.Ngaytao + "',NgayTra='"+dbhdto.Ngaytra+"' where MaDBH='" + dbhdto.Madonbaohanh + "' ";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
             return kq;
         }
         public ArrayList getdsmadon(String madon)

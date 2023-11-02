@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Doanqlchdt.DTO
 {
-    internal class loaisanphamdao
+    internal class loaisanphamdto
     {
         private String maloai;
         private String tenloai;
 
-        public loaisanphamdao(string maloai, string tenloai)
+        public loaisanphamdto(string maloai, string tenloai)
         {
             this.Maloai = maloai;
             this.Tenloai = tenloai;
