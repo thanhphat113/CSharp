@@ -52,12 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="BUS\nhanvienbus.cs" />
     <Compile Include="BUS\taikhoanbus.cs" />
     <Compile Include="connect\connect.cs" />
-    <Compile Include="DAO\nhanviendao.cs" />
-=======
     <Compile Include="BUS\chitietdonbanbus.cs" />
     <Compile Include="BUS\chitietdonnhapbus.cs" />
     <Compile Include="BUS\donbaohanhbus.cs" />
@@ -72,6 +69,7 @@
     <Compile Include="BUS\sanphambus.cs" />
     <Compile Include="BUS\taikhoanbus.cs" />
     <Compile Include="connect\connect.cs" />
+    <Compile Include="connect\connectToan.cs" />
     <Compile Include="DAO\chitietdonbandao.cs" />
     <Compile Include="DAO\chitietdonnhapdao.cs" />
     <Compile Include="DAO\donbaohanhdao.cs" />
@@ -84,7 +82,6 @@
     <Compile Include="DAO\nhanviendao.cs" />
     <Compile Include="DAO\quyendao.cs" />
     <Compile Include="DAO\sanphamdao.cs" />
->>>>>>> 7b2d96d55af908bcf2f14801a232804ed5647262
     <Compile Include="DAO\taikhoandao.cs" />
     <Compile Include="DTO\chitietdonbandto.cs" />
     <Compile Include="DTO\chitietdonnhapdto.cs" />
@@ -146,6 +143,12 @@
     </Compile>
     <Compile Include="GUI\sanphamgui.Designer.cs">
       <DependentUpon>sanphamgui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SuaNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SuaNhanVien.Designer.cs">
+      <DependentUpon>SuaNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\taikhoangui.cs">
       <SubType>Form</SubType>
@@ -209,6 +212,9 @@
     <EmbeddedResource Include="GUI\register.resx">
       <DependentUpon>register.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SuaNhanVien.resx">
+      <DependentUpon>SuaNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,11 +243,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="obj\image\menuicon.png" />
-=======
     <Content Include="Content\PagedList.css" />
->>>>>>> 7b2d96d55af908bcf2f14801a232804ed5647262
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

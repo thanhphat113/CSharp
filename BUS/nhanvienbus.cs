@@ -1,18 +1,34 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Doanqlchdt.DAO;
+using Doanqlchdt.DTO;
 
-<<<<<<< HEAD
 namespace Doanqlchdt.BUS
 {
-    internal class nhanvienbus
-=======
-namespace Doanqlchdt.DTO
-{
-    internal class nhanvien
->>>>>>> 7b2d96d55af908bcf2f14801a232804ed5647262
-    {
+    internal class nhanvienbus {
+        private nhanviendao employeeDAO = new nhanviendao();
+        public List<nhanviendto> GetNhanVien()
+        {
+            return employeeDAO.GetNhanVien();
+        }
+
+        public void AddEmployee(nhanviendto employee)
+        {
+            employeeDAO.AddEmployee(employee);
+        }
+
+        public void UpdateEmployee(nhanviendto employee)
+        {
+            employeeDAO.UpdateEmployee(employee);
+        }
+
+        public ArrayList SearchEmployee(string keyword)
+        {
+            return employeeDAO.SearchEmployee(keyword);
+        }
     }
 }

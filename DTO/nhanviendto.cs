@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Doanqlchdt.DTO
 {
-    internal class nhanviendto
+    public class nhanviendto
     {
         private string maNV;
         private string hoTen;
         private string sDT;
         private string email;
         private int trangThai;
-        private DateTime ngaySinh;
+        private string ngaySinh;
         private int maTK;
         public nhanviendto()
         {
 
         }
-        public nhanviendto(string maNV, string hoTen, string sDT, string email, int trangThai, DateTime ngaySinh, int maTK)
+        public nhanviendto(string maNV, string hoTen, string sDT, string email, int trangThai, string ngaySinh, int maTK)
         {
             this.maNV = maNV;
             this.hoTen = hoTen;
@@ -35,7 +35,7 @@ namespace Doanqlchdt.DTO
         public string SDT { get => sDT; set => sDT = value; }
         public string Email { get => email; set => email = value; }
         public int TrangThai { get => trangThai; set => trangThai = value; }
-        public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
+        public string NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public int MaTK { get => maTK; set => maTK = value; }
     }
 }

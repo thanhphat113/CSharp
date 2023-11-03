@@ -56,7 +56,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1134, 30);
+            this.panel2.Size = new System.Drawing.Size(1378, 30);
             this.panel2.TabIndex = 0;
             // 
             // btnClose
@@ -66,7 +66,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(1084, 0);
+            this.btnClose.Location = new System.Drawing.Point(1328, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 30);
             this.btnClose.TabIndex = 0;
@@ -164,14 +164,14 @@
             this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainpanel.Location = new System.Drawing.Point(212, 30);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(922, 629);
+            this.mainpanel.Size = new System.Drawing.Size(1166, 629);
             this.mainpanel.TabIndex = 2;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 659);
+            this.ClientSize = new System.Drawing.Size(1378, 659);
             this.Controls.Add(this.mainpanel);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.panel2);

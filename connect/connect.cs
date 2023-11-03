@@ -10,7 +10,8 @@ namespace Doanqlchdt.connect
 {
     internal class connect
     {
-        String sql = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=QLDACHBDT;Integrated Security=True";
+        String sql = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=QLDACHBDT;Integrated Security=True";  
+
         SqlConnection sqlcon = null;
 
         public connect()

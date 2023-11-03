@@ -27,3 +27,9 @@ D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.Menu.resources
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.NhanVien.resources
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.PhanQuyen.resources
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.ThongKe.resources
+D:\workspace\DoAnC-\bin\Debug\PagedList.dll
+D:\workspace\DoAnC-\bin\Debug\PagedList.Mvc.dll
+D:\workspace\DoAnC-\bin\Debug\PagedList.xml
+D:\workspace\DoAnC-\bin\Debug\PagedList.Mvc.xml
+D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.csproj.CopyComplete
+D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.SuaNhanVien.resources
