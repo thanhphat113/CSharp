@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,16 +43,6 @@
             this.panel1.Size = new System.Drawing.Size(1110, 558);
             this.panel1.TabIndex = 0;
             // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(23, 70);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1063, 358);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -62,6 +52,16 @@
             this.label1.Size = new System.Drawing.Size(219, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "Dữ liệu của nhân viên";
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(23, 70);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1067, 420);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
             // NhanVien
             // 

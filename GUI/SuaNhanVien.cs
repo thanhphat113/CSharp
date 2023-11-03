@@ -18,25 +18,22 @@ namespace Doanqlchdt.GUI
 {
     public partial class SuaNhanVien : Form
     {
-        private connectToan connectObj = new connectToan();
-
-        private NhanVien parentForm;
         private DTO.nhanviendto SelectedEmployee { get; set; }
         static nhanvienbus employeeBUS = new nhanvienbus();
         public SuaNhanVien(DTO.nhanviendto selectedEmployee)
         {
-            SelectedEmployee = selectedEmployee;
             InitializeComponent();
+            SelectedEmployee = selectedEmployee;
             txtMaNV.Text = SelectedEmployee.MaNV.Trim();
             txtHoTen.Text = SelectedEmployee.HoTen;
             txtEmail.Text = SelectedEmployee.Email;
             txtSDT.Text = SelectedEmployee.SDT.Trim();
             dtpNgaySinh.Text = Convert.ToString(SelectedEmployee.NgaySinh);
-            if(SelectedEmployee.TrangThai == 1)
+            if (SelectedEmployee.TrangThai == 1)
             {
                 rdbHien.Checked = true;
-            } 
-            else if(SelectedEmployee.TrangThai == 0) 
+            }
+            else if (SelectedEmployee.TrangThai == 0)
             {
                 rdbAn.Checked = false;
             }
@@ -102,7 +99,12 @@ namespace Doanqlchdt.GUI
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc chắn muốn hủy không?", "Xác nhận hủy", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.DialogResult = DialogResult.Yes;
+            }
         }
+
+
     }
 }

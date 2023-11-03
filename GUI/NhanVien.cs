@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Doanqlchdt.GUI
 {
@@ -46,22 +47,25 @@ namespace Doanqlchdt.GUI
             listView1.Columns.Add("Mã Tài Khoản", 100, HorizontalAlignment.Left);
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0)
+            if (e.Button == MouseButtons.Left)
             {
-                string selectedMaNV = listView1.SelectedItems[0].SubItems[0].Text;
-                // Tìm kiếm thông tin nhân viên theo mã
-                nhanviendto selectedEmployee = employees.FirstOrDefault(employee => employee.MaNV == selectedMaNV);
-                if (selectedEmployee != null)
+                if (listView1.SelectedItems.Count > 0)
                 {
-                    // Truyền thông tin nhân viên được chọn qua form sửa nhân viên
-                    SuaNhanVien suaNhanVienForm = new SuaNhanVien(selectedEmployee);
-                    suaNhanVienForm.StartPosition = FormStartPosition.CenterParent;
-                    suaNhanVienForm.ShowDialog();
-                    // Tự động làm mới dữ liệu sau khi cập nhật                              
-                    employees = employeeBUS.GetNhanVien();
-                    LoadDataToGUI();
+                    string selectedMaNV = listView1.SelectedItems[0].SubItems[0].Text;
+                    // Tìm kiếm thông tin nhân viên theo mã
+                    nhanviendto selectedEmployee = employees.FirstOrDefault(employee => employee.MaNV == selectedMaNV);
+                    if (selectedEmployee != null)
+                    {
+                        // Truyền thông tin nhân viên được chọn qua form sửa nhân viên
+                        SuaNhanVien suaNhanVienForm = new SuaNhanVien(selectedEmployee);
+                        suaNhanVienForm.StartPosition = FormStartPosition.CenterParent;
+                        suaNhanVienForm.ShowDialog();
+                        // Tự động làm mới dữ liệu sau khi cập nhật                              
+                        employees = employeeBUS.GetNhanVien();
+                        LoadDataToGUI();
+                    }
                 }
             }
         }
