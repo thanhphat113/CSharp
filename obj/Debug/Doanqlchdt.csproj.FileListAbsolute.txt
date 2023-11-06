@@ -33,3 +33,4 @@ D:\workspace\DoAnC-\bin\Debug\PagedList.xml
 D:\workspace\DoAnC-\bin\Debug\PagedList.Mvc.xml
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.csproj.CopyComplete
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.SuaNhanVien.resources
+D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.ThemNhanVien.resources

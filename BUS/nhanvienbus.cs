@@ -26,9 +26,33 @@ namespace Doanqlchdt.BUS
             employeeDAO.UpdateEmployee(employee);
         }
 
-        public ArrayList SearchEmployee(string keyword)
+        public ArrayList SearchEmployeeByID(string keyword)
         {
-            return employeeDAO.SearchEmployee(keyword);
+            return employeeDAO.SearchEmployeeByID(keyword);
+        }
+
+        public ArrayList SearchEmployeeByName(string keyword)
+        {
+            return employeeDAO.SearchEmployeeByName(keyword);
+        }
+        public ArrayList SearchEmployeeByPhoneNumber(string keyword)
+        {
+            return employeeDAO.SearchEmployeeByPhoneNumber(keyword);
+        }
+
+        public List<string> LoadMaTK()
+        {
+            return employeeDAO.LoadMaTK();
+        }
+
+        public void ChangeStateHidden(nhanviendto employee)
+        {
+            employeeDAO.ChangeStateHidden(employee);
+        }
+
+        public void ChangeStateCurrent(nhanviendto employee)
+        {
+            employeeDAO.ChangeStateCurrent(employee);
         }
     }
 }

@@ -1,46 +1,47 @@
-﻿using Doanqlchdt.BUS;
-using Doanqlchdt.DTO;
-using Doanqlchdt.connect;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Doanqlchdt.BUS;
+using Doanqlchdt.DTO;
 
 namespace Doanqlchdt.GUI
 {
-    public partial class SuaNhanVien : Form
+    public partial class ThemNhanVien : Form
     {
-        private DTO.nhanviendto SelectedEmployee { get; set; }
-        static nhanvienbus employeeBUS = new nhanvienbus();
-        public SuaNhanVien(DTO.nhanviendto selectedEmployee)
+        nhanviendto employeeDTO = new nhanviendto();
+        nhanvienbus employeeBUS = new nhanvienbus();
+        
+        int i = 0;
+
+        public ThemNhanVien()
         {
             InitializeComponent();
-            SelectedEmployee = selectedEmployee;
-            txtMaNV.Text = SelectedEmployee.MaNV.Trim();
-            txtHoTen.Text = SelectedEmployee.HoTen;
-            txtEmail.Text = SelectedEmployee.Email;
-            txtSDT.Text = SelectedEmployee.SDT.Trim();
-            dtpNgaySinh.Text = Convert.ToString(SelectedEmployee.NgaySinh);
-            if (SelectedEmployee.TrangThai == 1)
-            {
-                rdbHien.Checked = true;
-            }
-            else if (SelectedEmployee.TrangThai == 0)
-            {
-                rdbAn.Checked = false;
-            }
-            txtMaTK.Text = Convert.ToString(SelectedEmployee.MaTK).Trim();
+            rdbHien.Checked = true; 
+            List<nhanviendto> employees = employeeBUS.GetNhanVien();
+            int maNV = employees.Count + 1;
+            txtMaNV.Text = maNV.ToString();
+            List<string> userIDs = employeeBUS.LoadMaTK();
+            cbbMaTK.Items.Clear();
+            cbbMaTK.Items.AddRange(userIDs.ToArray());
+
         }
 
-        private void btnCapNhat_Click(object sender, EventArgs e)
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn hủy không?", "Xác nhận hủy", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.DialogResult = DialogResult.Yes;
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtMaNV.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtHoTen.Text) || string.IsNullOrEmpty(txtSDT.Text) || string.IsNullOrEmpty(dtpNgaySinh.Text))
             {
@@ -61,34 +62,44 @@ namespace Doanqlchdt.GUI
                 else if (Regex.IsMatch(txtHoTen.Text, @"\d"))
                 {
                     MessageBox.Show("Họ tên không hợp lệ!!!");
-                    txtHoTen.Focus();   
+                    txtHoTen.Focus();
+                }
+                else if (cbbMaTK.SelectedItem == null)
+                {
+                    MessageBox.Show("Bạn chưa chọn tài khoản cho nhân viên!!!");
+                    cbbMaTK.Focus();
+                }
+                else if (dtpNgaySinh.Value == default(DateTime))
+                {
+                    MessageBox.Show("Bạn chưa chọn ngày sinh của nhân viên!!!");
                 } 
+                else if (rdbHien.Checked == false && rdbAn.Checked == false)
+                {
+                    MessageBox.Show("Hãy chọn trạng thái của nhân viên!!!");
+                }
                 else
                 {
                     // Thực hiện truy vấn tại đây
-                    nhanviendto employeeDTO = new nhanviendto();
                     employeeDTO.MaNV = txtMaNV.Text;
                     employeeDTO.HoTen = txtHoTen.Text;
                     employeeDTO.SDT = txtSDT.Text;
                     employeeDTO.Email = txtEmail.Text;
-                    employeeDTO.MaTK = Convert.ToInt32(txtMaTK.Text);
+                    employeeDTO.MaTK = Convert.ToInt32(cbbMaTK.SelectedItem);
                     DateTime selectedDate = dtpNgaySinh.Value;
                     employeeDTO.NgaySinh = selectedDate.ToString("yyyy-MM-dd");
                     if (rdbHien.Checked)
                     {
                         employeeDTO.TrangThai = 1;
-                        employeeBUS.ChangeStateCurrent(employeeDTO);
                     }
                     else if (rdbAn.Checked)
                     {
                         employeeDTO.TrangThai = 0;
-                        employeeBUS.ChangeStateHidden(employeeDTO);
                     }
 
                     try
                     {
-                        employeeBUS.UpdateEmployee(employeeDTO);
-                        MessageBox.Show("Cập nhật thành công");
+                        employeeBUS.AddEmployee(employeeDTO);
+                        MessageBox.Show("Thêm thành công");
                         this.Close();
                     }
                     catch (Exception ex)
@@ -98,15 +109,6 @@ namespace Doanqlchdt.GUI
                 }
             }
         }
-
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc chắn muốn hủy không?", "Xác nhận hủy", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.DialogResult = DialogResult.Yes;
-            }
-        }
-
 
     }
 }
