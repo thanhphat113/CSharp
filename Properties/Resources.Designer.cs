@@ -63,6 +63,36 @@ namespace Doanqlchdt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addicon {
+            get {
+                object obj = ResourceManager.GetObject("addicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancelicon {
+            get {
+                object obj = ResourceManager.GetObject("cancelicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap khachhang {
+            get {
+                object obj = ResourceManager.GetObject("khachhang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menuicon {
             get {
                 object obj = ResourceManager.GetObject("menuicon", resourceCulture);
@@ -86,6 +116,26 @@ namespace Doanqlchdt.Properties {
         internal static System.Drawing.Bitmap themnhanvien {
             get {
                 object obj = ResourceManager.GetObject("themnhanvien", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thongke {
+            get {
+                object obj = ResourceManager.GetObject("thongke", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap updateicon {
+            get {
+                object obj = ResourceManager.GetObject("updateicon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

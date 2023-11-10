@@ -15,6 +15,11 @@ namespace Doanqlchdt.DTO
         private int tongtien;
         private DateTime ngaytao;
 
+        public hoadonbandto()
+        {
+
+        }
+
         public hoadonbandto(string mhdb, string mnv, string mkh, string mkm, int tongtien, DateTime ngaytao)
         {
             this.Mhdb = mhdb;

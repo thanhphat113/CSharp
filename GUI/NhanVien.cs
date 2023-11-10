@@ -32,7 +32,7 @@ namespace Doanqlchdt.GUI
             listView1.Items.Clear();
             foreach (nhanviendto employee in employees)
             {
-                string[] row = { employee.MaNV, employee.HoTen, employee.SDT, employee.Email, employee.TrangThai.ToString(), employee.NgaySinh.ToString(), employee.MaTK.ToString() };
+                string[] row = { employee.MaNV, employee.HoTen, employee.SDT, employee.Email, employee.GioiTinh ,employee.TrangThai.ToString(), employee.NgaySinh.ToString(), employee.MaTK.ToString() };
                 listView1.Items.Add(new ListViewItem(row));
             }
         }
@@ -45,6 +45,7 @@ namespace Doanqlchdt.GUI
             listView1.Columns.Add("Họ Tên", 150, HorizontalAlignment.Left);
             listView1.Columns.Add("Số Điện Thoại", 150, HorizontalAlignment.Left);
             listView1.Columns.Add("Email", 200, HorizontalAlignment.Left);
+            listView1.Columns.Add("Giới Tính", 100, HorizontalAlignment.Left);
             listView1.Columns.Add("Trạng Thái", 100, HorizontalAlignment.Left);
             listView1.Columns.Add("Ngày Sinh", 150, HorizontalAlignment.Left);
             listView1.Columns.Add("Mã Tài Khoản", 100, HorizontalAlignment.Left);
@@ -129,7 +130,7 @@ namespace Doanqlchdt.GUI
             listView1.Items.Clear();
             foreach (nhanviendto employee in result)
             {
-                string[] row = { employee.MaNV, employee.HoTen, employee.SDT, employee.Email, employee.TrangThai.ToString(), employee.NgaySinh.ToString(), employee.MaTK.ToString() };
+                string[] row = { employee.MaNV, employee.HoTen, employee.SDT, employee.Email, employee.GioiTinh, employee.TrangThai.ToString(), employee.NgaySinh.ToString(), employee.MaTK.ToString() };
                 listView1.Items.Add(new ListViewItem(row));
             }
         }

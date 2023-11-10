@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Doanqlchdt.connect;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -17,7 +18,9 @@ namespace Doanqlchdt.DTO
         public ArrayList getds()
         {
             ArrayList ds = new System.Collections.ArrayList();
-            connect.connect cn = new connect.connect();
+            /*connect.connect cn = new connect.connect();*/
+            //Cái này để connect tới connect của Toàn nhé
+            connectToan cn = new connectToan();
             SqlConnection connect = cn.connection();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;

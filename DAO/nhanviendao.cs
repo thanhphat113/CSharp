@@ -41,6 +41,7 @@ namespace Doanqlchdt.DAO
                             HoTen = reader["HoTen"].ToString(),
                             SDT = reader["SDT"].ToString(),
                             Email = reader["Email"].ToString(),
+                            GioiTinh = reader["GioiTinh"].ToString(),
                             TrangThai = Convert.ToInt32(reader["TrangThai"]),
                             NgaySinh = Convert.ToString(reader["ngaysinh"]),
                             MaTK = Convert.ToInt32(reader["maTK"])
@@ -57,7 +58,7 @@ namespace Doanqlchdt.DAO
         {
             using (SqlConnection connection = connectObj.connection())
             {
-                SqlCommand command = new SqlCommand("INSERT INTO NhanVien VALUES(@MaNV, @HoTen, @SDT, @Email, @TrangThai, @NgaySinh, @MaTK)", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO NhanVien VALUES(@MaNV, @HoTen, @SDT, @Email, @TrangThai, @NgaySinh, @MaTK, @GioiTinh)", connection);
                 command.Parameters.AddWithValue("@MaNV", employee.MaNV);
                 command.Parameters.AddWithValue("@HoTen", employee.HoTen);
                 command.Parameters.AddWithValue("@SDT", employee.SDT);
@@ -65,6 +66,7 @@ namespace Doanqlchdt.DAO
                 command.Parameters.AddWithValue("@TrangThai", employee.TrangThai);
                 command.Parameters.AddWithValue("@NgaySinh", employee.NgaySinh);
                 command.Parameters.AddWithValue("@MaTK", employee.MaTK);
+                command.Parameters.AddWithValue("@GioiTinh", employee.GioiTinh);
                 command.ExecuteNonQuery();
 
                 SqlCommand command1 = new SqlCommand("UPDATE TaiKhoan SET TrangThai = 1 WHERE UserID = @MaTK", connection);
@@ -79,7 +81,7 @@ namespace Doanqlchdt.DAO
             {
                 SqlCommand command = new SqlCommand();
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "UPDATE NhanVien SET HoTen = @HoTen, SDT = @SDT, Email = @Email, TrangThai = @TrangThai, ngaysinh = @NgaySinh, maTK = @MaTK WHERE MaNV = @MaNV";
+                command.CommandText = "UPDATE NhanVien SET HoTen = @HoTen, SDT = @SDT, Email = @Email, TrangThai = @TrangThai, ngaysinh = @NgaySinh, maTK = @MaTK, GioiTinh = @GioiTinh WHERE MaNV = @MaNV";
                 command.Parameters.AddWithValue("@MaNV", employee.MaNV);
                 command.Parameters.AddWithValue("@HoTen", employee.HoTen);
                 command.Parameters.AddWithValue("@SDT", employee.SDT);
@@ -87,6 +89,7 @@ namespace Doanqlchdt.DAO
                 command.Parameters.AddWithValue("@TrangThai", employee.TrangThai);
                 command.Parameters.AddWithValue("@NgaySinh", employee.NgaySinh);
                 command.Parameters.AddWithValue("@MaTK", employee.MaTK);
+                command.Parameters.AddWithValue("@GioiTinh", employee.GioiTinh);
                 command.Connection = connection;
                 command.ExecuteNonQuery();
 
@@ -120,6 +123,7 @@ namespace Doanqlchdt.DAO
                         HoTen = reader["HoTen"].ToString(),
                         SDT = reader["SDT"].ToString(),
                         Email = reader["Email"].ToString(),
+                        GioiTinh = reader["GioiTinh"].ToString(),
                         TrangThai = Convert.ToInt32(reader["TrangThai"]),
                         NgaySinh = Convert.ToString(reader["ngaysinh"]),
                         MaTK = Convert.ToInt32(reader["maTK"])
@@ -159,6 +163,7 @@ namespace Doanqlchdt.DAO
                         HoTen = reader["HoTen"].ToString(),
                         SDT = reader["SDT"].ToString(),
                         Email = reader["Email"].ToString(),
+                        GioiTinh = reader["GioiTinh"].ToString(),
                         TrangThai = Convert.ToInt32(reader["TrangThai"]),
                         NgaySinh = Convert.ToString(reader["ngaysinh"]),
                         MaTK = Convert.ToInt32(reader["maTK"])
@@ -197,6 +202,7 @@ namespace Doanqlchdt.DAO
                         HoTen = reader["HoTen"].ToString(),
                         SDT = reader["SDT"].ToString(),
                         Email = reader["Email"].ToString(),
+                        GioiTinh = reader["GioiTinh"].ToString(),
                         TrangThai = Convert.ToInt32(reader["TrangThai"]),
                         NgaySinh = Convert.ToString(reader["ngaysinh"]),
                         MaTK = Convert.ToInt32(reader["maTK"])
