@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="BUS\nhanvienbus.cs" />
     <Compile Include="BUS\taikhoanbus.cs" />
+    <Compile Include="Cart\CartBean.cs" />
+    <Compile Include="Cart\addToCart.cs" />
     <Compile Include="connect\connect.cs" />
     <Compile Include="BUS\chitietdonbanbus.cs" />
     <Compile Include="BUS\chitietdonnhapbus.cs" />
@@ -97,6 +99,12 @@
     <Compile Include="DTO\quyendto.cs" />
     <Compile Include="DTO\sanphamdto.cs" />
     <Compile Include="DTO\taikhoandto.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\donbaohanhgui.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +116,12 @@
     </Compile>
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\UserGui.Designer.cs">
+      <DependentUpon>UserGui.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\hoadonbangui.cs">
       <SubType>Form</SubType>
@@ -201,6 +215,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserGui.resx">
+      <DependentUpon>UserGui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
