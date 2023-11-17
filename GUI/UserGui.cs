@@ -2,9 +2,9 @@
 using Doanqlchdt.DTO;
 using System;
 using System.Collections.Generic;
-using System.Data;
+
 using System.Drawing;
-using System.Linq.Expressions;
+
 using System.Windows.Forms;
 
 namespace Doanqlchdt.GUI
@@ -33,7 +33,7 @@ namespace Doanqlchdt.GUI
             foreach (sanphamdto sp in list)
             {
                 String tenSP = sp.Tensp;
-                String gia = sp.Giaban.ToString();
+                String gia = sp.Giaban.ToString("#,##0");
                 byte[] imageData = sp.Hinhanh;
                 string maSP = sp.Masp;
                 Image img = ByteArrayToImage(imageData);
@@ -48,7 +48,7 @@ namespace Doanqlchdt.GUI
         }
 
 
-        
+
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace Doanqlchdt.GUI
                 // Hiển thị thông tin trong TextBox
                 lbMaSP.Text = sp.Masp;
                 txtName.Text = sp.Tensp;
-                txtPrice.Text = sp.Giaban.ToString()+" vnđ";
+                txtPrice.Text = sp.Giaban.ToString("#,##0") + " vnđ";
                 txtStyle.Text = sp.Maloai;
                 txtInfor.Text = sp.Mota;
                 txtQuan.Text = sp.Soluong.ToString();
@@ -99,10 +99,10 @@ namespace Doanqlchdt.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string condition =txtSearch.Text;
-            string dk=cbChoise.SelectedItem.ToString();
+            string condition = txtSearch.Text;
+            string dk = cbChoise.SelectedItem.ToString();
             string dau = null;
-            string price=null;
+            string price = null;
             if (string.Equals(dk, "--Tất cả--"))
             {
                 price = "0";
@@ -128,9 +128,9 @@ namespace Doanqlchdt.GUI
                 price = "20000000";
                 dau = ">";
             }
-                List<sanphamdto> list = new sanphamdao().findByCondition(condition, price,dau);
-                update(list);
-            }
+            List<sanphamdto> list = new sanphamdao().findByCondition(condition, price, dau);
+            update(list);
+        }
 
         private void btReturn_Click(object sender, EventArgs e)
         {
@@ -218,7 +218,7 @@ namespace Doanqlchdt.GUI
             }
         }
 
-            public void UpdateDataGridView()
+        public void UpdateDataGridView()
         {
             // Xóa dữ liệu hiện tại trong DataGridView
             dataGridView1.Rows.Clear();
@@ -228,9 +228,11 @@ namespace Doanqlchdt.GUI
                 int rowIndex = dataGridView1.Rows.Add();
                 dataGridView1.Rows[rowIndex].Cells["maSP"].Value = item.Sanpham.Masp;
                 dataGridView1.Rows[rowIndex].Cells["txtNameCart"].Value = item.Sanpham.Tensp;
-                dataGridView1.Rows[rowIndex].Cells["txtGia"].Value = item.Sanpham.Giaban;
+                string a = item.Sanpham.Giaban.ToString("#,##0");
+                dataGridView1.Rows[rowIndex].Cells["txtGia"].Value = a;
                 dataGridView1.Rows[rowIndex].Cells["txtQuantity"].Value = item.Quantity;
-                dataGridView1.Rows[rowIndex].Cells["txtSum"].Value = (item.Quantity * item.Sanpham.Giaban);
+                string Tong = (item.Quantity * item.Sanpham.Giaban).ToString("#,##0");
+                dataGridView1.Rows[rowIndex].Cells["txtSum"].Value = Tong;
                 dataGridView1.Rows[rowIndex].Cells["btTang"].Value = "+";
                 dataGridView1.Rows[rowIndex].Cells["btGiam"].Value = "-";
             }
@@ -238,13 +240,34 @@ namespace Doanqlchdt.GUI
 
         private void btAccept_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (new sanphamdao().updateQuantity(shop))
+                {
+                    MessageBox.Show("Đặt đơn hàng thành công");
+                }
+                else MessageBox.Show("Giỏ hàng rỗng");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi:" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            shop = new CartBean();
+            UpdateDataGridView();
+            reset();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             shop = new CartBean();
             UpdateDataGridView();
+            
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
-  
+

@@ -46,6 +46,8 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.picItem = new System.Windows.Forms.PictureBox();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtQuan = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lbMaSP = new System.Windows.Forms.Label();
@@ -75,6 +77,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btDelete = new System.Windows.Forms.Button();
             this.btAccept = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtNameCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,9 +87,6 @@
             this.txtSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btGiam = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btTang = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btDelete = new System.Windows.Forms.Button();
             txtDecription = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -150,11 +150,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(449, 16);
+            this.label1.Location = new System.Drawing.Point(414, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 40);
+            this.label1.Size = new System.Drawing.Size(402, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cửa hàng điện thoại";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -328,6 +328,27 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(225, 215);
             this.panel13.TabIndex = 21;
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtStatus.Enabled = false;
+            this.txtStatus.Location = new System.Drawing.Point(87, 129);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(135, 20);
+            this.txtStatus.TabIndex = 33;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 132);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 13);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Tình trạng:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtQuan
             // 
@@ -662,6 +683,18 @@
             this.panel9.Size = new System.Drawing.Size(368, 54);
             this.panel9.TabIndex = 3;
             // 
+            // btDelete
+            // 
+            this.btDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btDelete.BackColor = System.Drawing.Color.White;
+            this.btDelete.Location = new System.Drawing.Point(202, 17);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(140, 23);
+            this.btDelete.TabIndex = 1;
+            this.btDelete.Text = "Hủy";
+            this.btDelete.UseVisualStyleBackColor = false;
+            this.btDelete.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btAccept
             // 
             this.btAccept.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -747,39 +780,6 @@
             this.btTang.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.btTang.Text = "-";
             this.btTang.Width = 25;
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(87, 129);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(135, 20);
-            this.txtStatus.TabIndex = 33;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 132);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 13);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Tình trạng:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btDelete
-            // 
-            this.btDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btDelete.BackColor = System.Drawing.Color.White;
-            this.btDelete.Location = new System.Drawing.Point(202, 17);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(140, 23);
-            this.btDelete.TabIndex = 1;
-            this.btDelete.Text = "Hủy";
-            this.btDelete.UseVisualStyleBackColor = false;
-            this.btDelete.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserGui
             // 

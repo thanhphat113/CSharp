@@ -102,7 +102,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Doanqlchdt.Properties.Resources.padlock_2889676;
-            this.pictureBox3.Location = new System.Drawing.Point(313, 169);
+            this.pictureBox3.Location = new System.Drawing.Point(323, 169);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(34, 34);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +112,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Doanqlchdt.Properties.Resources.user;
-            this.pictureBox2.Location = new System.Drawing.Point(313, 115);
+            this.pictureBox2.Location = new System.Drawing.Point(323, 115);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(34, 34);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
