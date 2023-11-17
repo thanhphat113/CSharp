@@ -11,11 +11,15 @@ using Doanqlchdt.DTO;
 using Doanqlchdt.BUS;
 using System.Collections;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Doanqlchdt.DAO;
+using System.Data.SqlClient;
 
 namespace Doanqlchdt.GUI
 {
     public partial class ThongKe : Form
     {
+        ThongKeBUS thongKeBUS = new ThongKeBUS();
+
         hoadonbandto hoadonbanDTO = new hoadonbandto();
         hoadonbanbus hoadonbanBus = new hoadonbanbus();
 
@@ -25,6 +29,7 @@ namespace Doanqlchdt.GUI
         {
             InitializeComponent();
             ShowQuantity();
+            fillChart();
         }
 
         public void ShowQuantity()
@@ -49,6 +54,28 @@ namespace Doanqlchdt.GUI
             lbKhachHang.Text = soLuongKhachHang.ToString();
         }
 
-        
+        public void fillChart()
+        {
+            try
+            {
+                var dataTable = thongKeBUS.LayTongTienTheoNam();
+                chartBan.DataSource = dataTable;
+
+                dataTable.Columns.Add("ThangNam", typeof(string), "Thang + '/' + Nam");
+                chartBan.Series["Tổng tiền bán"].XValueMember = "ThangNam";
+                chartBan.Series["Tổng tiền bán"].YValueMembers = "TongTienThang";
+                chartBan.DataBind();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi điền dữ liệu vào biểu đồ: " + ex.Message);
+            }
+        }
+
+
+        private void chartBan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BUS\nhanvienbus.cs" />
     <Compile Include="BUS\taikhoanbus.cs" />
+    <Compile Include="BUS\ThongKeBUS.cs" />
     <Compile Include="Cart\CartBean.cs" />
     <Compile Include="Cart\addToCart.cs" />
     <Compile Include="connect\connect.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="DAO\quyendao.cs" />
     <Compile Include="DAO\sanphamdao.cs" />
     <Compile Include="DAO\taikhoandao.cs" />
+    <Compile Include="DAO\ThongKeDAO.cs" />
     <Compile Include="DTO\chitietdonbandto.cs" />
     <Compile Include="DTO\chitietdonnhapdto.cs" />
     <Compile Include="DTO\donbaohanhdto.cs" />

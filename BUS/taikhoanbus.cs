@@ -10,7 +10,7 @@ namespace Doanqlchdt.BUS
 {
     internal class taikhoanbus
     {
-        taikhoandao tkdao=new taikhoandao();
+        taikhoandao tkdao = new taikhoandao();
 
         public taikhoanbus()
         {
@@ -19,10 +19,19 @@ namespace Doanqlchdt.BUS
         {
             return tkdao.getds();
         }
-        public Boolean checkt(String tk,String mk)
+        public Boolean checkt(String tk, String mk)
         {
-            return tkdao.checkttk(tk,mk);
+            return tkdao.checkttk(tk, mk);
         }
 
+        public ArrayList getdsquyen(int quyen)
+        {
+            return tkdao.getdsquyen(quyen);
+        }
+
+        public int GetQuyen(string tk, string mk)
+        {
+            return tkdao.GetQuyen(tk, mk);
+        }
     }
 }

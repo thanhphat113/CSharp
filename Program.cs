@@ -16,7 +16,7 @@ namespace Doanqlchdt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI.UserGui());
+            Application.Run(new GUI.Login());
         }
     }
 }
