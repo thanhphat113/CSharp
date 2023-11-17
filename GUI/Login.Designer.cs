@@ -45,7 +45,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.textBox1.Location = new System.Drawing.Point(364, 125);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(225, 24);
@@ -55,7 +55,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.textBox2.Location = new System.Drawing.Point(364, 179);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
@@ -64,12 +64,14 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(308, 231);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Image = global::Doanqlchdt.Properties.Resources.enter;
+            this.button1.Location = new System.Drawing.Point(323, 231);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 28);
+            this.button1.Size = new System.Drawing.Size(120, 37);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Đăng nhập";
+            this.button1.Text = "  Đăng nhập";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -86,12 +88,14 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(445, 231);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Image = global::Doanqlchdt.Properties.Resources.edit__1_;
+            this.button2.Location = new System.Drawing.Point(470, 231);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 28);
+            this.button2.Size = new System.Drawing.Size(119, 37);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Đăng kí";
+            this.button2.Text = "  Đăng kí";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -139,7 +143,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
