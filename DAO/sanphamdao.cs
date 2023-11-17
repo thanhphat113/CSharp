@@ -39,6 +39,8 @@ namespace Doanqlchdt.DTO
             }
             return ds;
         }
+
+       
         public int insert(sanphamdto spdto)
         {
             connect.connect cn = new connect.connect();
@@ -222,16 +224,19 @@ namespace Doanqlchdt.DTO
             return sp;
         }
 
-        public List<sanphamdto> findByCondition(string condition,string price)
+        public List<sanphamdto> findByCondition(string condition,string price,string dau)
         {
+ 
             List<sanphamdto> sp = new List<sanphamdto>();
             using (SqlConnection connection = new connectToan().connection())
             {
-                string query = "select * from SanPham sp join Loaisanpham lsp on sp.MaLoai=lsp.MaLoai \r\nwhere TenSP like @id and GiaBan ${price}";
+                string query = "select * from SanPham sp join Loaisanpham lsp on sp.MaLoai=lsp.MaLoai where TenSP like @id and GiaBan"+dau+" @price";
+
                 SqlCommand sqlcommand = new SqlCommand(query, connection);
-                sqlcommand.Parameters.AddWithValue("@id", condition);
+                sqlcommand.Parameters.AddWithValue("@id", "%"+condition+"%");
+                sqlcommand.Parameters.AddWithValue("@price", price);
                 SqlDataReader reader = sqlcommand.ExecuteReader();
-                if (reader.Read())
+                while (reader.Read())
                 {
                     String msp = reader.GetString(0);
                     String tensp = reader.GetString(1);

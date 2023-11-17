@@ -23,21 +23,28 @@ namespace Doanqlchdt.GUI
         public void InitializeImageList()
         {
             List<sanphamdto> list = new sanphamdao().getds();
-                foreach (sanphamdto sp in list)
-                {
-                    String tenSP = sp.Tensp;
-                    String gia = sp.Giaban.ToString();
-                    byte[] imageData = sp.Hinhanh;
+            update(list);
+            cbChoise.SelectedIndex = 0;
+        }
+
+        public void update(List<sanphamdto> list)
+        {
+            listView2.Clear();
+            foreach (sanphamdto sp in list)
+            {
+                String tenSP = sp.Tensp;
+                String gia = sp.Giaban.ToString();
+                byte[] imageData = sp.Hinhanh;
                 string maSP = sp.Masp;
-                    Image img = ByteArrayToImage(imageData);
-                    ListViewItem item = new ListViewItem();
-                     item.Name = maSP;
-                    item.Text = tenSP + "\n" + "Giá bán: " + gia + " vnđ";
-                    item.ImageIndex = ImagesList.Images.Count; // Sử dụng index của hình ảnh trong ImageList
-                    listView2.Items.Add(item);
-                    ImagesList.Images.Add(img);
-                }
-                listView2.LargeImageList = ImagesList;
+                Image img = ByteArrayToImage(imageData);
+                ListViewItem item = new ListViewItem();
+                item.Name = maSP;
+                item.Text = tenSP + "\n" + "Giá bán: " + gia + " vnđ";
+                item.ImageIndex = ImagesList.Images.Count; // Sử dụng index của hình ảnh trong ImageList
+                listView2.Items.Add(item);
+                ImagesList.Images.Add(img);
+            }
+            listView2.LargeImageList = ImagesList;
         }
 
 
@@ -92,17 +99,38 @@ namespace Doanqlchdt.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string condition = txtSearch.Text;
+            string condition =txtSearch.Text;
             string dk=cbChoise.SelectedItem.ToString();
-            string price;
-            if (string.Equals(dk, "--Tất cả--")) price = ">'0'";
-            else if (string.Equals(dk, "--dưới 5.000.000đ--")) price = "<'5000000'";
-            else if (string.Equals(dk, "--dưới 10.000.000đ--")) price = "<'10000000'";
-            else if (string.Equals(dk, "--dưới 20.000.000đ--")) price = "<'20000000'";
-            else if (string.Equals(dk, "--trên 20.000.000đ--")) price = ">'20000000'";
-
-
-        }
+            string dau = null;
+            string price=null;
+            if (string.Equals(dk, "--Tất cả--"))
+            {
+                price = "0";
+                dau = ">";
+            }
+            else if (string.Equals(dk, "--dưới 5.000.000đ--"))
+            {
+                price = "5000000";
+                dau = "<";
+            }
+            else if (string.Equals(dk, "--dưới 10.000.000đ--"))
+            {
+                price = "10000000";
+                dau = "<";
+            }
+            else if (string.Equals(dk, "--dưới 20.000.000đ--"))
+            {
+                price = "20000000";
+                dau = "<";
+            }
+            else if (string.Equals(dk, "--trên 20.000.000đ--"))
+            {
+                price = "20000000";
+                dau = ">";
+            }
+                List<sanphamdto> list = new sanphamdao().findByCondition(condition, price,dau);
+                update(list);
+            }
 
         private void btReturn_Click(object sender, EventArgs e)
         {
