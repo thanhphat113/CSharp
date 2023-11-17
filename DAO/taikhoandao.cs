@@ -14,7 +14,7 @@ namespace Doanqlchdt.DAO
     {
         public taikhoandao()
         {
-            
+
         }
         public ArrayList getds()
         {
@@ -33,7 +33,7 @@ namespace Doanqlchdt.DAO
                 String password = reader.GetString(2);
                 int quyen = reader.GetInt32(3);
                 int trangthai = reader.GetInt32(4);
-                taikhoandto tk=new taikhoandto(mtk,username,password,quyen,trangthai);
+                taikhoandto tk = new taikhoandto(mtk, username, password, quyen, trangthai);
                 ds.Add(tk);
             }
             reader.Close();
@@ -42,26 +42,27 @@ namespace Doanqlchdt.DAO
         }
         public int insert(taikhoandto tk)
         {
-            connect.connect cn=new connect.connect();          
+            connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
-            sqlcommand.CommandType=System.Data.CommandType.Text;
+            sqlcommand.CommandType = System.Data.CommandType.Text;
             sqlcommand.CommandText = "insert into TaiKhoan values('" + tk.Matk + "',N'" + tk.Username + "',N'" + tk.Password + "','" + tk.Quyen + "','" + tk.Trangthai + "')";
             SqlConnection connect = cn.connection();
-            int kq=sqlcommand.ExecuteNonQuery();
+            int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
             return kq;
         }
-        public Boolean checkttk(String tk,String mk)
+        public Boolean checkttk(String tk, String mk)
         {
-            Boolean flag=false;
-            connect.connect cn = new connect.connect();    
+            Boolean flag = false;
+            /*connect.connect cn = new connect.connect();  */
+            connectToan cn = new connectToan();
             SqlCommand cmd = new SqlCommand();
             SqlConnection connection = cn.connection();
-            cmd.CommandType= System.Data.CommandType.Text;
-            cmd.CommandText = "Select * from TaiKhoan where Username='"+tk+"' and MatKhau='"+mk+"'";
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "Select * from TaiKhoan where Username='" + tk + "' and MatKhau='" + mk + "'";
             cmd.Connection = connection;
-            SqlDataReader read=cmd.ExecuteReader();
-            flag=read.Read();
+            SqlDataReader read = cmd.ExecuteReader();
+            flag = read.Read();
             read.Close();
             cmd.Connection.Close();
             connection.Close();
@@ -72,12 +73,33 @@ namespace Doanqlchdt.DAO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "Update TaiKhoan set Username=N'"+tk.Username+"',MatKhau=N'"+tk.Password+"',Quyen='"+tk.Quyen+"',TrangThai='"+tk.Trangthai+"' where MaTK='"+tk.Matk+"'";
+            sqlcommand.CommandText = "Update TaiKhoan set Username=N'" + tk.Username + "',MatKhau=N'" + tk.Password + "',Quyen='" + tk.Quyen + "',TrangThai='" + tk.Trangthai + "' where MaTK='" + tk.Matk + "'";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
             return kq;
         }
+
+        public int GetQuyen(string tk, string mk)
+        {
+            int quyen = 0; // Giá trị mặc định hoặc giá trị không hợp lệ
+
+            /*connect.connect cn = new connect.connect();*/
+            connectToan cn = new connectToan();
+            SqlConnection connection = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "select Quyen from TaiKhoan where Username = '" + tk + "' and MatKhau =  '" + mk + "'";
+            sqlcommand.Connection = connection;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            if (reader.Read())
+            {
+                quyen = Convert.ToInt32(reader["Quyen"]);
+            }
+
+            return quyen;
+        }
+
         public ArrayList getdsquyen(int quyen)
         {
             ArrayList ds = new System.Collections.ArrayList();
@@ -85,7 +107,7 @@ namespace Doanqlchdt.DAO
             SqlConnection connect = cn.connection();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "select * from TaiKhoan where Quyen like '"+quyen+"%'";
+            sqlcommand.CommandText = "select * from TaiKhoan where Quyen like '" + quyen + "%'";
             sqlcommand.Connection = connect;
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())

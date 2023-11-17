@@ -13,7 +13,6 @@ namespace Doanqlchdt
         public Form2()
         {
             InitializeComponent();
-            loadData();
         }
 
        public void loadData()
@@ -64,6 +63,11 @@ namespace Doanqlchdt
             Image img = Image.FromFile(Path);
             img.Save(m, System.Drawing.Imaging.ImageFormat.Png);
             return m.ToArray();
+        }
+
+        private void textBox1_TextChanged(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
