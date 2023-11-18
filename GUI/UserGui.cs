@@ -12,12 +12,13 @@ namespace Doanqlchdt.GUI
     public partial class UserGui : Form
     {
         private CartBean shop;
-        public UserGui()
+        public UserGui(khachhangdto kh)
         {
             InitializeComponent();
             InitializeImageList();
             listView2.SelectedIndexChanged += listView2_SelectedIndexChanged;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            lbName.Text ="Xin chào, "+ kh.Hoten;
         }
 
         public void InitializeImageList()
@@ -267,6 +268,17 @@ namespace Doanqlchdt.GUI
         private void label13_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            DoiThongTinKH change= new DoiThongTinKH();
+            change.ShowDialog();
         }
     }
 }

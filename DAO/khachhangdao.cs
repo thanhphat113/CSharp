@@ -31,7 +31,7 @@ namespace Doanqlchdt.DAO
                 String sdt=reader.GetString(2);
                 String email=reader.GetString(3);
                 DateTime ngaysinh= reader.GetDateTime(4);
-                int mtk = reader.GetInt32(5);
+                string mtk = reader.GetString(5);
                 khachhangdto kh=new khachhangdto(mkh,name,sdt,email,ngaysinh,mtk);
                 ds.Add(kh);
             }
@@ -44,7 +44,7 @@ namespace Doanqlchdt.DAO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "insert into KhachHang values(N'" + khdto.Mkh + "',N'" + khdto.Hoten + "',N'" + khdto.Sdt + "',N'" + khdto.Email + "','" + khdto.Ngaysinh + "','"+khdto.Matk+"')";
+            sqlcommand.CommandText = "insert into KhachHang values(N'" + khdto.Mkh + "',N'" + khdto.Hoten + "',N'" + khdto.Sdt + "',N'" + khdto.Email + "','" + khdto.Ngaysinh + "','"+khdto.Username+"')";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
@@ -55,7 +55,7 @@ namespace Doanqlchdt.DAO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "update KhachHang set HoTen= N'"+khdto.Hoten +"',SDT= N'"+khdto.Sdt+"' ,Email= N'"+khdto.Email+"',Ngaysinh='"+khdto.Ngaysinh+"' where MaKH='"+khdto.Mkh+"' ";
+            sqlcommand.CommandText = "update KhachHang set HoTen= N'"+khdto.Hoten +"',SDT= N'"+khdto.Sdt+"' ,Email= N'"+khdto.Email+"',Ngaysinh='"+khdto.Ngaysinh+"' where MaKH='"+khdto.Username+"' ";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
@@ -78,7 +78,7 @@ namespace Doanqlchdt.DAO
                 String sdt = reader.GetString(2);
                 String email = reader.GetString(3);
                 DateTime ngaysinh = reader.GetDateTime(4);
-                int mtk = reader.GetInt32(5);
+                string mtk = reader.GetString(5);
                 khachhangdto kh = new khachhangdto(mkh1, name, sdt, email, ngaysinh, mtk);
                 ds.Add(kh);
             }
@@ -103,7 +103,7 @@ namespace Doanqlchdt.DAO
                 String sdt = reader.GetString(2);
                 String email = reader.GetString(3);
                 DateTime ngaysinh = reader.GetDateTime(4);
-                int mtk = reader.GetInt32(5);
+                string mtk = reader.GetString(5);
                 khachhangdto kh = new khachhangdto(mkh, name, sdt, email, ngaysinh, mtk);
                 ds.Add(kh);
             }
@@ -129,8 +129,8 @@ namespace Doanqlchdt.DAO
                 String sdtt = reader.GetString(2);
                 String email = reader.GetString(3);
                 DateTime ngaysinh = reader.GetDateTime(4);
-                int mtk = reader.GetInt32(5);
-                khachhangdto kh = new khachhangdto(mkh, name, sdtt, email, ngaysinh, mtk);
+                string mtk = reader.GetString(5);
+                khachhangdto kh = new khachhangdto(mkh, name, sdtt, email, ngaysinh,mtk );
                 ds.Add(kh);
             }
             reader.Close();
@@ -154,7 +154,7 @@ namespace Doanqlchdt.DAO
                 String sdt = reader.GetString(2);
                 String emaill = reader.GetString(3);
                 DateTime ngaysinh = reader.GetDateTime(4);
-                int mtk = reader.GetInt32(5);
+                string mtk = reader.GetString(5);
                 khachhangdto kh = new khachhangdto(mkh, name, sdt, emaill, ngaysinh, mtk);
                 ds.Add(kh);
             }
@@ -179,7 +179,7 @@ namespace Doanqlchdt.DAO
                 String sdt = reader.GetString(2);
                 String email = reader.GetString(3);
                 DateTime ngaysinhh = reader.GetDateTime(4);
-                int mtk = reader.GetInt32(5);
+                string mtk = reader.GetString(5);
                 khachhangdto kh = new khachhangdto(mkh, name, sdt, email, ngaysinhh, mtk);
                 ds.Add(kh);
             }
@@ -204,7 +204,7 @@ namespace Doanqlchdt.DAO
                 String sdt = reader.GetString(2);
                 String email = reader.GetString(3);
                 DateTime ngaysinh = reader.GetDateTime(4);
-                int mtk = reader.GetInt32(5);
+                string mtk = reader.GetString(5);
                 khachhangdto kh = new khachhangdto(mkh, name, sdt, email, ngaysinh, mtk);
                 ds.Add(kh);
             }

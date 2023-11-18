@@ -1,5 +1,6 @@
 ﻿using Doanqlchdt.BUS;
 using Doanqlchdt.DAO;
+using Doanqlchdt.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,8 @@ namespace Doanqlchdt.GUI
             InitializeComponent();
         }
 
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             taikhoanbus = new taikhoanbus();
@@ -33,7 +36,6 @@ namespace Doanqlchdt.GUI
             if (taikhoanbus.checkt(tk, mk))
             {
                 int checkQuyen = taikhoanbus.GetQuyen(tk, mk);
-                MessageBox.Show(checkQuyen.ToString());
                 if (checkQuyen == 1)
                 {
                     this.Visible = false;
@@ -48,7 +50,9 @@ namespace Doanqlchdt.GUI
                 else if (checkQuyen == 3)
                 {
                     MessageBox.Show("Cảm ơn vì đã sử dụng dịch vụ của chúng tôi!");
-                    UserGui userGui = new UserGui();
+                    string matk= textBox1.Text;
+                    khachhangdto kh = new taikhoandao().getKhachHang(matk);
+                    UserGui userGui = new UserGui(kh);
                     userGui.ShowDialog();
                     this.Close();
                 }

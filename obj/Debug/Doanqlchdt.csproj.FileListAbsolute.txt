@@ -135,3 +135,4 @@ C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.csproj.CoreCompileInputs
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.csproj.CopyComplete
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.exe
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.pdb
+C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.DoiThongTinKH.resources
