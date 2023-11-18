@@ -20,9 +20,8 @@ namespace Doanqlchdt.DTO
         public ArrayList getds()
         {
             ArrayList ds = new System.Collections.ArrayList();
+            connectToan cn = new connectToan(); 
             /*connect.connect cn = new connect.connect();*/
-            //Cái này để connect tới connect của Toàn nhé
-            connectToan cn = new connectToan();
             SqlConnection connect = cn.connection();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;

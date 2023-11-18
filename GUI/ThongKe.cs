@@ -20,49 +20,58 @@ namespace Doanqlchdt.GUI
     {
         ThongKeBUS thongKeBUS = new ThongKeBUS();
 
-        hoadonbandto hoadonbanDTO = new hoadonbandto();
-        hoadonbanbus hoadonbanBus = new hoadonbanbus();
-
-          
-
-
-        khachhangdto khachhangDTO = new khachhangdto();
-        khachhangbus khachhangBus = new khachhangbus();
+        private string namLoc;
 
         public ThongKe()
         {
             InitializeComponent();
             ShowQuantity();
-            fillChart();
+            loadCombobox();
+            loadChartPie();
+        }
+
+        public void loadChartPie()
+        {
+            chartPie.Titles.Add("Pie Chart");
+            chartPie.Series["s1"].Points.AddXY("Tổng tiền bán", "50");
+            chartPie.Series["s1"].Points.AddXY("Tổng tiền nhập", "50");
+        }
+
+        public void loadCombobox()
+        {
+            ArrayList arrayList = thongKeBUS.GetDSNam();
+
+            cbbYear.Items.Clear();
+            cbbYear.Items.AddRange(arrayList.ToArray());
+            cbbYear.SelectedIndex = 0;
+
+            namLoc = cbbYear.SelectedItem.ToString();
+            fillChart(namLoc);
         }
 
         public void ShowQuantity()
         {
-            int soLuongDonHang = 0;
-            int soLuongKhachHang = 0;
             ArrayList hoaDonBan = new ArrayList();
-            hoaDonBan = hoadonbanBus.getds();
-            ArrayList khachHang = new ArrayList();
-            khachHang = khachhangBus.getds();
-            foreach (hoadonbandto hoadon in hoaDonBan)
-            {
-                soLuongDonHang++;
-            }
+            hoaDonBan = thongKeBUS.GetSoLuongHoaDonBan();
+            int soLuongDonHang = hoaDonBan.Count;
 
-            foreach (khachhangdto khachhang in khachHang)
-            {
-                soLuongKhachHang++;
-            }
+            ArrayList khachHang = new ArrayList();
+            khachHang = thongKeBUS.GetSoLuongKhachHang();
+            int soLuongKhachHang = khachHang.Count;
+
+            int soLuongBan = thongKeBUS.SoLuongSanPhamBan();
 
             lbDonHang.Text = soLuongDonHang.ToString();
             lbKhachHang.Text = soLuongKhachHang.ToString();
+            lbSoLuongBan.Text = soLuongBan.ToString();  
         }
 
-        public void fillChart()
+        public void fillChart(string year)
         {
+
             try
             {
-                var dataTable = thongKeBUS.LayTongTienTheoNam();
+                var dataTable = thongKeBUS.LayTongTienTheoNam(year);
                 chartBan.DataSource = dataTable;
 
                 dataTable.Columns.Add("ThangNam", typeof(string), "Thang + '/' + Nam");
@@ -76,15 +85,17 @@ namespace Doanqlchdt.GUI
             }
         }
 
-
-        private void chartBan_Click_1(object sender, EventArgs e)
+        private void btnLocNam_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void ThongKe_Load(object sender, EventArgs e)
-        {
-
+            if(cbbYear.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn năm để lọc dữ liệu!!!");
+            } 
+            else
+            {
+                namLoc = cbbYear.SelectedItem.ToString();
+                fillChart(namLoc);
+            }
         }
     }
 }
