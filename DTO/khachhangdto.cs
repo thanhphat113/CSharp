@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Doanqlchdt.DTO
 {
-    internal class khachhangdto
+    public class khachhangdto
     {
 
         private String mkh;
@@ -14,23 +14,23 @@ namespace Doanqlchdt.DTO
         private String sdt;
         private String email;
         private DateTime ngaysinh;
-        private int matk;
+        private string username;
 
         public string Mkh { get => mkh; set => mkh = value; }
         public string Hoten { get => hoten; set => hoten = value; }
         public string Sdt { get => sdt; set => sdt = value; }
         public string Email { get => email; set => email = value; }
         public DateTime Ngaysinh { get => ngaysinh; set => ngaysinh = value; }
-        public int Matk { get => matk; set => matk = value; }
+        public string Username { get => username; set => username = value; }
 
-        public khachhangdto(string mkh, string hoten, string sdt, string email, DateTime ngaysinh, int matk)
+        public khachhangdto(string mkh, string hoten, string sdt, string email, DateTime ngaysinh, string username)
         {
             this.Mkh = mkh;
             this.Hoten = hoten;
             this.Sdt = sdt;
             this.Email = email;
             this.Ngaysinh = ngaysinh;
-            this.Matk = matk;
+            this.username = username;
         }
 
         public khachhangdto() { }

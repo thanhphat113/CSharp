@@ -32,7 +32,7 @@ namespace Doanqlchdt
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ArrayList list = tkdao.getds();
+            /*ArrayList list = tkdao.getds();
             foreach(taikhoandto tk in list)
             {
                 ListViewItem listViewItem = new ListViewItem(tk.Matk.ToString());
@@ -41,7 +41,7 @@ namespace Doanqlchdt
                 listViewItem.SubItems.Add(tk.Quyen.ToString());
                 listViewItem.SubItems.Add(tk.Trangthai.ToString());
                 listView1.Items.Add(listViewItem);
-            }
+            }*/
             
         }
     }

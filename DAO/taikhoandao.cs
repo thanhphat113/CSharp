@@ -28,12 +28,11 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                int mtk = reader.GetInt32(0);
-                String username = reader.GetString(1);
-                String password = reader.GetString(2);
-                int quyen = reader.GetInt32(3);
-                int trangthai = reader.GetInt32(4);
-                taikhoandto tk = new taikhoandto(mtk, username, password, quyen, trangthai);
+                String username = reader.GetString(0);
+                String password = reader.GetString(1);
+                int quyen = reader.GetInt32(2);
+                int trangthai = reader.GetInt32(3);
+                taikhoandto tk = new taikhoandto( username, password, quyen, trangthai);
                 ds.Add(tk);
             }
             reader.Close();
@@ -45,7 +44,7 @@ namespace Doanqlchdt.DAO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "insert into TaiKhoan values('" + tk.Matk + "',N'" + tk.Username + "',N'" + tk.Password + "','" + tk.Quyen + "','" + tk.Trangthai + "')";
+            sqlcommand.CommandText = "insert into TaiKhoan values(N'" + tk.Username + "',N'" + tk.Password + "','" + tk.Quyen + "','" + tk.Trangthai + "')";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
@@ -73,7 +72,7 @@ namespace Doanqlchdt.DAO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "Update TaiKhoan set Username=N'" + tk.Username + "',MatKhau=N'" + tk.Password + "',Quyen='" + tk.Quyen + "',TrangThai='" + tk.Trangthai + "' where MaTK='" + tk.Matk + "'";
+            sqlcommand.CommandText = "Update TaiKhoan set MatKhau=N'" + tk.Password + "',Quyen='" + tk.Quyen + "',TrangThai='" + tk.Trangthai + "' where Username='" + tk.Username + "'";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
@@ -112,12 +111,11 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                int mtk = reader.GetInt32(0);
-                String username = reader.GetString(1);
-                String password = reader.GetString(2);
-                int quyenn = reader.GetInt32(3);
-                int trangthai = reader.GetInt32(4);
-                taikhoandto tk = new taikhoandto(mtk, username, password, quyenn, trangthai);
+                String username = reader.GetString(0);
+                String password = reader.GetString(1);
+                int quyenn = reader.GetInt32(2);
+                int trangthai = reader.GetInt32(3);
+                taikhoandto tk = new taikhoandto( username, password, quyenn, trangthai);
                 ds.Add(tk);
             }
             reader.Close();
@@ -136,12 +134,11 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                int mtk = reader.GetInt32(0);
-                String username = reader.GetString(1);
-                String password = reader.GetString(2);
-                int quyenn = reader.GetInt32(3);
-                int trangthai = reader.GetInt32(4);
-                taikhoandto tk = new taikhoandto(mtk, username, password, quyenn, trangthai);
+                String username = reader.GetString(0);
+                String password = reader.GetString(1);
+                int quyenn = reader.GetInt32(2);
+                int trangthai = reader.GetInt32(3);
+                taikhoandto tk = new taikhoandto( username, password, quyenn, trangthai);
                 ds.Add(tk);
             }
             reader.Close();
@@ -160,12 +157,12 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                int mtk = reader.GetInt32(0);
-                String username = reader.GetString(1);
-                String password = reader.GetString(2);
-                int quyenn = reader.GetInt32(3);
-                int trangthai = reader.GetInt32(4);
-                taikhoandto tk = new taikhoandto(mtk, username, password, quyenn, trangthai);
+
+                String username = reader.GetString(0);
+                String password = reader.GetString(1);
+                int quyenn = reader.GetInt32(2);
+                int trangthai = reader.GetInt32(3);
+                taikhoandto tk = new taikhoandto( username, password, quyenn, trangthai);
                 ds.Add(tk);
             }
             reader.Close();
@@ -184,17 +181,38 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                int mtk = reader.GetInt32(0);
-                String username = reader.GetString(1);
-                String password = reader.GetString(2);
-                int quyenn = reader.GetInt32(3);
-                int trangthaii = reader.GetInt32(4);
-                taikhoandto tk = new taikhoandto(mtk, username, password, quyenn, trangthaii);
+                String username = reader.GetString(0);
+                String password = reader.GetString(1);
+                int quyenn = reader.GetInt32(2);
+                int trangthaii = reader.GetInt32(3);
+                taikhoandto tk = new taikhoandto( username, password, quyenn, trangthaii);
                 ds.Add(tk);
             }
             reader.Close();
             connect.Close();
             return ds;
+        }
+
+        public khachhangdto getKhachHang(string username)
+        {
+            khachhangdto kh = new khachhangdto();
+            using(SqlConnection conn=new connectToan().connection())
+            {
+                string query = "select * from TaiKhoan tk join KhachHang kh on tk.Username=kh.Username where tk.Username=@user";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@user", username);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    String maKH = (string)reader["MaKH"];
+                    String TenKH = (string)reader["HoTen"];
+                    String sdt = (string)reader["SDT"];
+                    String email = (string)reader["Email"];
+                    DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
+                    kh = new khachhangdto(maKH, TenKH, sdt, email, ngaysinh,username);
+                }
+            }
+            return kh;
         }
     }
 }

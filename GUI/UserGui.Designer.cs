@@ -32,6 +32,10 @@
             System.Windows.Forms.Label txtDecription;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -87,6 +91,7 @@
             this.txtSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btGiam = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btTang = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label13 = new System.Windows.Forms.Label();
             txtDecription = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -137,6 +142,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.lbName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.Black;
@@ -145,6 +155,54 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1201, 78);
             this.panel1.TabIndex = 0;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(1117, 56);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(80, 19);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "[Đăng xuất]";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(986, 56);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(125, 19);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "[Lịch sử mua hàng]";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(12, 28);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(99, 19);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "[Sửa thông tin]";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.ForeColor = System.Drawing.Color.White;
+            this.lbName.Location = new System.Drawing.Point(12, 9);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(0, 19);
+            this.lbName.TabIndex = 1;
+            this.lbName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -781,6 +839,17 @@
             this.btTang.Text = "-";
             this.btTang.Width = 25;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(117, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 19);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "[Đổi mật khẩu]";
+            // 
             // UserGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -882,5 +951,10 @@
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label13;
     }
 }
