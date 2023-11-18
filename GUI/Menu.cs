@@ -79,6 +79,11 @@ namespace Doanqlchdt.GUI
             f.Show();
         }
 
-        
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Login loginForm = new Login(); 
+            loginForm.Visible = true;
+        }
     }
 }

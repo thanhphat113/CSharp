@@ -23,19 +23,23 @@ namespace Doanqlchdt.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             taikhoanbus = new taikhoanbus();
+            if(textBox1.Text == "" || textBox2.Text == "")
+            {
+                MessageBox.Show("Vui lòng điền đẩy đủ!!");
+                return;
+            }
             String tk = textBox1.Text;
             String mk = textBox2.Text;
             if (taikhoanbus.checkt(tk, mk))
             {
-                MessageBox.Show("Đúng rồi");
                 int checkQuyen = taikhoanbus.GetQuyen(tk, mk);
                 MessageBox.Show(checkQuyen.ToString());
                 if (checkQuyen == 1)
                 {
+                    this.Visible = false;
                     MessageBox.Show("Bạn đang đăng nhập dưới dạng ADMIN");
                     Menu frmMenu = new Menu();
                     frmMenu.ShowDialog();
-                    Close();
                 }
                 else if (checkQuyen == 2)
                 {
@@ -46,18 +50,23 @@ namespace Doanqlchdt.GUI
                     MessageBox.Show("Cảm ơn vì đã sử dụng dịch vụ của chúng tôi!");
                     UserGui userGui = new UserGui();
                     userGui.ShowDialog();
-                    Close();
+                    this.Close();
                 }
             }
             else
             {
-                MessageBox.Show("Sai rồi");
+                MessageBox.Show("Username hoặc Password của bạn bị sai!!");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

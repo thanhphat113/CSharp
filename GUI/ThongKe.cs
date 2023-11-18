@@ -23,8 +23,12 @@ namespace Doanqlchdt.GUI
         hoadonbandto hoadonbanDTO = new hoadonbandto();
         hoadonbanbus hoadonbanBus = new hoadonbanbus();
 
+          
+
+
         khachhangdto khachhangDTO = new khachhangdto();
         khachhangbus khachhangBus = new khachhangbus();
+
         public ThongKe()
         {
             InitializeComponent();
@@ -73,7 +77,12 @@ namespace Doanqlchdt.GUI
         }
 
 
-        private void chartBan_Click(object sender, EventArgs e)
+        private void chartBan_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ThongKe_Load(object sender, EventArgs e)
         {
 
         }
