@@ -81,18 +81,9 @@ namespace Doanqlchdt.GUI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            /*ResetLoginDetails();*/
-
+            this.Visible = false;
             Login loginForm = new Login(); 
-            loginForm.Show();
-            this.Close();
+            loginForm.Visible = true;
         }
-
-        /*private void ResetLoginDetails()
-        {
-
-            LoggedInUser.Username = "";
-            LoggedInUser.Password = "";
-        }*/
     }
 }
