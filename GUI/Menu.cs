@@ -79,6 +79,20 @@ namespace Doanqlchdt.GUI
             f.Show();
         }
 
-        
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            /*ResetLoginDetails();*/
+
+            Login loginForm = new Login(); 
+            loginForm.Show();
+            this.Close();
+        }
+
+        /*private void ResetLoginDetails()
+        {
+
+            LoggedInUser.Username = "";
+            LoggedInUser.Password = "";
+        }*/
     }
 }

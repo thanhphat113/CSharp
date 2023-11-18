@@ -39,6 +39,7 @@
             this.btnQLNV = new System.Windows.Forms.Button();
             this.menuButton = new System.Windows.Forms.PictureBox();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
@@ -77,6 +78,7 @@
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.sidebar.Controls.Add(this.button1);
             this.sidebar.Controls.Add(this.btnThongKe);
             this.sidebar.Controls.Add(this.btnPhanQuyen);
             this.sidebar.Controls.Add(this.label1);
@@ -167,6 +169,22 @@
             this.mainpanel.Size = new System.Drawing.Size(1166, 629);
             this.mainpanel.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(3, 238);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(212, 48);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "              Đăng Xuất";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,5 +215,6 @@
         private System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.Button btnPhanQuyen;
         private System.Windows.Forms.Button btnThongKe;
+        private System.Windows.Forms.Button button1;
     }
 }
