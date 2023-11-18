@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbDonHang = new System.Windows.Forms.Label();
@@ -140,20 +140,20 @@
             // 
             // chartBan
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartBan.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chartBan.Legends.Add(legend6);
+            chartArea1.Name = "ChartArea1";
+            this.chartBan.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartBan.Legends.Add(legend1);
             this.chartBan.Location = new System.Drawing.Point(36, 254);
             this.chartBan.Name = "chartBan";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.Name = "Tổng tiền bán";
-            series12.ChartArea = "ChartArea1";
-            series12.Legend = "Legend1";
-            series12.Name = "Tổng tiền nhập";
-            this.chartBan.Series.Add(series11);
-            this.chartBan.Series.Add(series12);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Tổng tiền bán";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Tổng tiền nhập";
+            this.chartBan.Series.Add(series1);
+            this.chartBan.Series.Add(series2);
             this.chartBan.Size = new System.Drawing.Size(604, 300);
             this.chartBan.TabIndex = 3;
             this.chartBan.Text = "chart1";
@@ -191,6 +191,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThongKe";
             this.Text = "ThongKe";
+            this.Load += new System.EventHandler(this.ThongKe_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

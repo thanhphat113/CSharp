@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Doanqlchdt.Cart;
 using Doanqlchdt.connect;
 
 namespace Doanqlchdt.DTO
@@ -32,13 +34,15 @@ namespace Doanqlchdt.DTO
                     byte[] hinhanh = (byte[])reader["HinhAnh"];
                     string mota = (string)reader["MoTa"];
                     int soluong = (int)reader["SoLuong"];
-                    sanphamdto spdto = new sanphamdto(msp, tensp, maloai, gianhap, giaban,hinhanh, mota,soluong);
+                    sanphamdto spdto = new sanphamdto(msp, tensp, maloai, gianhap, giaban, hinhanh, mota, soluong);
                     ds.Add(spdto);
                 }
                 reader.Close();
             }
             return ds;
         }
+
+
         public int insert(sanphamdto spdto)
         {
             connect.connect cn = new connect.connect();
@@ -55,11 +59,31 @@ namespace Doanqlchdt.DTO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "update SanPham set TenSP= N'" + spdto.Tensp + "',MaLoai= N'" + spdto.Maloai + "' ,GiaNhap= '" + spdto.Gianhap + "',GiaBan='" +spdto.Giaban + "' where MaSP='" + spdto.Masp + "' ";
+            sqlcommand.CommandText = "update SanPham set TenSP= N'" + spdto.Tensp + "',MaLoai= N'" + spdto.Maloai + "' ,GiaNhap= '" + spdto.Gianhap + "',GiaBan='" + spdto.Giaban + "' where MaSP='" + spdto.Masp + "' ";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
             return kq;
+        }
+
+        public Boolean updateQuantity(CartBean shop)
+        {
+            if (shop != null)
+            {
+                using (SqlConnection conn = new connectToan().connection())
+                {
+                    foreach (var item in shop.Values)
+                    {
+                        string query = "update SanPham set SoLuong = SoLuong - @quantity where maSP= @maSP";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@quantity", item.Quantity);
+                        cmd.Parameters.AddWithValue("@maSP", item.Sanpham.Masp);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
         public ArrayList getdsmasp(String ma)
         {
@@ -68,7 +92,7 @@ namespace Doanqlchdt.DTO
             SqlConnection connect = cn.connection();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "select * from SanPham MaSP LIKE '"+ma+"%'";
+            sqlcommand.CommandText = "select * from SanPham MaSP LIKE '" + ma + "%'";
             sqlcommand.Connection = connect;
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
@@ -199,11 +223,11 @@ namespace Doanqlchdt.DTO
 
         public sanphamdto findByID(string id)
         {
-            sanphamdto sp=new sanphamdto();
+            sanphamdto sp = new sanphamdto();
             using (SqlConnection connection = new connectToan().connection())
             {
                 string query = "select * from SanPham sp join Loaisanpham lsp on sp.MaLoai=lsp.MaLoai where MaSP=@id";
-                SqlCommand sqlcommand = new SqlCommand(query,connection);
+                SqlCommand sqlcommand = new SqlCommand(query, connection);
                 sqlcommand.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = sqlcommand.ExecuteReader();
                 if (reader.Read())
@@ -222,16 +246,19 @@ namespace Doanqlchdt.DTO
             return sp;
         }
 
-        public List<sanphamdto> findByCondition(string condition,string price)
+        public List<sanphamdto> findByCondition(string condition, string price, string dau)
         {
+
             List<sanphamdto> sp = new List<sanphamdto>();
             using (SqlConnection connection = new connectToan().connection())
             {
-                string query = "select * from SanPham sp join Loaisanpham lsp on sp.MaLoai=lsp.MaLoai \r\nwhere TenSP like @id and GiaBan ${price}";
+                string query = "select * from SanPham sp join Loaisanpham lsp on sp.MaLoai=lsp.MaLoai where TenSP like @id and GiaBan" + dau + " @price";
+
                 SqlCommand sqlcommand = new SqlCommand(query, connection);
-                sqlcommand.Parameters.AddWithValue("@id", condition);
+                sqlcommand.Parameters.AddWithValue("@id", "%" + condition + "%");
+                sqlcommand.Parameters.AddWithValue("@price", price);
                 SqlDataReader reader = sqlcommand.ExecuteReader();
-                if (reader.Read())
+                while (reader.Read())
                 {
                     String msp = reader.GetString(0);
                     String tensp = reader.GetString(1);

@@ -81,5 +81,10 @@ namespace Doanqlchdt.GUI
         {
 
         }
+
+        private void ThongKe_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

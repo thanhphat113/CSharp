@@ -20,6 +20,11 @@ namespace Doanqlchdt.Cart
             this.Quantity = 1;
         }
 
+        public void BuyProduct(List<sanphamdto> sp)
+        {
+            
+        }
+
         public sanphamdto Sanpham { get => sanpham; set => sanpham = value; }
         public int Quantity { get => quantity; set => quantity = value; }
     }
