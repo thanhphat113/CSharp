@@ -27,14 +27,20 @@ namespace Doanqlchdt.GUI
             InitializeComponent();
             ShowQuantity();
             loadCombobox();
-            loadChartPie();
+            chartPie.Titles.Add("Pie Chart");
         }
 
-        public void loadChartPie()
+        public void loadChartPie(string year)
         {
-            chartPie.Titles.Add("Pie Chart");
-            chartPie.Series["s1"].Points.AddXY("Tổng tiền bán", "50");
-            chartPie.Series["s1"].Points.AddXY("Tổng tiền nhập", "50");
+
+            chartPie.Series["s1"].Points.Clear();
+
+            int tongTienNhap = thongKeBUS.LayTongTienNhapTheoNam(namLoc);
+            int tongTienBan = thongKeBUS.LayTongTienBanTheoNam(namLoc);
+            double tiLeTienNhap = (tongTienNhap * 100) / (tongTienNhap + tongTienBan);
+            double tiLeTienBan = 100 - tiLeTienNhap;
+            chartPie.Series["s1"].Points.AddXY(tiLeTienBan + "%", tiLeTienBan);
+            chartPie.Series["s1"].Points.AddXY(tiLeTienNhap + "%", tiLeTienNhap);
         }
 
         public void loadCombobox()
@@ -47,6 +53,7 @@ namespace Doanqlchdt.GUI
 
             namLoc = cbbYear.SelectedItem.ToString();
             fillChart(namLoc);
+            loadChartPie(namLoc);
         }
 
         public void ShowQuantity()
@@ -61,9 +68,12 @@ namespace Doanqlchdt.GUI
 
             int soLuongBan = thongKeBUS.SoLuongSanPhamBan();
 
+            int tongTienBan = thongKeBUS.TongTienBan();
+
             lbDonHang.Text = soLuongDonHang.ToString();
             lbKhachHang.Text = soLuongKhachHang.ToString();
             lbSoLuongBan.Text = soLuongBan.ToString();  
+            lbTong.Text = tongTienBan.ToString("N0") + " VND";
         }
 
         public void fillChart(string year)
@@ -95,6 +105,8 @@ namespace Doanqlchdt.GUI
             {
                 namLoc = cbbYear.SelectedItem.ToString();
                 fillChart(namLoc);
+                loadChartPie(namLoc);
+
             }
         }
     }

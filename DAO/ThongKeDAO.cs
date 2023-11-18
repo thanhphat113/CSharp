@@ -57,6 +57,24 @@ namespace Doanqlchdt.DAO
             return arrayList;
         }
 
+        public int TongTienBan()
+        {
+            int tongTien = 0;
+            using (SqlConnection connection = connectObj.connection())
+            {
+                SqlCommand sqlCommand = new SqlCommand("SELECT TongTien FROM HoaDonBan", connection);
+
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    tongTien += Convert.ToInt32(reader[0]);
+                }
+                reader.Close();
+            }
+
+            return tongTien;
+        }
+
         public int SoLuongSanPhamBan()
         {
             int soLuong = 0;
@@ -95,6 +113,43 @@ namespace Doanqlchdt.DAO
 
             return arrayList;
         }
+
+        public int LayTongTienBanTheoNam(string year)
+        {
+            int tongTien = 0;
+            using (SqlConnection connection = connectObj.connection())
+            {
+                SqlCommand sqlCommand = new SqlCommand("SELECT SUM(TongTien) FROM HoaDonBan WHERE YEAR(NgayTao) = @Year", connection);
+                sqlCommand.Parameters.AddWithValue("@Year", year);
+
+                object result = sqlCommand.ExecuteScalar();
+                if (result != DBNull.Value)
+                {
+                    tongTien = Convert.ToInt32(result);
+                }
+            }
+            return tongTien;
+        }
+
+
+        public int LayTongTienNhapTheoNam(string year)
+        {
+            int tongTien = 0;
+            using (SqlConnection connection = connectObj.connection())
+            {
+                SqlCommand sqlCommand = new SqlCommand("SELECT SUM(TongTien) FROM HoaDonNhap WHERE YEAR(NgayTao) = @Year", connection);
+                sqlCommand.Parameters.AddWithValue("@Year", year);
+
+                object result = sqlCommand.ExecuteScalar();
+                if (result != DBNull.Value)
+                {
+                    tongTien = Convert.ToInt32(result);
+                }
+            }
+            return tongTien;
+        }
+
+
 
         public DataTable LayTongTienTheoThangNam()
         {

@@ -24,12 +24,27 @@ namespace Doanqlchdt.BUS
             return thongKeDao.GetSoLuongKhachHang();
         }
 
+        public int TongTienBan()
+        {
+            return thongKeDao.TongTienBan();
+        }
+
         public int SoLuongSanPhamBan()
         { 
             return thongKeDao.SoLuongSanPhamBan();
-        } 
+        }
 
-            public ArrayList GetDSNam()
+        public int LayTongTienBanTheoNam(string year)
+        {
+            return thongKeDao.LayTongTienBanTheoNam(year);
+        }
+
+        public int LayTongTienNhapTheoNam(string year)
+        {
+            return thongKeDao.LayTongTienNhapTheoNam(year);
+        }
+
+        public ArrayList GetDSNam()
         {
             return thongKeDao.GetDSNam();
         }

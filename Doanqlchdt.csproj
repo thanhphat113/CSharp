@@ -286,6 +286,7 @@
   <ItemGroup>
     <Content Include="obj\image\padlock_2889676.png" />
     <None Include="obj\image\sanphamban.png" />
+    <None Include="obj\image\tien.png" />
     <Content Include="obj\image\user.png" />
     <None Include="Resources\padlock_2889676.png" />
     <None Include="Resources\user.png" />
