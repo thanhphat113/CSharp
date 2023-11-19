@@ -1,6 +1,14 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
+    "",
+    "\\connect",
+    "\\DAO",
+    "\\DTO",
+    "\\GUI"
+=======
     ""
+>>>>>>> c4b499c96e2520a92f3bfebf65d9da8c11fdee2e
   ],
   "SelectedNode": "\\Doanqlchdt.sln",
   "PreviewInSolutionExplorer": false

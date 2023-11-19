@@ -136,4 +136,8 @@ C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.csproj.CopyComplete
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.exe
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.pdb
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.DoiThongTinKH.resources
+<<<<<<< HEAD
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.ChangePassword.resources
+=======
+D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.DoiThongTinKH.resources
+>>>>>>> e170cada5856e552e02f807f0fb4ad13e7f2781b
