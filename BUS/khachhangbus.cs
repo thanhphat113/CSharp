@@ -16,7 +16,7 @@ namespace Doanqlchdt.BUS
         public khachhangbus() { }
         public ArrayList getds()
         {
-            return khdao.getds();
+            return khdao.findAll();
         }
         public int insert(khachhangdto khdto)
         {

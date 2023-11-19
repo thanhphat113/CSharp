@@ -50,17 +50,24 @@ namespace Doanqlchdt.GUI
                 else if (checkQuyen == 3)
                 {
                     MessageBox.Show("Cảm ơn vì đã sử dụng dịch vụ của chúng tôi!");
+                    this.Hide();
                     string matk= textBox1.Text;
                     khachhangdto kh = new taikhoandao().getKhachHang(matk);
                     UserGui userGui = new UserGui(kh);
-                    userGui.ShowDialog();
-                    this.Close();
+                    userGui.Show();
+                    userGui.FormClosed += (s, args) => this.ShowLogin();
                 }
             }
             else
             {
                 MessageBox.Show("Username hoặc Password của bạn bị sai!!");
             }
+        }
+
+        private void ShowLogin()
+        {
+            // Hiển thị lại Form1
+            this.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

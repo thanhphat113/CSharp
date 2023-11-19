@@ -107,6 +107,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DoiThongTinKH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DoiThongTinKH.resx">
       <DependentUpon>DoiThongTinKH.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +295,7 @@
   <ItemGroup>
     <Content Include="obj\image\padlock_2889676.png" />
     <Content Include="obj\image\user.png" />
+    <None Include="Resources\view.png" />
     <None Include="Resources\padlock_2889676.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\thumnail.jpg" />
