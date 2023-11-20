@@ -272,7 +272,6 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Doanqlchdt.Properties.Resources.tien;
             this.pictureBox4.Location = new System.Drawing.Point(157, 74);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(101, 59);
@@ -282,7 +281,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Doanqlchdt.Properties.Resources.sanphamban;
             this.pictureBox3.Location = new System.Drawing.Point(102, 39);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(141, 94);
@@ -292,7 +290,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Doanqlchdt.Properties.Resources.khachhang;
             this.pictureBox2.Location = new System.Drawing.Point(102, 39);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(141, 94);
@@ -302,7 +299,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Doanqlchdt.Properties.Resources.thongke;
             this.pictureBox1.Location = new System.Drawing.Point(104, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(154, 105);

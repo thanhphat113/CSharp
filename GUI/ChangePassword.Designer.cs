@@ -118,7 +118,6 @@
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Image = global::Doanqlchdt.Properties.Resources.view;
             this.button3.Location = new System.Drawing.Point(290, 71);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(27, 22);
