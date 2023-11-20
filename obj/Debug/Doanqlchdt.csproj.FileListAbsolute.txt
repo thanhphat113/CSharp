@@ -24,7 +24,6 @@ D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.exe
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.pdb
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.Menu.resources
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.NhanVien.resources
-D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.PhanQuyen.resources
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.ThongKe.resources
 D:\workspace\DoAnC-\bin\Debug\PagedList.dll
 D:\workspace\DoAnC-\bin\Debug\PagedList.Mvc.dll
@@ -137,3 +136,4 @@ C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.exe
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.pdb
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.DoiThongTinKH.resources
 D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.DoiThongTinKH.resources
+D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.TaiKhoanNhanVien.resources

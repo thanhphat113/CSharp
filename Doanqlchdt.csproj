@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BUS\nhanvienbus.cs" />
     <Compile Include="BUS\taikhoanbus.cs" />
+    <Compile Include="BUS\TaiKhoanNhanVienBUS.cs" />
     <Compile Include="BUS\ThongKeBUS.cs" />
     <Compile Include="Cart\CartBean.cs" />
     <Compile Include="Cart\addToCart.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="connect\connectToan.cs" />
     <Compile Include="DAO\chitietdonbandao.cs" />
     <Compile Include="DAO\chitietdonnhapdao.cs" />
+    <Compile Include="DAO\TaiKhoanNhanVienDAO.cs" />
     <Compile Include="DAO\donbaohanhdao.cs" />
     <Compile Include="DAO\hoadonbandao.cs" />
     <Compile Include="DAO\hoadonnhapdao.cs" />
@@ -197,11 +199,11 @@
     <Compile Include="GUI\NhanVien.Designer.cs">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\PhanQuyen.cs">
+    <Compile Include="GUI\TaiKhoanNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\PhanQuyen.Designer.cs">
-      <DependentUpon>PhanQuyen.cs</DependentUpon>
+    <Compile Include="GUI\TaiKhoanNhanVien.Designer.cs">
+      <DependentUpon>TaiKhoanNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\register.cs">
       <SubType>Form</SubType>
@@ -241,8 +243,8 @@
     <EmbeddedResource Include="GUI\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\PhanQuyen.resx">
-      <DependentUpon>PhanQuyen.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\TaiKhoanNhanVien.resx">
+      <DependentUpon>TaiKhoanNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\register.resx">
       <DependentUpon>register.cs</DependentUpon>

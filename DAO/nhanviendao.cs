@@ -103,18 +103,7 @@ namespace Doanqlchdt.DAO
                 SqlCommand command = new SqlCommand("SELECT * FROM nhanvien WHERE MaNV LIKE @Keyword", connection);
                 command.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
                 SqlDataReader reader = command.ExecuteReader();
-                /*while (reader.Read())
-                {
-                    string maNV = reader.GetString(0);
-                    string hoTen = reader.GetString(1);
-                    string sdt = reader.GetString(2);
-                    string email = reader.GetString(3);
-                    int trangThai = reader.GetInt32(4);
-                    string ngaySinh = reader.GetString(5);
-                    int maTK = reader.GetInt32(6);  
-                    nhanviendto employee = new nhanviendto(maNV, hoTen, sdt, email, trangThai, ngaySinh, maTK);
-                    employees.Add(employee);
-                }*/
+                
                 while (reader.Read())
                 {
                     nhanviendto employee = new nhanviendto
