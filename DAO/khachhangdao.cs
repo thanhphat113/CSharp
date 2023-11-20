@@ -13,7 +13,7 @@ namespace Doanqlchdt.DAO
     internal class khachhangdao
     {
         public khachhangdao() { }
-        public ArrayList getds()
+        public ArrayList findAll()
         {
             ArrayList ds = new System.Collections.ArrayList();
             /*connect.connect cn = new connect.connect();*/
@@ -50,16 +50,24 @@ namespace Doanqlchdt.DAO
             connect.Close();
             return kq;
         }
-        public int update(khachhangdto khdto)
+        public Boolean update(khachhangdto khdto)
         {
-            connect.connect cn = new connect.connect();
-            SqlCommand sqlcommand = new SqlCommand();
-            sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "update KhachHang set HoTen= N'"+khdto.Hoten +"',SDT= N'"+khdto.Sdt+"' ,Email= N'"+khdto.Email+"',Ngaysinh='"+khdto.Ngaysinh+"' where MaKH='"+khdto.Username+"' ";
-            SqlConnection connect = cn.connection();
-            int kq = sqlcommand.ExecuteNonQuery();
-            connect.Close();
-            return kq;
+            if (khdto.Mkh != null)
+            {
+                using(SqlConnection conn= new connectToan().connection())
+                {
+                    string query = "update KhachHang set HoTen=@ten,SDT=@sdt,Email=@email,NgaySinh=@ngaysinh where MaKH=@makh";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ten", khdto.Hoten);
+                    cmd.Parameters.AddWithValue("@sdt", khdto.Sdt);
+                    cmd.Parameters.AddWithValue("@email", khdto.Email);
+                    cmd.Parameters.AddWithValue("@ngaysinh", khdto.Ngaysinh.ToString("MM-dd-yyyy"));
+                    cmd.Parameters.AddWithValue("@makh", khdto.Mkh);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            return false;
         }
         public ArrayList getdsmakh(String mkh)
         {
@@ -212,6 +220,28 @@ namespace Doanqlchdt.DAO
             connect.Close();
             return ds;
         }
+
+        public khachhangdto findByID(string id)
+        {
+            khachhangdto kh = new khachhangdto();
+            using(SqlConnection conn=new connectToan().connection())
+            {
+                string query = "select * from KhachHang where MaKH=@id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    string tenKH = (String)reader["HoTen"];
+                    string email = (String)reader["Email"];
+                    string sdt = (String)reader["SDT"];
+                    DateTime ngaysinh = (DateTime)reader["NgaySinh"];
+                    string username= (String)reader["Username"];
+                    kh = new khachhangdto(id,tenKH,email,sdt,ngaysinh,username);
+                }
+            }
+            return kh;
+        } 
 
     }
 }

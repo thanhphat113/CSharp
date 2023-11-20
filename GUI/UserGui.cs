@@ -1,4 +1,5 @@
 ﻿using Doanqlchdt.Cart;
+using Doanqlchdt.DAO;
 using Doanqlchdt.DTO;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace Doanqlchdt.GUI
     public partial class UserGui : Form
     {
         private CartBean shop;
+        private khachhangdto kh;
+        private int TongTien = 0;
         public UserGui(khachhangdto kh)
         {
             InitializeComponent();
@@ -19,6 +22,21 @@ namespace Doanqlchdt.GUI
             listView2.SelectedIndexChanged += listView2_SelectedIndexChanged;
             dataGridView1.CellClick += dataGridView1_CellClick;
             lbName.Text ="Xin chào, "+ kh.Hoten;
+            this.kh= kh;
+            lbSum.Text = TongTien.ToString()+" vnđ";
+        }
+
+        public void updateMoney()
+        {
+            if (shop!=null)
+            {
+                this.TongTien = 0;
+                foreach(var item in shop.Values)
+                {
+                    this.TongTien += item.Quantity * item.Sanpham.Giaban;
+                }
+            }
+            lbSum.Text = TongTien.ToString("#,##0")+" vnđ";
         }
 
         public void InitializeImageList()
@@ -67,7 +85,7 @@ namespace Doanqlchdt.GUI
                 txtStyle.Text = sp.Maloai;
                 txtInfor.Text = sp.Mota;
                 txtQuan.Text = sp.Soluong.ToString();
-                if (sp.Soluong > 0)
+                if (sp.Soluong > 0 )
                 {
                     txtStatus.Text = "Còn hàng";
                     btAddCart.Enabled = true;
@@ -163,6 +181,7 @@ namespace Doanqlchdt.GUI
                 shop.addSanPham(product);
                 if (shop[lbMaSP.Text].Quantity == sp.Soluong) btAddCart.Enabled = false;
                 UpdateDataGridView();
+                updateMoney();
             }
             else MessageBox.Show("Vui lòng chọn sản phẩm");
         }
@@ -192,6 +211,7 @@ namespace Doanqlchdt.GUI
 
                 // Cập nhật lại DataGridView
                 UpdateDataGridView();
+                updateMoney();
             }
 
             // Kiểm tra nếu người dùng nhấn vào cột "Giảm"
@@ -216,6 +236,7 @@ namespace Doanqlchdt.GUI
 
                 // Cập nhật lại DataGridView
                 UpdateDataGridView();
+                updateMoney();
             }
         }
 
@@ -239,12 +260,44 @@ namespace Doanqlchdt.GUI
             }
         }
 
-        private void btAccept_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            khachhangdto kh1 = new khachhangdao().findByID(kh.Mkh);
+            DoiThongTinKH change= new DoiThongTinKH(kh1);
+            change.ShowDialog();
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label13_Click_1(object sender, EventArgs e)
+        {
+            ChangePassword change = new ChangePassword(kh);
+            change.Show();
+        }
+
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            shop = new CartBean();
+            UpdateDataGridView();
+        }
+
+        private void btAccept_Click_1(object sender, EventArgs e)
         {
             try
             {
                 if (new sanphamdao().updateQuantity(shop))
                 {
+                    new hoadonbandao().insert(kh.Mkh, txtSale.Text, TongTien);
                     MessageBox.Show("Đặt đơn hàng thành công");
                 }
                 else MessageBox.Show("Giỏ hàng rỗng");
@@ -253,32 +306,15 @@ namespace Doanqlchdt.GUI
             {
                 MessageBox.Show("Lỗi:" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
             shop = new CartBean();
             UpdateDataGridView();
             reset();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            shop = new CartBean();
-            UpdateDataGridView();
-            
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-            DoiThongTinKH change= new DoiThongTinKH();
-            change.ShowDialog();
+            textBox1.Text = "HD" + new hoadonbandao().getSTT() + 15;
         }
     }
 }

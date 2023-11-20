@@ -32,6 +32,7 @@
             System.Windows.Forms.Label txtDecription;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -78,11 +79,11 @@
             this.ImagesList = new System.Windows.Forms.ImageList(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.btAccept = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btDelete = new System.Windows.Forms.Button();
-            this.btAccept = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtNameCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,7 +92,13 @@
             this.txtSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btGiam = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btTang = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label13 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtSale = new System.Windows.Forms.TextBox();
+            this.lbSum = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             txtDecription = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -112,9 +119,10 @@
             this.panel14.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtDecription
@@ -156,6 +164,18 @@
             this.panel1.Size = new System.Drawing.Size(1201, 78);
             this.panel1.TabIndex = 0;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(117, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 19);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "[Đổi mật khẩu]";
+            this.label13.Click += new System.EventHandler(this.label13_Click_1);
+            // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -167,6 +187,7 @@
             this.label16.Size = new System.Drawing.Size(80, 19);
             this.label16.TabIndex = 4;
             this.label16.Text = "[Đăng xuất]";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label15
             // 
@@ -179,7 +200,6 @@
             this.label15.Size = new System.Drawing.Size(125, 19);
             this.label15.TabIndex = 3;
             this.label15.Text = "[Lịch sử mua hàng]";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label14
             // 
@@ -653,6 +673,8 @@
             // 
             // panel14
             // 
+            this.panel14.Controls.Add(this.textBox1);
+            this.panel14.Controls.Add(this.button1);
             this.panel14.Controls.Add(this.listView2);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(4, 114);
@@ -691,18 +713,55 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.panel15, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.panel7, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel9, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.panel9, 0, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowCount = 4;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(376, 564);
             this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel15.Controls.Add(this.btAccept);
+            this.panel15.Controls.Add(this.btDelete);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(4, 518);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(368, 42);
+            this.panel15.TabIndex = 6;
+            // 
+            // btAccept
+            // 
+            this.btAccept.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btAccept.BackColor = System.Drawing.Color.White;
+            this.btAccept.Location = new System.Drawing.Point(46, 11);
+            this.btAccept.Name = "btAccept";
+            this.btAccept.Size = new System.Drawing.Size(140, 23);
+            this.btAccept.TabIndex = 2;
+            this.btAccept.Text = "Xác nhận";
+            this.btAccept.UseVisualStyleBackColor = false;
+            this.btAccept.Click += new System.EventHandler(this.btAccept_Click_1);
+            // 
+            // btDelete
+            // 
+            this.btDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btDelete.BackColor = System.Drawing.Color.White;
+            this.btDelete.Location = new System.Drawing.Point(202, 11);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(140, 23);
+            this.btDelete.TabIndex = 1;
+            this.btDelete.Text = "Hủy";
+            this.btDelete.UseVisualStyleBackColor = false;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // panel7
             // 
@@ -730,41 +789,6 @@
             this.label3.Text = "Giỏ hàng";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel9.Controls.Add(this.btDelete);
-            this.panel9.Controls.Add(this.btAccept);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(4, 506);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(368, 54);
-            this.panel9.TabIndex = 3;
-            // 
-            // btDelete
-            // 
-            this.btDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btDelete.BackColor = System.Drawing.Color.White;
-            this.btDelete.Location = new System.Drawing.Point(202, 17);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(140, 23);
-            this.btDelete.TabIndex = 1;
-            this.btDelete.Text = "Hủy";
-            this.btDelete.UseVisualStyleBackColor = false;
-            this.btDelete.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btAccept
-            // 
-            this.btAccept.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btAccept.BackColor = System.Drawing.Color.White;
-            this.btAccept.Location = new System.Drawing.Point(30, 17);
-            this.btAccept.Name = "btAccept";
-            this.btAccept.Size = new System.Drawing.Size(140, 23);
-            this.btAccept.TabIndex = 0;
-            this.btAccept.Text = "Xác nhận";
-            this.btAccept.UseVisualStyleBackColor = false;
-            this.btAccept.Click += new System.EventHandler(this.btAccept_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -784,7 +808,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(368, 434);
+            this.dataGridView1.Size = new System.Drawing.Size(368, 409);
             this.dataGridView1.TabIndex = 4;
             // 
             // txtNameCart
@@ -839,16 +863,70 @@
             this.btTang.Text = "-";
             this.btTang.Width = 25;
             // 
-            // label13
+            // panel9
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(117, 28);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 19);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "[Đổi mật khẩu]";
+            this.panel9.Controls.Add(this.label18);
+            this.panel9.Controls.Add(this.txtSale);
+            this.panel9.Controls.Add(this.lbSum);
+            this.panel9.Controls.Add(this.label17);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(4, 481);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(368, 30);
+            this.panel9.TabIndex = 5;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(22, 8);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(47, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Mã KM: ";
+            // 
+            // txtSale
+            // 
+            this.txtSale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSale.Location = new System.Drawing.Point(75, 5);
+            this.txtSale.Name = "txtSale";
+            this.txtSale.Size = new System.Drawing.Size(125, 20);
+            this.txtSale.TabIndex = 3;
+            // 
+            // lbSum
+            // 
+            this.lbSum.AutoSize = true;
+            this.lbSum.Location = new System.Drawing.Point(282, 8);
+            this.lbSum.Name = "lbSum";
+            this.lbSum.Size = new System.Drawing.Size(41, 13);
+            this.lbSum.TabIndex = 2;
+            this.lbSum.Text = "label18";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(218, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Tổng tiền: ";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(199, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(299, 66);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 2;
             // 
             // UserGui
             // 
@@ -858,6 +936,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserGui";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SHOP";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -882,12 +961,15 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -905,8 +987,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button btAccept;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel8;
@@ -950,11 +1030,20 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbSum;
+        private System.Windows.Forms.Button btAccept;
+        private System.Windows.Forms.TextBox txtSale;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
