@@ -43,20 +43,18 @@ namespace Doanqlchdt.DTO
             connect.Close();
             return ds;
         }
-        public void insert(hoadonbandto hd)
+        public void insert(string maKH,string maKM,int tong)
         {
             try
             {
                 using (SqlConnection conn = new connectToan().connection())
                 {
-                    string query = "insert into HoaDonBan values(@maHD,@maNV,@maKH,@maKM,@Tong,@ngayTao)";
+                    string query = "insert into HoaDonBan(MaHDB,MaNV,MaKH,MaKM,TongTien,NgayTao) values(@maHD,null,@maKH,@maKM,@Tong,GETDATE())";
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@maHD", hd.Mhdb);
-                    cmd.Parameters.AddWithValue("@maNV", hd.Mnv);
-                    cmd.Parameters.AddWithValue("@maKH", hd.Mkh);
-                    cmd.Parameters.AddWithValue("@maKM", hd.Mkm);
-                    cmd.Parameters.AddWithValue("@Tong", hd.Tongtien);
-                    cmd.Parameters.AddWithValue("@ngayTao", hd.Ngaytao);
+                    cmd.Parameters.AddWithValue("@maHD","HD"+ getSTT()+1);
+                    cmd.Parameters.AddWithValue("@maKH", maKH);
+                    cmd.Parameters.AddWithValue("@maKM", maKM);
+                    cmd.Parameters.AddWithValue("@Tong", tong);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -226,6 +224,23 @@ namespace Doanqlchdt.DTO
             reader.Close();
             connect.Close();
             return ds;
+        }
+
+        public int getSTT()
+        {
+            int STT = 0;
+            string a="";
+            using(SqlConnection conn= new connectToan().connection())
+            {
+                string query = "SELECT ISNULL(MAX(STT), 0) AS MaxSTT FROM HoaDonBan;";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    STT = reader.GetInt32(0);
+                }
+            }
+            return STT;
         }
     }
 }

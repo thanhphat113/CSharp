@@ -85,7 +85,7 @@ namespace Doanqlchdt.GUI
                 txtStyle.Text = sp.Maloai;
                 txtInfor.Text = sp.Mota;
                 txtQuan.Text = sp.Soluong.ToString();
-                if (sp.Soluong > 0)
+                if (sp.Soluong > 0 )
                 {
                     txtStatus.Text = "Còn hàng";
                     btAddCart.Enabled = true;
@@ -260,29 +260,9 @@ namespace Doanqlchdt.GUI
             }
         }
 
-        private void btAccept_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (new sanphamdao().updateQuantity(shop))
-                {
-                    MessageBox.Show("Đặt đơn hàng thành công");
-                }
-                else MessageBox.Show("Giỏ hàng rỗng");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi:" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            shop = new CartBean();
-            UpdateDataGridView();
-            reset();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            shop = new CartBean();
-            UpdateDataGridView();
+            
             
         }
 
@@ -305,9 +285,36 @@ namespace Doanqlchdt.GUI
             change.Show();
         }
 
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            shop = new CartBean();
+            UpdateDataGridView();
+        }
+
         private void btAccept_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+                if (new sanphamdao().updateQuantity(shop))
+                {
+                    new hoadonbandao().insert(kh.Mkh, txtSale.Text, TongTien);
+                    MessageBox.Show("Đặt đơn hàng thành công");
+                }
+                else MessageBox.Show("Giỏ hàng rỗng");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi:" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            shop = new CartBean();
+            UpdateDataGridView();
+            reset();
+        }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            textBox1.Text = "HD" + new hoadonbandao().getSTT() + 15;
         }
     }
 }

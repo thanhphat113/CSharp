@@ -9,7 +9,6 @@ namespace Doanqlchdt.Cart
 {
     public class CartBean:Dictionary<String,addToCart>
     {
-        private Dictionary<string, int> items;
         public void addSanPham(addToCart sp)
         {
             string key = sp.Sanpham.Masp;
