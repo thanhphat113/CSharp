@@ -10,9 +10,5 @@ namespace Doanqlchdt.DTO
     internal class hoadonbanbus
     {
         hoadonbandao hoadonbanDao = new hoadonbandao();
-        public ArrayList getds()
-        {
-            return hoadonbanDao.getds();
-        }
     }
 }
