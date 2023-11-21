@@ -57,7 +57,7 @@ namespace Doanqlchdt.GUI
         }
         private void btnPhanQuyen_Click(object sender, EventArgs e)
         {
-            loadform(new PhanQuyen());
+            loadform(new TaiKhoanNhanVien());
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)

@@ -121,6 +121,7 @@
             // 
             // txtMaNV
             // 
+            this.txtMaNV.Enabled = false;
             this.txtMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtMaNV.Location = new System.Drawing.Point(479, 85);
             this.txtMaNV.Name = "txtMaNV";
