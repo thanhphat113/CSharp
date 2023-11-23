@@ -168,3 +168,4 @@ C:\Users\Admin\source\repos\New folder\DoAnC-\bin\Debug\PagedList.xml
 C:\Users\Admin\source\repos\New folder\DoAnC-\bin\Debug\PagedList.Mvc.xml
 C:\Users\Admin\source\repos\New folder\DoAnC-\obj\Debug\Doanqlchdt.csproj.CopyComplete
 >>>>>>> d07e9d6614453dbfa35678235a68369703ddc4a0
+D:\workspace\DoAnC-\obj\Debug\Doanqlchdt.GUI.ChangePassword.resources
