@@ -49,6 +49,7 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.picItem = new System.Windows.Forms.PictureBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -74,6 +75,8 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.ImagesList = new System.Windows.Forms.ImageList(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
@@ -92,14 +95,11 @@
             this.btGiam = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btTang = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtSale = new System.Windows.Forms.TextBox();
             this.lbSum = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.picItem = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
             txtDecription = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -111,6 +111,7 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picItem)).BeginInit();
             this.panel13.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -123,7 +124,6 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picItem)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDecription
@@ -377,6 +377,17 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(225, 178);
             this.panel12.TabIndex = 20;
+            // 
+            // picItem
+            // 
+            this.picItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picItem.Location = new System.Drawing.Point(0, 0);
+            this.picItem.Name = "picItem";
+            this.picItem.Size = new System.Drawing.Size(225, 178);
+            this.picItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picItem.TabIndex = 0;
+            this.picItem.TabStop = false;
             // 
             // panel13
             // 
@@ -673,6 +684,23 @@
             this.panel14.Size = new System.Drawing.Size(566, 446);
             this.panel14.TabIndex = 3;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(282, 117);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(160, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // listView2
             // 
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -867,6 +895,16 @@
             this.panel9.Size = new System.Drawing.Size(368, 30);
             this.panel9.TabIndex = 5;
             // 
+            // button3
+            // 
+            this.button3.Image = global::Doanqlchdt.Properties.Resources.check_mark__1_;
+            this.button3.Location = new System.Drawing.Point(164, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(22, 23);
+            this.button3.TabIndex = 5;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // label18
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -903,43 +941,6 @@
             this.label17.TabIndex = 1;
             this.label17.Text = "Tổng tiền: ";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(160, 117);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(282, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // picItem
-            // 
-            this.picItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picItem.Location = new System.Drawing.Point(0, 0);
-            this.picItem.Name = "picItem";
-            this.picItem.Size = new System.Drawing.Size(225, 178);
-            this.picItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picItem.TabIndex = 0;
-            this.picItem.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.Image = global::Doanqlchdt.Properties.Resources.check_mark__1_;
-            this.button3.Location = new System.Drawing.Point(164, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(22, 23);
-            this.button3.TabIndex = 5;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // UserGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -963,6 +964,7 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picItem)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -981,7 +983,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picItem)).EndInit();
             this.ResumeLayout(false);
 
         }

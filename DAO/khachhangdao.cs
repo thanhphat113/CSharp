@@ -26,13 +26,14 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mkh=reader.GetString(0);
-                String name=reader.GetString(1);
-                String sdt=reader.GetString(2);
-                String email=reader.GetString(3);
-                DateTime ngaysinh= reader.GetDateTime(4);
-                string mtk = reader.GetString(5);
-                khachhangdto kh=new khachhangdto(mkh,name,sdt,email,ngaysinh,mtk);
+                String mkh=(string)reader["MaKH"];
+                String name=(string)reader["HoTen"];
+                String sdt=(String)reader["SDT"];
+                String email=(string)reader["Email"];
+                String gioitinh = (string)reader["GioiTinh"];
+                DateTime ngaysinh= (DateTime)reader["Ngaysinh"];
+                string user = (string)reader["Username"];
+                khachhangdto kh=new khachhangdto(mkh,name,gioitinh,sdt,email,ngaysinh,user);
                 ds.Add(kh);
             }
             reader.Close();
@@ -56,13 +57,14 @@ namespace Doanqlchdt.DAO
             {
                 using(SqlConnection conn= new connectToan().connection())
                 {
-                    string query = "update KhachHang set HoTen=@ten,SDT=@sdt,Email=@email,NgaySinh=@ngaysinh where MaKH=@makh";
+                    string query = "update KhachHang set HoTen=@ten,SDT=@sdt,Email=@email,NgaySinh=@ngaysinh,GioiTinh=@gioitinh where MaKH=@makh";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@ten", khdto.Hoten);
                     cmd.Parameters.AddWithValue("@sdt", khdto.Sdt);
                     cmd.Parameters.AddWithValue("@email", khdto.Email);
                     cmd.Parameters.AddWithValue("@ngaysinh", khdto.Ngaysinh.ToString("MM-dd-yyyy"));
                     cmd.Parameters.AddWithValue("@makh", khdto.Mkh);
+                    cmd.Parameters.AddWithValue("@gioitinh", khdto.Gioitinh);
                     cmd.ExecuteNonQuery();
                 }
                 return true;
@@ -81,13 +83,13 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mkh1 = reader.GetString(0);
-                String name = reader.GetString(1);
-                String sdt = reader.GetString(2);
-                String email = reader.GetString(3);
-                DateTime ngaysinh = reader.GetDateTime(4);
-                string mtk = reader.GetString(5);
-                khachhangdto kh = new khachhangdto(mkh1, name, sdt, email, ngaysinh, mtk);
+                String name = (string)reader["HoTen"];
+                String sdt = (String)reader["SDT"];
+                String email = (string)reader["Email"];
+                String gioitinh = (string)reader["GioiTinh"];
+                DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
+                string user = (string)reader["Username"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
                 ds.Add(kh);
             }
             reader.Close();
@@ -106,13 +108,14 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mkh = reader.GetString(0);
-                String name = reader.GetString(1);
-                String sdt = reader.GetString(2);
-                String email = reader.GetString(3);
-                DateTime ngaysinh = reader.GetDateTime(4);
-                string mtk = reader.GetString(5);
-                khachhangdto kh = new khachhangdto(mkh, name, sdt, email, ngaysinh, mtk);
+                String mkh = (string)reader["MaKH"];
+                String name = (string)reader["HoTen"];
+                String sdt = (String)reader["SDT"];
+                String email = (string)reader["Email"];
+                String gioitinh = (string)reader["GioiTinh"];
+                DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
+                string user = (string)reader["Username"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
                 ds.Add(kh);
             }
             reader.Close();
@@ -132,13 +135,13 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mkh = reader.GetString(0);
-                String name = reader.GetString(1);
-                String sdtt = reader.GetString(2);
-                String email = reader.GetString(3);
-                DateTime ngaysinh = reader.GetDateTime(4);
-                string mtk = reader.GetString(5);
-                khachhangdto kh = new khachhangdto(mkh, name, sdtt, email, ngaysinh,mtk );
+                String mkh = (string)reader["MaKH"];
+                String name = (string)reader["HoTen"];
+                String email = (string)reader["Email"];
+                String gioitinh = (string)reader["GioiTinh"];
+                DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
+                string user = (string)reader["Username"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
                 ds.Add(kh);
             }
             reader.Close();
@@ -157,13 +160,13 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mkh = reader.GetString(0);
-                String name = reader.GetString(1);
-                String sdt = reader.GetString(2);
-                String emaill = reader.GetString(3);
-                DateTime ngaysinh = reader.GetDateTime(4);
-                string mtk = reader.GetString(5);
-                khachhangdto kh = new khachhangdto(mkh, name, sdt, emaill, ngaysinh, mtk);
+                String mkh = (string)reader["MaKH"];
+                String name = (string)reader["HoTen"];
+                String sdt = (String)reader["SDT"];
+                String gioitinh = (string)reader["GioiTinh"];
+                DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
+                string user = (string)reader["Username"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
                 ds.Add(kh);
             }
             reader.Close();
@@ -182,13 +185,14 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mkh = reader.GetString(0);
-                String name = reader.GetString(1);
-                String sdt = reader.GetString(2);
-                String email = reader.GetString(3);
-                DateTime ngaysinhh = reader.GetDateTime(4);
-                string mtk = reader.GetString(5);
-                khachhangdto kh = new khachhangdto(mkh, name, sdt, email, ngaysinhh, mtk);
+                String mkh = (string)reader["MaKH"];
+                String name = (string)reader["HoTen"];
+                String sdt = (String)reader["SDT"];
+                String email = (string)reader["Email"];
+                String gioitinh = (string)reader["GioiTinh"];
+                DateTime ngaysinh1 = (DateTime)reader["Ngaysinh"];
+                string user = (string)reader["Username"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh1, user);
                 ds.Add(kh);
             }
             reader.Close();
@@ -207,13 +211,14 @@ namespace Doanqlchdt.DAO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mkh = reader.GetString(0);
-                String name = reader.GetString(1);
-                String sdt = reader.GetString(2);
-                String email = reader.GetString(3);
-                DateTime ngaysinh = reader.GetDateTime(4);
-                string mtk = reader.GetString(5);
-                khachhangdto kh = new khachhangdto(mkh, name, sdt, email, ngaysinh, mtk);
+                String mkh = (string)reader["MaKH"];
+                String name = (string)reader["HoTen"];
+                String sdt = (String)reader["SDT"];
+                String email = (string)reader["Email"];
+                String gioitinh = (string)reader["GioiTinh"];
+                DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
+                string user = (string)reader["Username"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
                 ds.Add(kh);
             }
             reader.Close();
@@ -232,12 +237,14 @@ namespace Doanqlchdt.DAO
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    string tenKH = (String)reader["HoTen"];
-                    string email = (String)reader["Email"];
-                    string sdt = (String)reader["SDT"];
-                    DateTime ngaysinh = (DateTime)reader["NgaySinh"];
-                    string username= (String)reader["Username"];
-                    kh = new khachhangdto(id,tenKH,email,sdt,ngaysinh,username);
+                    String mkh = (string)reader["MaKH"];
+                    String name = (string)reader["HoTen"];
+                    String sdt = (String)reader["SDT"];
+                    String email = (string)reader["Email"];
+                    String gioitinh = (string)reader["GioiTinh"];
+                    DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
+                    string user = (string)reader["Username"];
+                    kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
                 }
             }
             return kh;
