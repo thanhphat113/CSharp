@@ -75,6 +75,8 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.ImagesList = new System.Windows.Forms.ImageList(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
@@ -93,12 +95,11 @@
             this.btGiam = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btTang = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtSale = new System.Windows.Forms.TextBox();
             this.lbSum = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             txtDecription = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -200,6 +201,7 @@
             this.label15.Size = new System.Drawing.Size(125, 19);
             this.label15.TabIndex = 3;
             this.label15.Text = "[Lịch sử mua hàng]";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label14
             // 
@@ -682,6 +684,23 @@
             this.panel14.Size = new System.Drawing.Size(566, 446);
             this.panel14.TabIndex = 3;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(282, 117);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(160, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // listView2
             // 
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -865,6 +884,7 @@
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.button3);
             this.panel9.Controls.Add(this.label18);
             this.panel9.Controls.Add(this.txtSale);
             this.panel9.Controls.Add(this.lbSum);
@@ -875,11 +895,21 @@
             this.panel9.Size = new System.Drawing.Size(368, 30);
             this.panel9.TabIndex = 5;
             // 
+            // button3
+            // 
+            this.button3.Image = global::Doanqlchdt.Properties.Resources.check_mark__1_;
+            this.button3.Location = new System.Drawing.Point(164, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(22, 23);
+            this.button3.TabIndex = 5;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // label18
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(22, 8);
+            this.label18.Location = new System.Drawing.Point(3, 8);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(47, 13);
             this.label18.TabIndex = 4;
@@ -888,9 +918,9 @@
             // txtSale
             // 
             this.txtSale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSale.Location = new System.Drawing.Point(75, 5);
+            this.txtSale.Location = new System.Drawing.Point(56, 5);
             this.txtSale.Name = "txtSale";
-            this.txtSale.Size = new System.Drawing.Size(125, 20);
+            this.txtSale.Size = new System.Drawing.Size(102, 20);
             this.txtSale.TabIndex = 3;
             // 
             // lbSum
@@ -910,23 +940,6 @@
             this.label17.Size = new System.Drawing.Size(58, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "Tổng tiền: ";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(199, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(299, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
             // 
             // UserGui
             // 
@@ -1043,7 +1056,8 @@
         private System.Windows.Forms.Button btAccept;
         private System.Windows.Forms.TextBox txtSale;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }

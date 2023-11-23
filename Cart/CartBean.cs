@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,11 @@ namespace Doanqlchdt.Cart
 {
     public class CartBean:Dictionary<String,addToCart>
     {
+        public Boolean checkCart(CartBean shop)
+        {
+            if (shop != null) return true;
+            return false;
+        }
         public void addSanPham(addToCart sp)
         {
             string key = sp.Sanpham.Masp;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Doanqlchdt.connect;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,40 +14,44 @@ namespace Doanqlchdt.DTO
         public chitietdonbandao()
         {
         }
-        public ArrayList getds()
+
+
+        public List<chitietdonbandto> findByCondition(string id)
         {
-            ArrayList ds = new System.Collections.ArrayList();
-            connect.connect cn = new connect.connect();
-            SqlConnection connect = cn.connection();
-            SqlCommand sqlcommand = new SqlCommand();
-            sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "select * from ChiTietDonBan";
-            sqlcommand.Connection = connect;
-            SqlDataReader reader = sqlcommand.ExecuteReader();
-            while (reader.Read())
+            List<chitietdonbandto> list = new List<chitietdonbandto>();
+            using (SqlConnection conn = new connectToan().connection())
             {
-                String mhdb = reader.GetString(0);
-                String masp = reader.GetString(1);
-                int dongia = reader.GetInt32(2);
-                int soluong = reader.GetInt32(3);
-                int tongtien = reader.GetInt32(4);
-                chitietdonbandto ctdbdto=new chitietdonbandto(mhdb,masp,dongia,soluong,tongtien);
-                ds.Add(ctdbdto);
+                string query = "select sp.TenSP,sp.GiaBan,ct.SoLuong,ct.TongTien,hd.NgayTao,hd.TongTien as Tong \r\nfrom ChiTietDonban ct join SanPham sp on ct.MaSP=sp.MaSP  join HoaDonBan hd on hd.MaHDB=ct.MaHDB\r\nwhere ct.MaHDB=@id";
+                SqlCommand cmd=new SqlCommand(query,conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string tenSP = (string)reader["TenSP"];
+                    int gia = (int)reader["GiaBan"];
+                    int soluong = (int)reader["SoLuong"];
+                    int tong = (int)reader["TongTien"];
+                    DateTime ngay= (DateTime)reader["NgayTao"];
+                    double Tongtien = (double)reader["Tong"];
+                    chitietdonbandto ct = new chitietdonbandto(tenSP, gia, soluong, tong, ngay,Tongtien);
+                    list.Add(ct);
+                }      
             }
-            reader.Close();
-            connect.Close();
-            return ds;
+            return list;
         }
-        public int insert(chitietdonbandto ctdbdto)
+        public void insert(chitietdonbandto ctdbdto)
         {
-            connect.connect cn = new connect.connect();
-            SqlCommand sqlcommand = new SqlCommand();
-            sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "insert into ChiTietDonBan values(N'" + ctdbdto.Mahdb + "',N'" + ctdbdto.Masp + "','" + ctdbdto.Dongia + "','" + ctdbdto.Soluong + "','" + ctdbdto.Tongtien + "')";
-            SqlConnection connect = cn.connection();
-            int kq = sqlcommand.ExecuteNonQuery();
-            connect.Close();
-            return kq;
+            using(SqlConnection conn=new connectToan().connection())
+            {
+                string query = "insert into ChiTietDonBan values(@maHDB,@maSP,@gia,@soluong,@tong)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@maHDB", ctdbdto.Mahdb);
+                cmd.Parameters.AddWithValue("@maSP", ctdbdto.Masp);
+                cmd.Parameters.AddWithValue("@gia", ctdbdto.Dongia);
+                cmd.Parameters.AddWithValue("@soluong", ctdbdto.Soluong);
+                cmd.Parameters.AddWithValue("@tong", ctdbdto.Tongtien);
+                cmd.ExecuteNonQuery();
+            }
         }
         public int update(chitietdonbandto ctdbdto)
         {

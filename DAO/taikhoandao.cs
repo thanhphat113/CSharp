@@ -204,12 +204,14 @@ namespace Doanqlchdt.DAO
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    String maKH = (string)reader["MaKH"];
-                    String TenKH = (string)reader["HoTen"];
-                    String sdt = (string)reader["SDT"];
+                    String mkh = (string)reader["MaKH"];
+                    String name = (string)reader["HoTen"];
+                    String sdt = (String)reader["SDT"];
                     String email = (string)reader["Email"];
+                    String gioitinh = (string)reader["GioiTinh"];
                     DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
-                    kh = new khachhangdto(maKH, TenKH, sdt, email, ngaysinh, username);
+                    string user = (string)reader["Username"];
+                    kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
                 }
             }
             return kh;

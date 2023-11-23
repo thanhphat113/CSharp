@@ -21,22 +21,25 @@ namespace Doanqlchdt.GUI
             InitializeImageList();
             listView2.SelectedIndexChanged += listView2_SelectedIndexChanged;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            lbName.Text ="Xin chào, "+ kh.Hoten;
-            this.kh= kh;
-            lbSum.Text = TongTien.ToString()+" vnđ";
+            dataGridView1.RowsAdded += dataGridView1_RowsAdded;
+            dataGridView1.RowsRemoved += dataGridView1_RowsRemoved;
+            lbName.Text = "Xin chào, " + kh.Hoten;
+            button3.Enabled = false;
+            this.kh = kh;
+            lbSum.Text = TongTien.ToString() + " vnđ";
         }
 
         public void updateMoney()
         {
-            if (shop!=null)
+            if (shop != null)
             {
                 this.TongTien = 0;
-                foreach(var item in shop.Values)
+                foreach (var item in shop.Values)
                 {
                     this.TongTien += item.Quantity * item.Sanpham.Giaban;
                 }
             }
-            lbSum.Text = TongTien.ToString("#,##0")+" vnđ";
+            lbSum.Text = TongTien.ToString("#,##0") + " vnđ";
         }
 
         public void InitializeImageList()
@@ -85,7 +88,7 @@ namespace Doanqlchdt.GUI
                 txtStyle.Text = sp.Maloai;
                 txtInfor.Text = sp.Mota;
                 txtQuan.Text = sp.Soluong.ToString();
-                if (sp.Soluong > 0 )
+                if (sp.Soluong > 0)
                 {
                     txtStatus.Text = "Còn hàng";
                     btAddCart.Enabled = true;
@@ -184,6 +187,7 @@ namespace Doanqlchdt.GUI
                 updateMoney();
             }
             else MessageBox.Show("Vui lòng chọn sản phẩm");
+            button3.Enabled = true;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -260,17 +264,29 @@ namespace Doanqlchdt.GUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void UpdateButtonState()
         {
-            
-            
+            // Kiểm tra xem TextBox có giá trị null hoặc rỗng không
+            bool isTextBoxNullOrEmpty = dataGridView1.RowCount > 0;
+
+            // Cập nhật trạng thái của nút dựa trên điều kiện
+            button3.Enabled = isTextBoxNullOrEmpty;
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            UpdateButtonState();
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            UpdateButtonState();
         }
 
 
         private void label14_Click(object sender, EventArgs e)
         {
-            khachhangdto kh1 = new khachhangdao().findByID(kh.Mkh);
-            DoiThongTinKH change= new DoiThongTinKH(kh1);
+            DoiThongTinKH change = new DoiThongTinKH(kh);
             change.ShowDialog();
         }
 
@@ -289,16 +305,29 @@ namespace Doanqlchdt.GUI
         {
             shop = new CartBean();
             UpdateDataGridView();
+            button3.Enabled = true;
+            txtSale.Text = null;
+            UpdateButtonState();
+            lbSum.Text = "0vnđ";
+            txtSale.ReadOnly = false;
         }
 
         private void btAccept_Click_1(object sender, EventArgs e)
         {
+            int stt = new hoadonbandao().getSTT();
             try
             {
-                if (new sanphamdao().updateQuantity(shop))
+                if (new hoadonbandao().insert(shop,stt, kh.Mkh, txtSale.Text, TongTien))
                 {
-                    new hoadonbandao().insert(kh.Mkh, txtSale.Text, TongTien);
-                    MessageBox.Show("Đặt đơn hàng thành công");
+                    if (new sanphamdao().updateQuantity(shop))
+                    {
+                        
+                        MessageBox.Show("Đặt đơn hàng thành công");
+                        if(!string.IsNullOrEmpty(txtSale.Text)) new khuyenmaidao().updateTrangthai(kh.Mkh, txtSale.Text);
+                        lbSum.Text = "";
+                        txtSale.Text = "";
+                        txtSale.ReadOnly = false;
+                    }
                 }
                 else MessageBox.Show("Giỏ hàng rỗng");
             }
@@ -306,15 +335,39 @@ namespace Doanqlchdt.GUI
             {
                 MessageBox.Show("Lỗi:" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             shop = new CartBean();
             UpdateDataGridView();
             reset();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+
+
+        private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "HD" + new hoadonbandao().getSTT() + 15;
+            if (!string.IsNullOrWhiteSpace(txtSale.Text))
+            {
+                if (new khuyenmaidao().checkKM(kh.Mkh, txtSale.Text))
+                {
+                    lbSum.Text = (TongTien * new khuyenmaidao().getTiLe(txtSale.Text)).ToString("#,##0")+"vnđ";
+                    MessageBox.Show("Áp dụng mã thành công");
+                    button3.Enabled = false;
+                    txtSale.ReadOnly = true;
+                }
+                else MessageBox.Show("Bạn đã sử dụng mã này hoặc mã không tồn tại !!! ");
+            }
+            else MessageBox.Show("Hãy điền mà khuyến mãi");
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            XemLichSu check = new XemLichSu(kh);
+            check.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = kh.Gioitinh;
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Doanqlchdt.DTO
                 string query = "SELECT * FROM SanPham";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 SqlDataReader reader = cmd.ExecuteReader();
-
                 while (reader.Read())
                 {
                     String msp = reader.GetString(0);
