@@ -364,11 +364,6 @@ namespace Doanqlchdt.GUI
             XemLichSu check = new XemLichSu(kh);
             check.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = kh.Gioitinh;
-        }
     }
 }
 

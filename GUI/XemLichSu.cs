@@ -45,7 +45,6 @@ namespace Doanqlchdt.GUI
             if (e.ColumnIndex == choise && e.RowIndex >= 0)
             {
                 string maSP = dataGridView1.Rows[e.RowIndex].Cells["maHD"].Value.ToString();
-                label2.Text = maSP;
                 ChiTiet form = new ChiTiet(maSP);
                 form.Show();
             }

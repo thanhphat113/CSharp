@@ -36,7 +36,6 @@
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.check = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -60,7 +59,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -98,6 +96,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(344, 364);
             this.dataGridView1.TabIndex = 1;
+
             // 
             // maHD
             // 
@@ -121,15 +120,6 @@
             this.check.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.check.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.check.Width = 41;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
             // 
             // XemLichSu
             // 
@@ -161,6 +151,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sum;
         private System.Windows.Forms.DataGridViewButtonColumn check;
-        private System.Windows.Forms.Label label2;
     }
 }

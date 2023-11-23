@@ -198,7 +198,7 @@ namespace Doanqlchdt.DAO
             khachhangdto kh = new khachhangdto();
             using (SqlConnection conn = new connectToan().connection())
             {
-                string query = "select * from TaiKhoan tk join KhachHang kh on tk.Username=kh.Username where tk.Username=@user";
+                string query = "select * from TaiKhoan tk join KhachHang kh on tk.UserID=kh.MaTK where tk.Username=@user";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@user", username);
                 SqlDataReader reader = cmd.ExecuteReader();

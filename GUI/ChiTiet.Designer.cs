@@ -81,6 +81,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(403, 301);
             this.dataGridView1.TabIndex = 1;
+          
             // 
             // masp
             // 

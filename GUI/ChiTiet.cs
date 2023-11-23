@@ -30,12 +30,10 @@ namespace Doanqlchdt.GUI
                 string a = item.Dongia.ToString("#,##0");
                 dataGridView1.Rows[rowIndex].Cells["gia"].Value = a;
                 dataGridView1.Rows[rowIndex].Cells["soluong"].Value = item.Soluong;
-                dataGridView1.Rows[rowIndex].Cells["tong"].Value = item.Tongtien;
+                dataGridView1.Rows[rowIndex].Cells["tong"].Value = item.Tongtien.ToString("#,##0");
                 lbDate.Text = item.Ngay.ToString("dd/MM/yyyy HH:mm:ss");
                 label3.Text = item.Tong1.ToString("#,##0") + "vnđ";
             }
         }
-
-
     }
 }

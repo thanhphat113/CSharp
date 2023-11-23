@@ -75,8 +75,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.ImagesList = new System.Windows.Forms.ImageList(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
@@ -675,31 +673,12 @@
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.textBox1);
-            this.panel14.Controls.Add(this.button1);
             this.panel14.Controls.Add(this.listView2);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(4, 114);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(566, 446);
             this.panel14.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(282, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(160, 117);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listView2
             // 
@@ -974,7 +953,6 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
@@ -1056,8 +1034,6 @@
         private System.Windows.Forms.Button btAccept;
         private System.Windows.Forms.TextBox txtSale;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
     }
 }
