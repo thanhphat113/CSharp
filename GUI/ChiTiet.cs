@@ -23,6 +23,8 @@ namespace Doanqlchdt.GUI
 
         public void UpdateDataGridView()
         {
+            double Tong = 0;
+            double tienThu = 0;
             foreach (var item in new chitietdonbandao().findByCondition(maHD))
             {
                 int rowIndex = dataGridView1.Rows.Add();
@@ -31,9 +33,15 @@ namespace Doanqlchdt.GUI
                 dataGridView1.Rows[rowIndex].Cells["gia"].Value = a;
                 dataGridView1.Rows[rowIndex].Cells["soluong"].Value = item.Soluong;
                 dataGridView1.Rows[rowIndex].Cells["tong"].Value = item.Tongtien.ToString("#,##0");
+                Tong += item.Tongtien;
                 lbDate.Text = item.Ngay.ToString("dd/MM/yyyy HH:mm:ss");
-                label3.Text = item.Tong1.ToString("#,##0") + "vnđ";
+                label5.Text = item.MaKM1;
+                tienThu = item.Tong1;
             }
+            label7.Text = Tong.ToString("#,##0")+"vnđ";
+            label8.Text ="- "+ (Tong-tienThu).ToString("#,##0") + "vnđ";
+            label3.Text = tienThu.ToString("#,##0") + "vnđ";
         }
+
     }
 }

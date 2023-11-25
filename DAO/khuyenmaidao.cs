@@ -15,18 +15,18 @@ namespace Doanqlchdt.DTO
             int a = 0;
             using(SqlConnection conn = new connectToan().connection())
             {
-                string query = "select * from SuDungKM where MaKH=@makh and MaKM=@makm";
+                string query = "SELECT * FROM SuDungKM WHERE MaKH = @makh AND MaKM COLLATE SQL_Latin1_General_CP1_CS_AS = @makm;";
                 SqlCommand cmd=new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@makh",makh);
                 cmd.Parameters.AddWithValue("@makm", makm);
                 SqlDataReader reader= cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    a = (int)reader["trangthai"];
+                    a = 1;
                 }
                 else return false;
             }
-            if(a==0) return true; 
+            if(a==1) return true; 
             return false;
         }
         public double getTiLe(string id)
@@ -50,7 +50,7 @@ namespace Doanqlchdt.DTO
         {
             using (SqlConnection conn = new connectToan().connection())
             {
-                string query = "update SuDungKM set trangthai = '1' where MaKH=@makh and MaKM=@makm";
+                string query = "delete from SuDungKM where MaKM=@makm and MaKH=@makh";
                 SqlCommand cmd=new SqlCommand  (query, conn);
                 cmd.Parameters.AddWithValue("@makh", makh);
                 cmd.Parameters.AddWithValue("@makm", makm);

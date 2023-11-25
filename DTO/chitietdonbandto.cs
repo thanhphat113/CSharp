@@ -16,8 +16,9 @@ namespace Doanqlchdt.DTO
         private int soluong;
         private int tongtien;
         DateTime ngay;
+        private String MaKM;
 
-        public chitietdonbandto(string tensp, double dongia, int soluong,int tongtien,DateTime ngay,double Tong)
+        public chitietdonbandto(string tensp, double dongia, int soluong,int tongtien,DateTime ngay,double Tong,string makm)
         {
             this.Tensp = tensp;
             this.dongia = dongia;
@@ -25,6 +26,7 @@ namespace Doanqlchdt.DTO
             this.tongtien  = tongtien;
             this.Ngay=ngay;
             this.Tong=Tong;
+            this.MaKM = makm;
         }
         public chitietdonbandto(string mahdb, string masp, int dongia, int soluong, int tongtien)
         {
@@ -44,5 +46,6 @@ namespace Doanqlchdt.DTO
         public string Tensp { get => tensp; set => tensp = value; }
         public DateTime Ngay { get => ngay; set => ngay = value; }
         public double Tong1 { get => Tong; set => Tong = value; }
+        public string MaKM1 { get => MaKM; set => MaKM = value; }
     }
 }

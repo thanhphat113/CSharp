@@ -210,20 +210,21 @@ namespace Doanqlchdt.DAO
                     String email = (string)reader["Email"];
                     String gioitinh = (string)reader["GioiTinh"];
                     DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
-                    string user = (string)reader["Username"];
-                    kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
+                    int user = (int)reader["MaTK"];
+                    int trangthai = (int)reader["TinhTrang"];
+                    kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user, trangthai);
                 }
             }
             return kh;
         }
 
-        public Boolean changePW(string id, string pass)
+        public Boolean changePW(int id, string pass)
         {
             if (id != null)
             {
                 using (SqlConnection conn = new connectToan().connection())
                 {
-                    string query = "Update TaiKhoan set MatKhau=@pass where Username=@id";
+                    string query = "Update TaiKhoan set MatKhau=@pass where UserID=@id";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.Parameters.AddWithValue("@pass", pass);
@@ -234,12 +235,12 @@ namespace Doanqlchdt.DAO
             return false;
         }
 
-        public Boolean checkOldPass(string id,String oldPass)
+        public Boolean checkOldPass(int id,String oldPass)
         {
             string a=null;
             using (SqlConnection conn = new connectToan().connection())
             {
-                string query = "select MatKhau from TaiKhoan where Username=@id";
+                string query = "select MatKhau from TaiKhoan where UserID=@id";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader= cmd.ExecuteReader();

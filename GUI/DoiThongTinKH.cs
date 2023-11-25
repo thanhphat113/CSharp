@@ -40,7 +40,7 @@ namespace Doanqlchdt.GUI
             string sdt = textBox2.Text;
             string email = textBox3.Text;
             DateTime date = dateTimePicker1.Value;
-            khachhangdto kh=new khachhangdto(cus.Mkh,name,gioitinh,sdt,email,dateTimePicker1.Value,cus.Username);
+            khachhangdto kh=new khachhangdto(cus.Mkh,name,gioitinh,sdt,email,dateTimePicker1.Value,cus.MaTK,1);
             if (new khachhangdao().update(kh)) MessageBox.Show("Đã thay đổi thông tin thành công");
             else MessageBox.Show("Thay đổi thất bại!");
 

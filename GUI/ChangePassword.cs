@@ -30,12 +30,12 @@ namespace Doanqlchdt.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             string oldPass=textBox1.Text;
-            if (new taikhoandao().checkOldPass(acc.Username, oldPass))
+            if (new taikhoandao().checkOldPass(acc.MaTK, oldPass))
             {
                 string newPass = textBox2.Text;
                 if (!string.IsNullOrWhiteSpace(newPass))
                 {
-                    if (new taikhoandao().changePW(acc.Username, newPass)) MessageBox.Show("Đổi mật khẩu thành công");
+                    if (new taikhoandao().changePW(acc.MaTK, newPass)) MessageBox.Show("Đổi mật khẩu thành công");
                 }
                 else MessageBox.Show("Vui lòng nhập mật khẩu mới");
             }

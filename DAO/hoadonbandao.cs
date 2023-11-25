@@ -56,7 +56,7 @@ namespace Doanqlchdt.DTO
             return (stt + 1);
         }
 
-        public Boolean insert(CartBean shop, int stt, string maKH, string maKM, int tong)
+        public Boolean insert(CartBean shop, int stt, string maKH, string maKM, double tong)
         {
             string maHD ="HD"+ stt;
             try

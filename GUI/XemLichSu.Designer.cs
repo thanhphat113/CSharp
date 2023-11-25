@@ -96,7 +96,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(344, 364);
             this.dataGridView1.TabIndex = 1;
-
+          
             // 
             // maHD
             // 

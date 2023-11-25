@@ -14,7 +14,10 @@ namespace Doanqlchdt.GUI
     {
         private CartBean shop;
         private khachhangdto kh;
-        private int TongTien = 0;
+        private double TongTien = 0;
+        private XemLichSu check;
+        private DoiThongTinKH change;
+        private ChangePassword changePW;
         public UserGui(khachhangdto kh)
         {
             InitializeComponent();
@@ -286,8 +289,15 @@ namespace Doanqlchdt.GUI
 
         private void label14_Click(object sender, EventArgs e)
         {
-            DoiThongTinKH change = new DoiThongTinKH(kh);
-            change.ShowDialog();
+            if (change == null || change.IsDisposed)
+            {
+                change = new DoiThongTinKH(kh);
+                change.Show();
+            }
+            else
+            {
+                change.BringToFront();
+            }
         }
 
         private void label16_Click(object sender, EventArgs e)
@@ -297,8 +307,15 @@ namespace Doanqlchdt.GUI
 
         private void label13_Click_1(object sender, EventArgs e)
         {
-            ChangePassword change = new ChangePassword(kh);
-            change.Show();
+            if (changePW == null || changePW.IsDisposed)
+            {
+                changePW = new ChangePassword(kh);
+                changePW.Show();
+            }
+            else
+            {
+                changePW.BringToFront();
+            }
         }
 
         private void btDelete_Click(object sender, EventArgs e)
@@ -350,6 +367,7 @@ namespace Doanqlchdt.GUI
                 if (new khuyenmaidao().checkKM(kh.Mkh, txtSale.Text))
                 {
                     lbSum.Text = (TongTien * new khuyenmaidao().getTiLe(txtSale.Text)).ToString("#,##0")+"vnđ";
+                    TongTien *= new khuyenmaidao().getTiLe(txtSale.Text);
                     MessageBox.Show("Áp dụng mã thành công");
                     button3.Enabled = false;
                     txtSale.ReadOnly = true;
@@ -361,8 +379,16 @@ namespace Doanqlchdt.GUI
 
         private void label15_Click(object sender, EventArgs e)
         {
-            XemLichSu check = new XemLichSu(kh);
-            check.Show();
+            if (check == null || check.IsDisposed)
+            {
+                check = new XemLichSu(kh);
+                check.Show();
+            }
+            else
+            {
+                check.BringToFront();
+            }
+
         }
     }
 }

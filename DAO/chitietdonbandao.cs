@@ -21,7 +21,7 @@ namespace Doanqlchdt.DTO
             List<chitietdonbandto> list = new List<chitietdonbandto>();
             using (SqlConnection conn = new connectToan().connection())
             {
-                string query = "select sp.TenSP,sp.GiaBan,ct.SoLuong,ct.TongTien,hd.NgayTao,hd.TongTien as Tong \r\nfrom ChiTietDonban ct join SanPham sp on ct.MaSP=sp.MaSP  join HoaDonBan hd on hd.MaHDB=ct.MaHDB\r\nwhere ct.MaHDB=@id";
+                string query = "select sp.TenSP,sp.GiaBan,ct.SoLuong,ct.TongTien,hd.NgayTao,hd.TongTien as Tong,hd.MaKM \r\nfrom ChiTietDonban ct join SanPham sp on ct.MaSP=sp.MaSP  join HoaDonBan hd on hd.MaHDB=ct.MaHDB\r\nwhere ct.MaHDB=@id";
                 SqlCommand cmd=new SqlCommand(query,conn);
                 cmd.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -33,7 +33,8 @@ namespace Doanqlchdt.DTO
                     int tong = (int)reader["TongTien"];
                     DateTime ngay= (DateTime)reader["NgayTao"];
                     double Tongtien = (double)reader["Tong"];
-                    chitietdonbandto ct = new chitietdonbandto(tenSP, gia, soluong, tong, ngay,Tongtien);
+                    string makm = (string)reader["MaKM"];
+                    chitietdonbandto ct = new chitietdonbandto(tenSP, gia, soluong, tong, ngay,Tongtien,makm);
                     list.Add(ct);
                 }      
             }

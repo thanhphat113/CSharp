@@ -32,8 +32,9 @@ namespace Doanqlchdt.DAO
                 String email=(string)reader["Email"];
                 String gioitinh = (string)reader["GioiTinh"];
                 DateTime ngaysinh= (DateTime)reader["Ngaysinh"];
-                string user = (string)reader["Username"];
-                khachhangdto kh=new khachhangdto(mkh,name,gioitinh,sdt,email,ngaysinh,user);
+                int user = (int)reader["MaTK"];
+                int trangthai = (int)reader["TinhTrang"];
+                khachhangdto kh=new khachhangdto(mkh,name,gioitinh,sdt,email,ngaysinh,user,trangthai);
                 ds.Add(kh);
             }
             reader.Close();
@@ -45,7 +46,7 @@ namespace Doanqlchdt.DAO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "insert into KhachHang values(N'" + khdto.Mkh + "',N'" + khdto.Hoten + "',N'" + khdto.Sdt + "',N'" + khdto.Email + "','" + khdto.Ngaysinh + "','"+khdto.Username+"')";
+            sqlcommand.CommandText = "insert into KhachHang values(N'" + khdto.Mkh + "',N'" + khdto.Hoten + "',N'" + khdto.Sdt + "',N'" + khdto.Email + "','" + khdto.Ngaysinh + "','"+khdto.MaTK+"','"+khdto.Trangthai+"')";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
@@ -88,8 +89,9 @@ namespace Doanqlchdt.DAO
                 String email = (string)reader["Email"];
                 String gioitinh = (string)reader["GioiTinh"];
                 DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
-                string user = (string)reader["Username"];
-                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
+                int user = (int)reader["MaTK"];
+                int trangthai = (int)reader["TinhTrang"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user, trangthai);
                 ds.Add(kh);
             }
             reader.Close();
@@ -114,8 +116,9 @@ namespace Doanqlchdt.DAO
                 String email = (string)reader["Email"];
                 String gioitinh = (string)reader["GioiTinh"];
                 DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
-                string user = (string)reader["Username"];
-                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
+                int user = (int)reader["MaTK"];
+                int trangthai = (int)reader["TinhTrang"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user, trangthai);
                 ds.Add(kh);
             }
             reader.Close();
@@ -140,8 +143,9 @@ namespace Doanqlchdt.DAO
                 String email = (string)reader["Email"];
                 String gioitinh = (string)reader["GioiTinh"];
                 DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
-                string user = (string)reader["Username"];
-                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
+                int user = (int)reader["MaTK"];
+                int trangthai = (int)reader["TinhTrang"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user, trangthai);
                 ds.Add(kh);
             }
             reader.Close();
@@ -165,8 +169,9 @@ namespace Doanqlchdt.DAO
                 String sdt = (String)reader["SDT"];
                 String gioitinh = (string)reader["GioiTinh"];
                 DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
-                string user = (string)reader["Username"];
-                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
+                int user = (int)reader["MaTK"];
+                int trangthai = (int)reader["TinhTrang"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user, trangthai);
                 ds.Add(kh);
             }
             reader.Close();
@@ -190,9 +195,9 @@ namespace Doanqlchdt.DAO
                 String sdt = (String)reader["SDT"];
                 String email = (string)reader["Email"];
                 String gioitinh = (string)reader["GioiTinh"];
-                DateTime ngaysinh1 = (DateTime)reader["Ngaysinh"];
-                string user = (string)reader["Username"];
-                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh1, user);
+                int user = (int)reader["MaTK"];
+                int trangthai = (int)reader["TinhTrang"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user, trangthai);
                 ds.Add(kh);
             }
             reader.Close();
@@ -217,8 +222,9 @@ namespace Doanqlchdt.DAO
                 String email = (string)reader["Email"];
                 String gioitinh = (string)reader["GioiTinh"];
                 DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
-                string user = (string)reader["Username"];
-                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
+                int user = (int)reader["MaTK"];
+                int trangthai = (int)reader["TinhTrang"];
+                khachhangdto kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user, trangthai);
                 ds.Add(kh);
             }
             reader.Close();
@@ -243,8 +249,9 @@ namespace Doanqlchdt.DAO
                     String email = (string)reader["Email"];
                     String gioitinh = (string)reader["GioiTinh"];
                     DateTime ngaysinh = (DateTime)reader["Ngaysinh"];
-                    string user = (string)reader["Username"];
-                    kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user);
+                    int user = (int)reader["MaTK"];
+                    int trangthai = (int)reader["TinhTrang"];
+                    kh = new khachhangdto(mkh, name, gioitinh, sdt, email, ngaysinh, user, trangthai);
                 }
             }
             return kh;
