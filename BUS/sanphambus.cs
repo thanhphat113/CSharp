@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -22,6 +23,10 @@ namespace Doanqlchdt.DTO
         public int themsp(sanphamdto spdto)
         {
             return dao.themsanpham(spdto);
+        }
+        public ArrayList getdsfrompage(int ofset,int record)
+        {
+            return dao.getdsformpage(ofset,record);
         }
     }
 }

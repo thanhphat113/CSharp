@@ -33,13 +33,14 @@ namespace Doanqlchdt.GUI
         private Boolean temppage = true;
         private Boolean side =false;
         private int totalpage = 0;
+        private static int record = 23;
+        private static int temp = 1;
+        private static int ofset = (temp - 1) * record;
         private String tenlcsx = "";
         private String loaisx = "";
         private String tempsx = "";
         private String temploaisx = "";
-        private static int record=23;
-        private static int temp = 1;
-        private static int ofset = (temp - 1) * record;
+       
         private String ketquatim = "";
         private String ten = "";
         private int totalpageorder = 0;
