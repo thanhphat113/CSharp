@@ -75,6 +75,7 @@
     <Compile Include="BUS\taikhoanbus.cs" />
     <Compile Include="connect\connect.cs" />
     <Compile Include="connect\connectToan.cs" />
+    <Compile Include="connect\Database.cs" />
     <Compile Include="DAO\chitietdonbandao.cs" />
     <Compile Include="DAO\chitietdonnhapdao.cs" />
     <Compile Include="DAO\TaiKhoanNhanVienDAO.cs" />
@@ -311,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\sanphamgui.resx">
+      <DependentUpon>sanphamgui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\TaiKhoanNhanVien.resx">
       <DependentUpon>TaiKhoanNhanVien.cs</DependentUpon>

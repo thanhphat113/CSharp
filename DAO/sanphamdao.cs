@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using BTCSDLNCTUAN;
 using Doanqlchdt.Cart;
 using Doanqlchdt.connect;
 
@@ -274,6 +276,74 @@ namespace Doanqlchdt.DTO
             return sp;
         }
 
+        public int selectcount()
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+
+            sqlcommand.CommandText = "select count (*) from SanPham ";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = (int)sqlcommand.ExecuteScalar();
+
+            connect.Close();
+            return kq;
+        }
+        public DataTable Layloaisanpham()
+        {
+            Database db=new Database();
+            string strSQL = "Select * from Loaisanpham";
+            DataTable dt = db.Execute(strSQL); return dt;
+        }
+        public int themsanpham(sanphamdto spdto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "insert into SanPham values (@masp,@tensp,@maloai,@gianhap,@giaban,@mota,@hinhanh,@soluong)";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            sqlcommand.Parameters.Add("@masp",spdto.Masp);
+            sqlcommand.Parameters.Add("@tensp",spdto.Tensp);
+            sqlcommand.Parameters.Add("@maloai",spdto.Maloai);
+            sqlcommand.Parameters.Add("@gianhap",spdto.Gianhap);
+            sqlcommand.Parameters.Add("@giaban",spdto.Giaban);
+            sqlcommand.Parameters.Add("@mota",spdto.Mota);
+            sqlcommand.Parameters.Add("@hinhanh",spdto.Hinhanh);
+            sqlcommand.Parameters.Add("@soluong",spdto.Soluong);
+            int kq=sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }   
+        public ArrayList getdsformpage(int ofset, int record)
+        {
+
+            ArrayList ds = new System.Collections.ArrayList();
+            connect.connect cn = new connect.connect();
+            SqlConnection connect = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = string.Format("select * from SanPham ORDER BY MaSP ASC OFFSET {0} ROWS FETCH NEXT {1} ROWS ONLY", ofset, record);
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            while (reader.Read())
+            {
+                String masp=reader.GetString(0);
+                String tensp=reader.GetString(1);
+                String maloai = reader.GetString(2);
+                int gianhap=reader.GetInt32(3);
+                int giaban=reader.GetInt32(4);
+                String mota=reader.GetString(5);
+                byte[] hinhanh = (byte[])reader.GetValue(6);
+                int soluong=reader.GetInt32(7);
+                sanphamdto spdto = new sanphamdto(masp, tensp, maloai, gianhap, giaban, hinhanh, mota, soluong);
+                ds.Add(spdto);
+            }
+            reader.Close();
+            connect.Close();
+            return ds;
+        }
 
     }
 }

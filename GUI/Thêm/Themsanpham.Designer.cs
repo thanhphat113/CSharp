@@ -41,20 +41,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxmota = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textgianhap = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbbtenmaloai = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.buttonminimize = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtgiabanmaloai = new System.Windows.Forms.ComboBox();
-            this.textgianhập = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDownsoluong = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownsoluong)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1tensp
@@ -70,7 +73,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(22, 534);
+            this.label6.Location = new System.Drawing.Point(22, 611);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 25);
@@ -86,7 +89,7 @@
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnHuy.ForeColor = System.Drawing.Color.OrangeRed;
-            this.btnHuy.Location = new System.Drawing.Point(317, 701);
+            this.btnHuy.Location = new System.Drawing.Point(317, 778);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(159, 49);
@@ -103,7 +106,7 @@
             this.btnthem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnthem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnthem.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnthem.Location = new System.Drawing.Point(94, 701);
+            this.btnthem.Location = new System.Drawing.Point(94, 778);
             this.btnthem.Margin = new System.Windows.Forms.Padding(4);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(159, 49);
@@ -115,7 +118,7 @@
             // txtgiaban
             // 
             this.txtgiaban.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtgiaban.Location = new System.Drawing.Point(193, 267);
+            this.txtgiaban.Location = new System.Drawing.Point(193, 344);
             this.txtgiaban.Margin = new System.Windows.Forms.Padding(4);
             this.txtgiaban.Name = "txtgiaban";
             this.txtgiaban.Size = new System.Drawing.Size(353, 30);
@@ -130,12 +133,13 @@
             this.txtMasp.Name = "txtMasp";
             this.txtMasp.Size = new System.Drawing.Size(353, 30);
             this.txtMasp.TabIndex = 47;
+            this.txtMasp.TextChanged += new System.EventHandler(this.txtMasp_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(14, 272);
+            this.label3.Location = new System.Drawing.Point(14, 349);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 25);
@@ -183,17 +187,19 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(908, 880);
+            this.panel2.Size = new System.Drawing.Size(908, 933);
             this.panel2.TabIndex = 43;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.numericUpDownsoluong);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.textBoxmota);
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.textgianhập);
+            this.panel3.Controls.Add(this.textgianhap);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtgiabanmaloai);
+            this.panel3.Controls.Add(this.cbbtenmaloai);
             this.panel3.Controls.Add(this.textBox1tensp);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.btnHuy);
@@ -205,11 +211,73 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 56);
+            this.panel3.Location = new System.Drawing.Point(0, 63);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(906, 822);
+            this.panel3.Size = new System.Drawing.Size(906, 868);
             this.panel3.TabIndex = 41;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(660, 41);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 25);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "Ảnh Sản Phẩm";
+            // 
+            // textBoxmota
+            // 
+            this.textBoxmota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxmota.Location = new System.Drawing.Point(194, 460);
+            this.textBoxmota.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxmota.Multiline = true;
+            this.textBoxmota.Name = "textBoxmota";
+            this.textBoxmota.Size = new System.Drawing.Size(353, 272);
+            this.textBoxmota.TabIndex = 63;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(573, 88);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(309, 387);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 62;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // textgianhap
+            // 
+            this.textgianhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textgianhap.Location = new System.Drawing.Point(194, 397);
+            this.textgianhap.Margin = new System.Windows.Forms.Padding(4);
+            this.textgianhap.Name = "textgianhap";
+            this.textgianhap.Size = new System.Drawing.Size(353, 30);
+            this.textgianhap.TabIndex = 61;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(15, 402);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 25);
+            this.label5.TabIndex = 60;
+            this.label5.Text = "Giá nhập";
+            // 
+            // cbbtenmaloai
+            // 
+            this.cbbtenmaloai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbbtenmaloai.FormattingEnabled = true;
+            this.cbbtenmaloai.Location = new System.Drawing.Point(193, 208);
+            this.cbbtenmaloai.Name = "cbbtenmaloai";
+            this.cbbtenmaloai.Size = new System.Drawing.Size(353, 28);
+            this.cbbtenmaloai.TabIndex = 59;
             // 
             // panel1
             // 
@@ -262,83 +330,42 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtgiabanmaloai
+            // numericUpDownsoluong
             // 
-            this.txtgiabanmaloai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtgiabanmaloai.FormattingEnabled = true;
-            this.txtgiabanmaloai.Location = new System.Drawing.Point(193, 208);
-            this.txtgiabanmaloai.Name = "txtgiabanmaloai";
-            this.txtgiabanmaloai.Size = new System.Drawing.Size(353, 28);
-            this.txtgiabanmaloai.TabIndex = 59;
+            this.numericUpDownsoluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.numericUpDownsoluong.Location = new System.Drawing.Point(194, 277);
+            this.numericUpDownsoluong.Name = "numericUpDownsoluong";
+            this.numericUpDownsoluong.Size = new System.Drawing.Size(120, 30);
+            this.numericUpDownsoluong.TabIndex = 65;
             // 
-            // textgianhập
+            // label8
             // 
-            this.textgianhập.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textgianhập.Location = new System.Drawing.Point(194, 320);
-            this.textgianhập.Margin = new System.Windows.Forms.Padding(4);
-            this.textgianhập.Name = "textgianhập";
-            this.textgianhập.Size = new System.Drawing.Size(353, 30);
-            this.textgianhập.TabIndex = 61;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(15, 325);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 25);
-            this.label5.TabIndex = 60;
-            this.label5.Text = "Giá nhập";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(573, 88);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(309, 387);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 62;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(194, 383);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(353, 272);
-            this.textBox1.TabIndex = 63;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(660, 41);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 25);
-            this.label7.TabIndex = 64;
-            this.label7.Text = "Ảnh Sản Phẩm";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(16, 277);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 25);
+            this.label8.TabIndex = 66;
+            this.label8.Text = "Số lượng";
             // 
             // Themsanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 880);
+            this.ClientSize = new System.Drawing.Size(908, 933);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Themsanpham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Themsanpham";
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownsoluong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,11 +388,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button buttonminimize;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox txtgiabanmaloai;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbbtenmaloai;
+        private System.Windows.Forms.TextBox textBoxmota;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textgianhập;
+        private System.Windows.Forms.TextBox textgianhap;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown numericUpDownsoluong;
     }
 }

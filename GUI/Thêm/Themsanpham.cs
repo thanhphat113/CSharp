@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Doanqlchdt.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +14,14 @@ namespace Doanqlchdt.GUI.Thêm
 {
     public partial class Themsanpham : Form
     {
+        private sanphambus spb=new sanphambus();
+        int so = 0;
         public Themsanpham()
         {
             InitializeComponent();
+            so = spb.getcount();
+            txtMasp.Text = kiemtrathemma(so);
+            Hienthiloaisanpham();
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -24,7 +31,26 @@ namespace Doanqlchdt.GUI.Thêm
 
         private void btnthem_Click(object sender, EventArgs e)
         {
+            sanphamdto spdto = new sanphamdto();
 
+            spdto.Masp = txtMasp.Text.Trim();
+            spdto.Tensp=textBox1tensp.Text.Trim();
+            spdto.Gianhap=int.Parse(textgianhap.Text.Trim());
+            spdto.Giaban=int.Parse(txtgiaban.Text.Trim());
+            spdto.Mota=textBoxmota.Text.Trim();
+            spdto.Hinhanh = ImageToByteArray(pictureBox1.Image);
+            spdto.Maloai = cbbtenmaloai.SelectedValue.ToString();
+            decimal numberic = numericUpDownsoluong.Value;
+            spdto.Soluong = Convert.ToInt32(numberic);
+            spb.themsp(spdto);
+
+
+        }
+        byte[] ImageToByteArray(Image img)
+        {
+            MemoryStream m=new MemoryStream();
+            img.Save(m,System.Drawing.Imaging.ImageFormat.Png);
+            return m.ToArray();
         }
         public void mousehover()
         {
@@ -70,6 +96,41 @@ namespace Doanqlchdt.GUI.Thêm
                 pictureBox1.Image=Image.FromFile(open.FileName);
                 this.Text = open.FileName;
             }
+        }
+
+        private void txtMasp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        public String kiemtrathemma(int kiemtra)
+        {
+            String trave = "";
+            if(kiemtra>0)
+            {
+                if(kiemtra<10)
+                {
+                    kiemtra++;
+                    trave = "SP00" + kiemtra;
+                }
+                else if(kiemtra>=10 && kiemtra<100)
+                {
+                    kiemtra++;
+                    trave = "SP0" + kiemtra;
+                }
+                else if (kiemtra >= 100 && kiemtra < 1000)
+                {
+                    kiemtra++;
+                    trave = "SP" + kiemtra;
+                }
+            }
+            return trave;
+        }
+        public void Hienthiloaisanpham()
+        {
+            DataTable dt = spb.gettenloaisp();
+            cbbtenmaloai.DataSource = dt;
+            cbbtenmaloai.DisplayMember = "TenLoai";
+            cbbtenmaloai.ValueMember = "MaLoai";
         }
     }
    

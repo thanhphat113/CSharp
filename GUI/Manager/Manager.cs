@@ -127,9 +127,13 @@ namespace Doanqlchdt.GUI.Manager
 
         private void btnQLNV_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ne");
             ShowFormInPanel(new khachhanggui());
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new sanphamgui());
         }
     }
 }
