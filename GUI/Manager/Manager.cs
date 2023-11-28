@@ -135,5 +135,26 @@ namespace Doanqlchdt.GUI.Manager
         {
             ShowFormInPanel(new sanphamgui());
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new loaisanphamgui());
+        }
+
+
+        private void buttondon_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new donbaohanhgui());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new hoadonbangui());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new hoadonnhapgui());
+        }
     }
 }

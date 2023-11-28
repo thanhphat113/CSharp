@@ -78,9 +78,9 @@
             this.panelsideduoi.Controls.Add(this.panelsidehoadon);
             this.panelsideduoi.Controls.Add(this.buttondon);
             this.panelsideduoi.Controls.Add(this.buttonsidehoadon);
-            this.panelsideduoi.Location = new System.Drawing.Point(3, 453);
+            this.panelsideduoi.Location = new System.Drawing.Point(3, 451);
             this.panelsideduoi.Name = "panelsideduoi";
-            this.panelsideduoi.Size = new System.Drawing.Size(263, 288);
+            this.panelsideduoi.Size = new System.Drawing.Size(263, 290);
             this.panelsideduoi.TabIndex = 13;
             // 
             // panelsidehoadon
@@ -109,6 +109,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Hóa đơn bán";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -125,6 +126,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Hóa đơn nhập";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // buttondon
             // 
@@ -142,6 +144,7 @@
             this.buttondon.TabIndex = 11;
             this.buttondon.Text = "Đơn bảo hành";
             this.buttondon.UseVisualStyleBackColor = false;
+            this.buttondon.Click += new System.EventHandler(this.buttondon_Click);
             // 
             // buttonsidehoadon
             // 
@@ -204,6 +207,7 @@
             this.button7.TabIndex = 9;
             this.button7.Text = "Loại sản phẩm";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
             // 

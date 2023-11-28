@@ -398,5 +398,17 @@ namespace Doanqlchdt.DAO
             return ds;
         }
 
+        public int UpDate(khachhangdto khdto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "update KhachHang set HoTen= N'" + khdto.Hoten + "',SDT= N'" + khdto.Sdt + "' ,Email= N'" + khdto.Email + "',Ngaysinh='" + khdto.Ngaysinh + "' ,MaTK='" + khdto.MaTK + "',GioiTinh='" + khdto.Gioitinh + "'where MaKH='" + khdto.Mkh + "' ";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }
     }
 }

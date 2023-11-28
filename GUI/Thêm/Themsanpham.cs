@@ -1,5 +1,7 @@
 ﻿using Doanqlchdt.DTO;
+using Doanqlchdt.GUI.Messageboxshow;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +24,7 @@ namespace Doanqlchdt.GUI.Thêm
             so = spb.getcount();
             txtMasp.Text = kiemtrathemma(so);
             Hienthiloaisanpham();
+            mousehover();
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -43,6 +46,17 @@ namespace Doanqlchdt.GUI.Thêm
             decimal numberic = numericUpDownsoluong.Value;
             spdto.Soluong = Convert.ToInt32(numberic);
             spb.themsp(spdto);
+            Messageboxshow.Comfrimupdate cfm=new Messageboxshow.Comfrimupdate("Lưu thông tin thành công");
+            cfm.ShowDialog();
+            textBox1tensp.Text = "";
+            textBoxmota.Text = "";
+            textgianhap.Text = "";
+            txtgiaban.Text = "";
+            pictureBox1.Image = null;
+            cbbtenmaloai.SelectedIndex = 0;
+            numericUpDownsoluong.Value = 0;
+            so = spb.getcount();
+            txtMasp.Text = kiemtrathemma(so);
 
 
         }
@@ -131,6 +145,18 @@ namespace Doanqlchdt.GUI.Thêm
             cbbtenmaloai.DataSource = dt;
             cbbtenmaloai.DisplayMember = "TenLoai";
             cbbtenmaloai.ValueMember = "MaLoai";
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            YesOrNo yon = new YesOrNo("Bạn có chắc chắn muốn hủy không");
+            yon.ShowDialog();
+            if (yon.Comfirm == true)
+            {
+                Comfrimupdate cfm = new Comfrimupdate("Bạn hủy thành công");
+                cfm.ShowDialog();
+                this.Close();
+            }
         }
     }
    

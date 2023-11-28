@@ -203,3 +203,4 @@ C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Messageboxshow.YesOrNo.
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.Themsanpham.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.khachhanggui.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.sanphamgui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Edit.EditSP.resources

@@ -42,5 +42,9 @@ namespace Doanqlchdt.BUS
         {
             return khdao.getdsformpageodersx(ten, sx, ofset, record);
         }
+        public int UPDATE(khachhangdto khdto)
+        {
+            return khdao.UpDate(khdto);
+        }
     }
 }

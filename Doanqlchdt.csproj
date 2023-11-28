@@ -140,6 +140,12 @@
     <Compile Include="GUI\Edit\Editkh.Designer.cs">
       <DependentUpon>Editkh.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Edit\EditSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Edit\EditSP.Designer.cs">
+      <DependentUpon>EditSP.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Edit\Editkh.resx">
       <DependentUpon>Editkh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Edit\EditSP.resx">
+      <DependentUpon>EditSP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

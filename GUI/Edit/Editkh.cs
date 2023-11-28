@@ -22,23 +22,23 @@ namespace Doanqlchdt.GUI.Edit
         private DTO.khachhangdto Selectedkh;
         public Editkh(khachhangdto selectedkh)
         {
-            //Selectedkh=selectedkh;
-            //InitializeComponent();
-            //txtMaKh.Text = selectedkh.Mkh;
-            //txtMaTK.Text = selectedkh.Matk.ToString();
-            //textBox1.Text = selectedkh.Hoten.Trim();
-            //txtEmail.Text = selectedkh.Email.Trim();
-            //txtSDT.Text = selectedkh.Sdt.Trim();
-            //dtpNgaySinh.Value = selectedkh.Ngaysinh;
-            //if(selectedkh.Gioitinh.Trim()=="Nam")
-            //{
-            //    radioButtonnam.Checked = true;
-            //}
-            //else if (selectedkh.Gioitinh.Trim()=="Nữ")
-            //{
-            //    radioButtonnu.Checked = true;
-            //}
-            //mousehover();
+            Selectedkh = selectedkh;
+            InitializeComponent();
+            txtMaKh.Text = selectedkh.Mkh;
+            txtMaTK.Text = selectedkh.MaTK.ToString();
+            textBox1.Text = selectedkh.Hoten.Trim();
+            txtEmail.Text = selectedkh.Email.Trim();
+            txtSDT.Text = selectedkh.Sdt.Trim();
+            dtpNgaySinh.Value = selectedkh.Ngaysinh;
+            if (selectedkh.Gioitinh.Trim() == "Nam")
+            {
+                radioButtonnam.Checked = true;
+            }
+            else if (selectedkh.Gioitinh.Trim() == "Nữ")
+            {
+                radioButtonnu.Checked = true;
+            }
+            mousehover();
         }
         public void mousehover()
         {
@@ -100,32 +100,32 @@ namespace Doanqlchdt.GUI.Edit
 
         private void btnthem_Click(object sender, EventArgs e)
         {
-            //khachhangdto khdto= new khachhangdto();
-            //khdto.Hoten = textBox1.Text.Trim();
-            //khdto.Email= txtEmail.Text.Trim();
-            //khdto.Sdt= txtSDT.Text.Trim();
-            //khdto.Ngaysinh = dtpNgaySinh.Value;
-            //if(radioButtonnam.Checked)
-            //{
-            //    khdto.Gioitinh = "Nam";
-            //}
-            //else
-            //{
-            //    khdto.Gioitinh = "Nữ";
-            //}
-            //khdto.Mkh=txtMaKh.Text.Trim();
-            //khdto.Matk=int.Parse(txtMaTK.Text.Trim());
-            //YesOrNo yon = new YesOrNo("Bạn có chắc chắn muốn lưu không");
-            //yon.ShowDialog();
-            //if(yon.Comfirm==true)
-            //{
-            //    khachhbus.upadte(khdto);
-            //    Comfrimupdate cfm = new Comfrimupdate("Bạn đã lưu thông tin thành công");
-            //    cfm.ShowDialog();
-            //    this.Close();
-            //}
+            khachhangdto khdto = new khachhangdto();
+            khdto.Hoten = textBox1.Text.Trim();
+            khdto.Email = txtEmail.Text.Trim();
+            khdto.Sdt = txtSDT.Text.Trim();
+            khdto.Ngaysinh = dtpNgaySinh.Value;
+            if (radioButtonnam.Checked)
+            {
+                khdto.Gioitinh = "Nam";
+            }
+            else
+            {
+                khdto.Gioitinh = "Nữ";
+            }
+            khdto.Mkh = txtMaKh.Text.Trim();
+            khdto.MaTK = int.Parse(txtMaTK.Text.Trim());
+            YesOrNo yon = new YesOrNo("Bạn có chắc chắn muốn lưu không");
+            yon.ShowDialog();
+            if (yon.Comfirm == true)
+            {
+                khachhbus.UPDATE(khdto);
+                Comfrimupdate cfm = new Comfrimupdate("Bạn đã lưu thông tin thành công");
+                cfm.ShowDialog();
+                this.Close();
+            }
 
-           
+
         }
 
         private void label9_Click(object sender, EventArgs e)

@@ -563,7 +563,7 @@ namespace Doanqlchdt.GUI
         {
             sx = false;
             timkiem = false;
-            temp = 2;
+            temp = 1;
             loadtable();
             setvisiblebutonpage(totalpage, btnarray);
             page();
