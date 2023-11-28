@@ -133,11 +133,41 @@
     <Compile Include="GUI\donbaohanhgui.Designer.cs">
       <DependentUpon>donbaohanhgui.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Edit\Editkh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Edit\Editkh.Designer.cs">
+      <DependentUpon>Editkh.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Manager\Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Manager\Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Messageboxshow\Comfrimupdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Messageboxshow\Comfrimupdate.Designer.cs">
+      <DependentUpon>Comfrimupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Messageboxshow\YesOrNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Messageboxshow\YesOrNo.Designer.cs">
+      <DependentUpon>YesOrNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Thêm\Themsanpham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Thêm\Themsanpham.Designer.cs">
+      <DependentUpon>Themsanpham.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserGui.cs">
       <SubType>Form</SubType>
@@ -255,14 +285,29 @@
     <EmbeddedResource Include="GUI\DoiThongTinKH.resx">
       <DependentUpon>DoiThongTinKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Edit\Editkh.resx">
+      <DependentUpon>Editkh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\khachhanggui.resx">
+      <DependentUpon>khachhanggui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Manager\Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Messageboxshow\Comfrimupdate.resx">
+      <DependentUpon>Comfrimupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Messageboxshow\YesOrNo.resx">
+      <DependentUpon>YesOrNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
@@ -281,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Thêm\Themsanpham.resx">
+      <DependentUpon>Themsanpham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserGui.resx">
       <DependentUpon>UserGui.cs</DependentUpon>
@@ -314,6 +362,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="obj\image\padlock_2889676.png" />
+    <Content Include="obj\IM\Available Updates.png" />
+    <Content Include="obj\IM\Close.png" />
+    <Content Include="obj\IM\Close1.png" />
+    <Content Include="obj\IM\download.png" />
+    <Content Include="obj\IM\Filter.png" />
+    <Content Include="obj\IM\icons8-close-24 %281%29.png" />
+    <Content Include="obj\IM\icons8-close-24 %282%29.png" />
+    <Content Include="obj\IM\icons8-close-24.png" />
+    <Content Include="obj\IM\icons8-horizontal-line-24.png" />
+    <Content Include="obj\IM\icons8-horizontal-line-48.png" />
+    <Content Include="obj\IM\icons8-refresh-30 %281%29.png" />
+    <Content Include="obj\IM\icons8-refresh-30 %282%29.png" />
+    <Content Include="obj\IM\icons8-refresh-30 %283%29.png" />
+    <Content Include="obj\IM\icons8-refresh-30.png" />
+    <Content Include="obj\IM\icons8-search-50 %281%29.png" />
+    <Content Include="obj\IM\icons8-search-50.png" />
+    <Content Include="obj\IM\Pen.png" />
+    <Content Include="obj\IM\Refresh.png" />
+    <Content Include="obj\IM\Refresh2.png" />
+    <Content Include="obj\IM\Remove.png" />
+    <Content Include="obj\IM\Search.png" />
+    <Content Include="obj\IM\Update Left Rotation.png" />
     <None Include="Resources\check-mark %281%29.png" />
     <None Include="Resources\check-mark.png" />
     <None Include="Resources\view1.png" />
