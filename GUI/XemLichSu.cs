@@ -42,6 +42,7 @@ namespace Doanqlchdt.GUI
                 else
                 {
                     dataGridView1.Rows[rowIndex].Cells["trangthai"].Value = "Đã thanh toán";
+                    dataGridView1.Rows[rowIndex].Cells["huy"].Value = "x";
                 }
                 dataGridView1.Rows[rowIndex].Cells["check"].Value = "Xem";
             }
