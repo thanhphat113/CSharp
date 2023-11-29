@@ -204,3 +204,7 @@ C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.Themsanpham.resou
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.khachhanggui.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.sanphamgui.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Edit.EditSP.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.donbaohanhgui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.nhacungcap.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.loaisanphamgui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.taikhoangui.resources

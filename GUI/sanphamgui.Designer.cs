@@ -50,8 +50,8 @@
             this.buttoncuoi = new System.Windows.Forms.Button();
             this.flowLayoutPanelpage = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.buttonthem = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panel2.SuspendLayout();
             this.panelfilter.SuspendLayout();
             this.flowLayoutPanelpage.SuspendLayout();
@@ -199,7 +199,7 @@
             this.panelfilter.Location = new System.Drawing.Point(3, 43);
             this.panelfilter.MaximumSize = new System.Drawing.Size(490, 175);
             this.panelfilter.Name = "panelfilter";
-            this.panelfilter.Size = new System.Drawing.Size(490, 175);
+            this.panelfilter.Size = new System.Drawing.Size(490, 0);
             this.panelfilter.TabIndex = 18;
             // 
             // comboBoxsxlc
@@ -323,6 +323,25 @@
             this.panel1.Size = new System.Drawing.Size(1298, 697);
             this.panel1.TabIndex = 1;
             // 
+            // buttonthem
+            // 
+            this.buttonthem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonthem.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonthem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonthem.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonthem.FlatAppearance.BorderSize = 3;
+            this.buttonthem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonthem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonthem.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonthem.Location = new System.Drawing.Point(1082, 79);
+            this.buttonthem.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonthem.Name = "buttonthem";
+            this.buttonthem.Size = new System.Drawing.Size(191, 41);
+            this.buttonthem.TabIndex = 36;
+            this.buttonthem.Text = "Thêm";
+            this.buttonthem.UseVisualStyleBackColor = false;
+            this.buttonthem.Click += new System.EventHandler(this.buttonthem_Click);
+            // 
             // listView1
             // 
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -343,25 +362,6 @@
             this.listView1.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listView1_DrawItem);
             this.listView1.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.listView1_DrawSubItem);
             this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
-            // 
-            // buttonthem
-            // 
-            this.buttonthem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonthem.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonthem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonthem.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.buttonthem.FlatAppearance.BorderSize = 3;
-            this.buttonthem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonthem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonthem.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonthem.Location = new System.Drawing.Point(1082, 79);
-            this.buttonthem.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonthem.Name = "buttonthem";
-            this.buttonthem.Size = new System.Drawing.Size(191, 41);
-            this.buttonthem.TabIndex = 36;
-            this.buttonthem.Text = "Thêm";
-            this.buttonthem.UseVisualStyleBackColor = false;
-            this.buttonthem.Click += new System.EventHandler(this.buttonthem_Click);
             // 
             // sanphamgui
             // 

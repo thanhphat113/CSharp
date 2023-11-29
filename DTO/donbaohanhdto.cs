@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Doanqlchdt.DTO
 {
-    internal class donbaohanhdto
+    public class donbaohanhdto
     {
         private String madonbaohanh;
         private String manv;

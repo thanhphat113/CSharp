@@ -156,5 +156,15 @@ namespace Doanqlchdt.GUI.Manager
         {
             ShowFormInPanel(new hoadonnhapgui());
         }
+
+        private void buttonnhacungcap_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new nhacungcap());
+        }
+
+        private void buttontaikhoan_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new taikhoangui());
+        }
     }
 }

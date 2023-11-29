@@ -99,7 +99,7 @@ namespace Doanqlchdt.GUI
         // THAY ĐỔI  sự kiện load table tất cả 
         public void loadtable()
         {
-            //setvisiblebutonpage(totalpageorder, btnarrayod);
+            setvisiblebutonpage(totalpageorder, btnarrayod);
             ofset = (temp - 1) * record;
             ds.Clear();
             if (sx == false)
