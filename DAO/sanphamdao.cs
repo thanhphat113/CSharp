@@ -67,6 +67,18 @@ namespace Doanqlchdt.DTO
             return kq;
         }
 
+        public void updateQuantity(string masp,int soluong)
+        {
+            using (SqlConnection conn =new connectToan().connection())
+            {
+                string query = "update SanPham set SoLuong=SoLuong+@soluong where MaSP=@masp";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@masp",masp);
+                cmd.Parameters.AddWithValue("@soluong",soluong);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public Boolean updateQuantity(CartBean shop)
         {
             if (shop != null)

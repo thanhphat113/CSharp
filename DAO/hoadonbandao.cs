@@ -291,5 +291,25 @@ namespace Doanqlchdt.DTO
             return date;
         }
 
+        public List<sanphamdto> huyDonHang(string maHD)
+        {
+            List<sanphamdto> list = new List<sanphamdto>();
+            using(SqlConnection conn = new connectToan().connection())
+            {
+                string query = "select MaSP,SoLuong from ChiTietDonBan where MaHDB=@mahd";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@mahd", maHD);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string masp = (string)reader["MaSP"];
+                    int soluong = (int)reader["SoLuong"];
+                    sanphamdto sp = new sanphamdto(masp, soluong);
+                    list.Add(sp);
+                }
+            }
+            return list;
+        }
+
     }
 }

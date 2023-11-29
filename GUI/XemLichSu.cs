@@ -19,7 +19,8 @@ namespace Doanqlchdt.GUI
             InitializeComponent();
             this.kh = kh;
             UpdateDataGridView();
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellClick += dataGridView1_CellClickCheck;
+            dataGridView1.CellClick += dataGridView1_CellClickDelete;
         }
 
 
@@ -33,18 +34,56 @@ namespace Doanqlchdt.GUI
                 string a = item.Tongtien.ToString("#,##0");
                 dataGridView1.Rows[rowIndex].Cells["Sum"].Value = a;
                 dataGridView1.Rows[rowIndex].Cells["date"].Value = item.Ngaytao.ToString("dd/MM/yyyy hh:mm:ss");
-                if (item.Trangthai == 0) dataGridView1.Rows[rowIndex].Cells["trangthai"].Value = "Chưa thanh toán";
-                else dataGridView1.Rows[rowIndex].Cells["trangthai"].Value = "Đã thanh toán";
+                if (item.Trangthai == 0)
+                {
+                    dataGridView1.Rows[rowIndex].Cells["trangthai"].Value = "Chưa thanh toán";
+                    dataGridView1.Rows[rowIndex].Cells["huy"].Value = "Hủy";
+                }
+                else
+                {
+                    dataGridView1.Rows[rowIndex].Cells["trangthai"].Value = "Đã thanh toán";
+                }
                 dataGridView1.Rows[rowIndex].Cells["check"].Value = "Xem";
-                dataGridView1.Rows[rowIndex].Cells["huy"].Value = "Hủy";
             }
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClickDelete(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["huy"].Index)
+            {
+                string trangThai = dataGridView1.Rows[e.RowIndex].Cells["trangthai"].Value.ToString();
+
+                // Kiểm tra trạng thái
+                if (trangThai == "Chưa thanh toán")
+                {
+                    string mahd = dataGridView1.Rows[e.RowIndex].Cells["maHD"].Value.ToString();
+                    DateTime ngaytao = new hoadonbanbus().getNgayTao(mahd);
+                    if (CheckNgay(ngaytao))
+                    {
+                        List<sanphamdto> list = new hoadonbandao().huyDonHang(mahd);
+                        foreach (var item in list)
+                        {
+                            new sanphamdao().updateQuantity(item.Masp, item.Soluong);
+                        }
+                        if (new hoadonbanbus().delete(mahd))
+                        {
+                            MessageBox.Show("Hủy đơn đặt hàng thành công");
+                            UpdateDataGridView();
+                        }
+                    }
+                    else MessageBox.Show("Đơn hàng của bàng không thể hủy vì đã quá ngày cho phép hủy đơn");
+                }
+                else
+                {
+                    MessageBox.Show("Không thể thực hiện hủy đơn hàng đã thanh toán.");
+                }
+            }
+        }
+
+        private void dataGridView1_CellClickCheck(object sender, DataGridViewCellEventArgs e)
         {
 
             int choise = dataGridView1.Columns["check"].Index;
-            int delete = dataGridView1.Columns["huy"].Index;
 
             // Kiểm tra nếu người dùng nhấn vào cột "Tăng"
             if (e.ColumnIndex == choise && e.RowIndex >= 0)
@@ -52,20 +91,6 @@ namespace Doanqlchdt.GUI
                 string mahd = dataGridView1.Rows[e.RowIndex].Cells["maHD"].Value.ToString();
                 ChiTiet form = new ChiTiet(mahd);
                 form.Show();
-            }
-            if (e.ColumnIndex == delete && e.RowIndex >= 0)
-            {
-                string mahd = dataGridView1.Rows[e.RowIndex].Cells["maHD"].Value.ToString();
-                DateTime ngaytao = new hoadonbanbus().getNgayTao(mahd);
-                if (CheckNgay(ngaytao))
-                {
-                    if (new hoadonbanbus().delete(mahd))
-                    {
-                        MessageBox.Show("Hủy đơn đặt hàng thành công");
-                        UpdateDataGridView();
-                    }
-                }
-                else MessageBox.Show("Đơn hàng của bàng không thể hủy vì đã quá ngày cho phép hủy đơn");
             }
         }
 
