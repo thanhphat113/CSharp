@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Doanqlchdt.DTO
 {
-    internal class chitietdonban
+    internal class chitietdonbanbus
     {
+        chitietdonbandao chitiet=new chitietdonbandao();
+
+        public Boolean delete(String id)
+        {
+            return chitiet.delete(id);
+        }
     }
 }

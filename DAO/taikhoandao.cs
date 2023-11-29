@@ -251,5 +251,21 @@ namespace Doanqlchdt.DAO
             }
             return String.Equals(a, oldPass);
         }
+
+        public Boolean checkUserID(string id)
+        {
+            using (SqlConnection conn = new connectToan().connection())
+            {
+                string query = "select * from TaiKhoan where Username=@id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

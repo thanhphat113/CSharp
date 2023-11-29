@@ -39,7 +39,7 @@ namespace Doanqlchdt.GUI
                 tienThu = item.Tong1;
             }
             label7.Text = Tong.ToString("#,##0")+"vnđ";
-            label8.Text ="- "+ (Tong-tienThu).ToString("#,##0") + "vnđ";
+            label8.Text =(tienThu-Tong).ToString("#,##0") + "vnđ";
             label3.Text = tienThu.ToString("#,##0") + "vnđ";
         }
 

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 
 using System.Drawing;
-
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace Doanqlchdt.GUI
@@ -100,6 +100,11 @@ namespace Doanqlchdt.GUI
                 {
                     txtStatus.Text = "Mặt hàng đã hết";
                     btAddCart.Enabled = false;
+                }
+                if (shop != null && shop.checkCart(sp.Masp))
+                {
+                    if (sp.Soluong == shop[sp.Masp].Quantity) btAddCart.Enabled = false;
+                    else btAddCart.Enabled = true;
                 }
                 // Hiển thị hình ảnh trong PictureBox
                 if (selectedItem.ImageIndex >= 0 && selectedItem.ImageIndex < ImagesList.Images.Count)
@@ -331,31 +336,35 @@ namespace Doanqlchdt.GUI
 
         private void btAccept_Click_1(object sender, EventArgs e)
         {
-            int stt = new hoadonbandao().getSTT();
-            try
+            if (shop != null)
             {
-                if (new hoadonbandao().insert(shop,stt, kh.Mkh, txtSale.Text, TongTien))
+                int stt = new hoadonbandao().getSTT();
+                try
                 {
-                    if (new sanphamdao().updateQuantity(shop))
+                    if (new hoadonbandao().insert(shop, stt, kh.Mkh, txtSale.Text, TongTien))
                     {
-                        
-                        MessageBox.Show("Đặt đơn hàng thành công");
-                        if(!string.IsNullOrEmpty(txtSale.Text)) new khuyenmaidao().updateTrangthai(kh.Mkh, txtSale.Text);
-                        lbSum.Text = "";
-                        txtSale.Text = "";
-                        txtSale.ReadOnly = false;
-                    }
-                }
-                else MessageBox.Show("Giỏ hàng rỗng");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi:" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                        if (new sanphamdao().updateQuantity(shop))
+                        {
 
-            shop = new CartBean();
-            UpdateDataGridView();
-            reset();
+                            MessageBox.Show("Đặt đơn hàng thành công\nChú ý:Trong thời hạn 1 ngày có thể hủy đơn!!!");
+                            if (!string.IsNullOrEmpty(txtSale.Text)) new khuyenmaidao().updateTrangthai(kh.Mkh, txtSale.Text);
+                            lbSum.Text = "";
+                            txtSale.Text = "";
+                            txtSale.ReadOnly = false;
+                        }
+                    }
+                    else MessageBox.Show("Giỏ hàng rỗng");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi:" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                shop = new CartBean();
+                UpdateDataGridView();
+                reset();
+            }
+            else MessageBox.Show("Chưa có sản phẩm trong giỏ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 
@@ -366,7 +375,7 @@ namespace Doanqlchdt.GUI
             {
                 if (new khuyenmaidao().checkKM(kh.Mkh, txtSale.Text))
                 {
-                    lbSum.Text = (TongTien * new khuyenmaidao().getTiLe(txtSale.Text)).ToString("#,##0")+"vnđ";
+                    lbSum.Text = (TongTien * new khuyenmaidao().getTiLe(txtSale.Text)).ToString("#,##0") + "vnđ";
                     TongTien *= new khuyenmaidao().getTiLe(txtSale.Text);
                     MessageBox.Show("Áp dụng mã thành công");
                     button3.Enabled = false;
@@ -390,6 +399,7 @@ namespace Doanqlchdt.GUI
             }
 
         }
+
     }
 }
 

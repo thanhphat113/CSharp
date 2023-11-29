@@ -35,7 +35,9 @@
             this.maHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.check = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.huy = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -53,7 +55,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.35154F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.64845F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 421);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(491, 421);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -64,7 +66,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 51);
+            this.panel1.Size = new System.Drawing.Size(491, 51);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -72,7 +74,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(62, 9);
+            this.label1.Location = new System.Drawing.Point(143, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(224, 31);
             this.label1.TabIndex = 0;
@@ -89,14 +91,15 @@
             this.maHD,
             this.date,
             this.Sum,
-            this.check});
+            this.trangthai,
+            this.check,
+            this.huy});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 54);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(344, 364);
+            this.dataGridView1.Size = new System.Drawing.Size(485, 364);
             this.dataGridView1.TabIndex = 1;
-          
             // 
             // maHD
             // 
@@ -113,6 +116,11 @@
             this.Sum.HeaderText = "Tổng tiền";
             this.Sum.Name = "Sum";
             // 
+            // trangthai
+            // 
+            this.trangthai.HeaderText = "Trạng thái";
+            this.trangthai.Name = "trangthai";
+            // 
             // check
             // 
             this.check.HeaderText = "";
@@ -121,11 +129,19 @@
             this.check.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.check.Width = 41;
             // 
+            // huy
+            // 
+            this.huy.HeaderText = "";
+            this.huy.Name = "huy";
+            this.huy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.huy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.huy.Width = 41;
+            // 
             // XemLichSu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 421);
+            this.ClientSize = new System.Drawing.Size(491, 421);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -150,6 +166,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maHD;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trangthai;
         private System.Windows.Forms.DataGridViewButtonColumn check;
+        private System.Windows.Forms.DataGridViewButtonColumn huy;
     }
 }
