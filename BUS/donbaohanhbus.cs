@@ -14,10 +14,7 @@ namespace Doanqlchdt.DTO
         public donbaohanhbus()
         {
         }
-        public int getcount()
-        {
-            return dao.selectcount();
-        }
+
         public DataTable gettensp()
         {
             return dao.Laytensp();
@@ -29,6 +26,14 @@ namespace Doanqlchdt.DTO
         public DataTable gettenkh()
         {
             return dao.Laytenkh();
+        }
+        public int them(donbaohanhdto dbhdto)
+        {
+            return dao.them(dbhdto);
+        }
+        public int getcount()
+        {
+            return dao.selectcount();
         }
         public ArrayList getdsfrompage(int ofset, int record)
         {

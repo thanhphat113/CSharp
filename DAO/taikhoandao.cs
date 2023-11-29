@@ -252,6 +252,166 @@ namespace Doanqlchdt.DAO
             return String.Equals(a, oldPass);
         }
 
+
+        public int selectcount()
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+
+            sqlcommand.CommandText = "select count (*) from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen ";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = (int)sqlcommand.ExecuteScalar();
+
+            connect.Close();
+            return kq;
+        }
+        public ArrayList getdsformpage(int ofset, int record)
+        {
+
+            ArrayList ds = new System.Collections.ArrayList();
+            connect.connect cn = new connect.connect();
+            SqlConnection connect = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = string.Format("select TK.MaTK,TK.Username,TK.MatKhau,TK.Quyen,Q.TenQuyen,TK.TrangThai from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen ORDER BY MaTK ASC OFFSET {0} ROWS FETCH NEXT {1} ROWS ONLY", ofset, record);
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            while (reader.Read())
+            {    
+                int matk=reader.GetInt32(0);
+                String username = reader.GetString(1);
+                String password = reader.GetString(2);
+                int quyen = reader.GetInt32(3);
+                String tenquyen=reader.GetString(4);
+                int trangthai = reader.GetInt32(5);
+                TAIKHOANDTO tk=new TAIKHOANDTO(matk, username, password, quyen,tenquyen, trangthai);
+                ds.Add(tk);
+            }
+            reader.Close();
+            connect.Close();
+            return ds;
+        }
+        public int selectcountpagesearch(String ten, String dieukien)
+
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            dieukien = dieukien.Trim();
+
+            if(ten=="TenQuyen")
+            {
+                sqlcommand.CommandText = string.Format("select count (*) from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen and Q.{0} LIKE N'%" + dieukien + "%' ", ten);
+            }
+            else
+            {
+                sqlcommand.CommandText = string.Format("select count (*) from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen and TK.{0} LIKE N'%" + dieukien + "%' ", ten);
+            }
+
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = (int)sqlcommand.ExecuteScalar();
+            connect.Close();
+            return kq;
+        }
+        public ArrayList getdsformpageoder(String ten, String dieukien, String dieukiensx, String loaisx, int ofset, int record)
+        {
+
+            ArrayList ds = new System.Collections.ArrayList();
+            connect.connect cn = new connect.connect();
+            SqlConnection connect = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            if(ten=="TenQuyen")
+            {
+                if(dieukiensx=="TenQuyen")
+                {
+                    sqlcommand.CommandText = string.Format("select TK.MaTK,TK.Username,TK.MatKhau,TK.Quyen,Q.TenQuyen,TK.TrangThai from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen and Q.{0} LIKE N'%" + dieukien + "%' ORDER BY Q.{1} {2} OFFSET {3} ROWS FETCH NEXT {4} ROWS ONLY", ten, dieukiensx, loaisx, ofset, record);
+                }
+                else
+                {
+                    sqlcommand.CommandText = string.Format("select TK.MaTK,TK.Username,TK.MatKhau,TK.Quyen,Q.TenQuyen,TK.TrangThai from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen and Q.{0} LIKE N'%" + dieukien + "%' ORDER BY TK.{1} {2} OFFSET {3} ROWS FETCH NEXT {4} ROWS ONLY", ten, dieukiensx, loaisx, ofset, record);
+                }
+                
+            }
+             else
+            {
+                if(dieukiensx=="TenQuyen")
+                {
+                    sqlcommand.CommandText = string.Format("select TK.MaTK,TK.Username,TK.MatKhau,TK.Quyen,Q.TenQuyen,TK.TrangThai from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen and TK.{0} LIKE N'%" + dieukien + "%' ORDER BY Q.{1} {2} OFFSET {3} ROWS FETCH NEXT {4} ROWS ONLY", ten, dieukiensx, loaisx, ofset, record);
+                }
+                else
+                {
+                    sqlcommand.CommandText = string.Format("select TK.MaTK,TK.Username,TK.MatKhau,TK.Quyen,Q.TenQuyen,TK.TrangThai from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen and TK.{0} LIKE N'%" + dieukien + "%' ORDER BY TK.{1} {2} OFFSET {3} ROWS FETCH NEXT {4} ROWS ONLY", ten, dieukiensx, loaisx, ofset, record);
+                }
+               
+            }
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            while (reader.Read())
+            {
+                int matk = reader.GetInt32(0);
+                String username = reader.GetString(1);
+                String password = reader.GetString(2);
+                int quyen = reader.GetInt32(3);
+                String tenquyen = reader.GetString(4);
+                int trangthai = reader.GetInt32(5);
+                TAIKHOANDTO tk = new TAIKHOANDTO(matk, username, password, quyen, tenquyen, trangthai);
+                ds.Add(tk);
+            }
+            reader.Close();
+            connect.Close();
+            return ds;
+        }
+        public ArrayList getdsformpageodersx(String ten, String sx, int ofset, int record)
+        {
+
+            ArrayList ds = new System.Collections.ArrayList();
+            connect.connect cn = new connect.connect();
+            SqlConnection connect = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            if(ten=="TenQuyen")
+            {
+                sqlcommand.CommandText = string.Format("select TK.MaTK,TK.Username,TK.MatKhau,TK.Quyen,Q.TenQuyen,TK.TrangThai from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen ORDER BY Q.{0} {1} OFFSET {2} ROWS FETCH NEXT {3} ROWS ONLY", ten, sx, ofset, record);
+            }
+            else
+            {
+                sqlcommand.CommandText = string.Format("select TK.MaTK,TK.Username,TK.MatKhau,TK.Quyen,Q.TenQuyen,TK.TrangThai from TaiKhoan TK,Quyen Q where TK.Quyen=Q.MaQuyen ORDER BY TK.{0} {1} OFFSET {2} ROWS FETCH NEXT {3} ROWS ONLY", ten, sx, ofset, record);
+            }
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            while (reader.Read())
+            {
+                int matk = reader.GetInt32(0);
+                String username = reader.GetString(1);
+                String password = reader.GetString(2);
+                int quyen = reader.GetInt32(3);
+                String tenquyen = reader.GetString(4);
+                int trangthai = reader.GetInt32(5);
+                TAIKHOANDTO tk = new TAIKHOANDTO(matk, username, password, quyen, tenquyen, trangthai);
+                ds.Add(tk);
+            }
+            reader.Close();
+            connect.Close();
+            return ds;
+        }
+
+        public int UpDate(taikhoandto tk)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "UPDATE TaiKhoan set MatKhau=N'" + tk.Password + "',Quyen='" + tk.Quyen + "',TrangThai='" + tk.Trangthai + "' where Username='" + tk.Username + "'";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+
+        }
         public Boolean checkUserID(string id)
         {
             using (SqlConnection conn = new connectToan().connection())
@@ -266,6 +426,8 @@ namespace Doanqlchdt.DAO
                 }
             }
             return false;
+
         }
     }
 }
+

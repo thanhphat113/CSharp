@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelside = new System.Windows.Forms.Panel();
+            this.buttontaikhoan = new System.Windows.Forms.Button();
+            this.buttonnhacungcap = new System.Windows.Forms.Button();
             this.panelsideduoi = new System.Windows.Forms.Panel();
             this.panelsidehoadon = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -58,6 +60,8 @@
             // panelside
             // 
             this.panelside.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panelside.Controls.Add(this.buttontaikhoan);
+            this.panelside.Controls.Add(this.buttonnhacungcap);
             this.panelside.Controls.Add(this.panelsideduoi);
             this.panelside.Controls.Add(this.panelsidesanpham);
             this.panelside.Controls.Add(this.button5);
@@ -73,12 +77,46 @@
             this.panelside.Size = new System.Drawing.Size(266, 1055);
             this.panelside.TabIndex = 0;
             // 
+            // buttontaikhoan
+            // 
+            this.buttontaikhoan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttontaikhoan.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
+            this.buttontaikhoan.FlatAppearance.BorderSize = 0;
+            this.buttontaikhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttontaikhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttontaikhoan.ForeColor = System.Drawing.Color.White;
+            this.buttontaikhoan.Location = new System.Drawing.Point(7, 451);
+            this.buttontaikhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.buttontaikhoan.Name = "buttontaikhoan";
+            this.buttontaikhoan.Size = new System.Drawing.Size(258, 59);
+            this.buttontaikhoan.TabIndex = 15;
+            this.buttontaikhoan.Text = "Tài khoản";
+            this.buttontaikhoan.UseVisualStyleBackColor = true;
+            this.buttontaikhoan.Click += new System.EventHandler(this.buttontaikhoan_Click);
+            // 
+            // buttonnhacungcap
+            // 
+            this.buttonnhacungcap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonnhacungcap.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonnhacungcap.FlatAppearance.BorderSize = 0;
+            this.buttonnhacungcap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonnhacungcap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonnhacungcap.ForeColor = System.Drawing.Color.White;
+            this.buttonnhacungcap.Location = new System.Drawing.Point(7, 374);
+            this.buttonnhacungcap.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonnhacungcap.Name = "buttonnhacungcap";
+            this.buttonnhacungcap.Size = new System.Drawing.Size(258, 59);
+            this.buttonnhacungcap.TabIndex = 14;
+            this.buttonnhacungcap.Text = "Nhà cung cấp";
+            this.buttonnhacungcap.UseVisualStyleBackColor = true;
+            this.buttonnhacungcap.Click += new System.EventHandler(this.buttonnhacungcap_Click);
+            // 
             // panelsideduoi
             // 
             this.panelsideduoi.Controls.Add(this.panelsidehoadon);
             this.panelsideduoi.Controls.Add(this.buttondon);
             this.panelsideduoi.Controls.Add(this.buttonsidehoadon);
-            this.panelsideduoi.Location = new System.Drawing.Point(3, 451);
+            this.panelsideduoi.Location = new System.Drawing.Point(2, 609);
             this.panelsideduoi.Name = "panelsideduoi";
             this.panelsideduoi.Size = new System.Drawing.Size(263, 290);
             this.panelsideduoi.TabIndex = 13;
@@ -169,7 +207,7 @@
             this.panelsidesanpham.BackColor = System.Drawing.SystemColors.Window;
             this.panelsidesanpham.Controls.Add(this.button6);
             this.panelsidesanpham.Controls.Add(this.button7);
-            this.panelsidesanpham.Location = new System.Drawing.Point(4, 435);
+            this.panelsidesanpham.Location = new System.Drawing.Point(4, 595);
             this.panelsidesanpham.MaximumSize = new System.Drawing.Size(262, 149);
             this.panelsidesanpham.Name = "panelsidesanpham";
             this.panelsidesanpham.Size = new System.Drawing.Size(262, 0);
@@ -217,7 +255,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(4, 369);
+            this.button5.Location = new System.Drawing.Point(4, 529);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(258, 59);
@@ -250,7 +288,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(4, 288);
+            this.button1.Location = new System.Drawing.Point(7, 284);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(258, 59);
@@ -352,5 +390,7 @@
         private System.Windows.Forms.Panel panelsidehoadon;
         private System.Windows.Forms.Panel panelsidesanpham;
         private System.Windows.Forms.Panel panelsideduoi;
+        private System.Windows.Forms.Button buttonnhacungcap;
+        private System.Windows.Forms.Button buttontaikhoan;
     }
 }

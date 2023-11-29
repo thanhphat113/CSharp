@@ -134,11 +134,29 @@
     <Compile Include="GUI\donbaohanhgui.Designer.cs">
       <DependentUpon>donbaohanhgui.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Edit\editdbh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Edit\editdbh.Designer.cs">
+      <DependentUpon>editdbh.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Edit\Editkh.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Edit\Editkh.Designer.cs">
       <DependentUpon>Editkh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Edit\editloaisp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Edit\editloaisp.Designer.cs">
+      <DependentUpon>editloaisp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Edit\editnhacungcap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Edit\editnhacungcap.Designer.cs">
+      <DependentUpon>editnhacungcap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Edit\EditSP.cs">
       <SubType>Form</SubType>
@@ -173,8 +191,26 @@
     <Compile Include="GUI\RegisterAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\RegisterAccount.Designer.cs">
+    <Compile Include="GUI\RegisterAccount.designer.cs">
       <DependentUpon>RegisterAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Thêm\Themdbh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Thêm\Themdbh.Designer.cs">
+      <DependentUpon>Themdbh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Thêm\themloaisp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Thêm\themloaisp.Designer.cs">
+      <DependentUpon>themloaisp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Thêm\themnhacungcap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Thêm\themnhacungcap.Designer.cs">
+      <DependentUpon>themnhacungcap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Thêm\Themsanpham.cs">
       <SubType>Form</SubType>
@@ -304,6 +340,9 @@
     <EmbeddedResource Include="GUI\DoiThongTinKH.resx">
       <DependentUpon>DoiThongTinKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\donbaohanhgui.resx">
+      <DependentUpon>donbaohanhgui.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Edit\Editkh.resx">
       <DependentUpon>Editkh.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\khachhanggui.resx">
       <DependentUpon>khachhanggui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\loaisanphamgui.resx">
+      <DependentUpon>loaisanphamgui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -331,6 +373,9 @@
     <EmbeddedResource Include="GUI\Messageboxshow\YesOrNo.resx">
       <DependentUpon>YesOrNo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\nhacungcap.resx">
+      <DependentUpon>nhacungcap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\sanphamgui.resx">
       <DependentUpon>sanphamgui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\taikhoangui.resx">
+      <DependentUpon>taikhoangui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\TaiKhoanNhanVien.resx">
       <DependentUpon>TaiKhoanNhanVien.cs</DependentUpon>

@@ -189,7 +189,7 @@
             this.panelfilter.Location = new System.Drawing.Point(3, 43);
             this.panelfilter.MaximumSize = new System.Drawing.Size(490, 175);
             this.panelfilter.Name = "panelfilter";
-            this.panelfilter.Size = new System.Drawing.Size(490, 175);
+            this.panelfilter.Size = new System.Drawing.Size(490, 0);
             this.panelfilter.TabIndex = 18;
             // 
             // label1
