@@ -188,6 +188,7 @@
     <Compile Include="GUI\Messageboxshow\YesOrNo.Designer.cs">
       <DependentUpon>YesOrNo.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="GUI\Thêm\Themdbh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +206,13 @@
     </Compile>
     <Compile Include="GUI\Thêm\themnhacungcap.Designer.cs">
       <DependentUpon>themnhacungcap.cs</DependentUpon>
+=======
+    <Compile Include="GUI\RegisterAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RegisterAccount.Designer.cs">
+      <DependentUpon>RegisterAccount.cs</DependentUpon>
+>>>>>>> 97e495e87b722db33e1ac2418070141fae573b2f
     </Compile>
     <Compile Include="GUI\Thêm\Themsanpham.cs">
       <SubType>Form</SubType>
@@ -316,6 +324,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RJ\RjTextbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RJ\RjTextbox.Designer.cs">
+      <DependentUpon>RjTextbox.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -367,6 +381,9 @@
     <EmbeddedResource Include="GUI\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RegisterAccount.resx">
+      <DependentUpon>RegisterAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\sanphamgui.resx">
       <DependentUpon>sanphamgui.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +418,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RJ\RjTextbox.resx">
+      <DependentUpon>RjTextbox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

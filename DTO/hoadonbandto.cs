@@ -14,13 +14,14 @@ namespace Doanqlchdt.DTO
         private String mkm;
         private double tongtien;
         private DateTime ngaytao;
+        private int trangthai;
 
         public hoadonbandto()
         {
 
         }
 
-        public hoadonbandto(string mhdb, string mnv, string mkh, string mkm, double tongtien, DateTime ngaytao)
+        public hoadonbandto(string mhdb, string mnv, string mkh, string mkm, double tongtien, DateTime ngaytao, int trangthai)
         {
             this.Mhdb = mhdb;
             this.Mnv = mnv;
@@ -28,6 +29,7 @@ namespace Doanqlchdt.DTO
             this.Mkm = mkm;
             this.Tongtien = tongtien;
             this.Ngaytao = ngaytao;
+            this.Trangthai = trangthai;
         }
 
         public string Mhdb { get => mhdb; set => mhdb = value; }
@@ -36,5 +38,6 @@ namespace Doanqlchdt.DTO
         public string Mkm { get => mkm; set => mkm = value; }
         public double Tongtien { get => tongtien; set => tongtien = value; }
         public DateTime Ngaytao { get => ngaytao; set => ngaytao = value; }
+        public int Trangthai { get => trangthai; set => trangthai = value; }
     }
 }

@@ -13,6 +13,22 @@ namespace Doanqlchdt.DAO
     internal class khachhangdao
     {
         public khachhangdao() { }
+
+        public Boolean checkMaKH(string id)
+        {
+            using(SqlConnection conn = new connectToan().connection())
+            {
+                String query = "select MaKH from KhachHang";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string makh=reader.GetString(0);
+                    if(id.Equals(makh)) return false;
+                }
+                return true;
+            }
+        }
         public ArrayList findAll()
         {
             ArrayList ds = new System.Collections.ArrayList();

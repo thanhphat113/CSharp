@@ -10,9 +10,9 @@ namespace Doanqlchdt.Cart
 {
     public class CartBean:Dictionary<String,addToCart>
     {
-        public Boolean checkCart(CartBean shop)
+        public Boolean checkCart(String key)
         {
-            if (shop != null) return true;
+            if (this.ContainsKey(key)) return true;
             return false;
         }
         public void addSanPham(addToCart sp)
@@ -29,6 +29,8 @@ namespace Doanqlchdt.Cart
                 Add(sp.Sanpham.Masp, sp);
             }
         }
+
+
 
         public Boolean removeSanPham(String code)
         {

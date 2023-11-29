@@ -1,4 +1,5 @@
 ﻿using Doanqlchdt.Cart;
+using Doanqlchdt.BUS;
 using Doanqlchdt.connect;
 using System;
 using System.Collections;
@@ -21,20 +22,21 @@ namespace Doanqlchdt.DTO
         public List<hoadonbandto> findByCondition(string condition)
         {
             List<hoadonbandto> list = new List<hoadonbandto>();
-           using(SqlConnection conn = new connectToan().connection())
+            using (SqlConnection conn = new connectToan().connection())
             {
                 string query = "select * from HoaDonBan where MaKH=@id";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id",condition);
-                SqlDataReader reader= cmd.ExecuteReader();
-                while(reader.Read())
+                cmd.Parameters.AddWithValue("@id", condition);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
                     String mhdb = (String)reader["MaHDB"];
-                    String makh = reader.GetString(3);
-                    String makm = reader.GetString(4);
-                    double tongtien = reader.GetDouble(5);
-                    DateTime ngaytao = reader.GetDateTime(6);
-                    hoadonbandto hd = new hoadonbandto(mhdb, "", makh, makm, tongtien, ngaytao);
+                    String makh = (String)reader["MaKH"];
+                    String makm = (String)reader["MaKM"];
+                    double tongtien = (double)reader["TongTien"];
+                    DateTime ngaytao = (DateTime)reader["NgayTao"];
+                    int trangthai = (int)reader["TrangThai"];
+                    hoadonbandto hd = new hoadonbandto(mhdb, "", makh, makm, tongtien, ngaytao, trangthai);
                     list.Add(hd);
                 }
             }
@@ -58,12 +60,12 @@ namespace Doanqlchdt.DTO
 
         public Boolean insert(CartBean shop, int stt, string maKH, string maKM, double tong)
         {
-            string maHD ="HD"+ stt;
+            string maHD = "HD" + stt;
             try
             {
                 using (SqlConnection conn = new connectToan().connection())
                 {
-                    string query = "insert into HoaDonBan(STT,MaHDB,MaNV,MaKH,MaKM,TongTien,NgayTao) values(@stt,@maHD,null,@maKH,@maKM,@Tong,GETDATE())";
+                    string query = "insert into HoaDonBan(STT,MaHDB,MaNV,MaKH,MaKM,TongTien,NgayTao,TrangThai) values(@stt,@maHD,null,@maKH,@maKM,@Tong,GETDATE(),0)";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@stt", stt);
                     cmd.Parameters.AddWithValue("@maHD", maHD);
@@ -75,9 +77,9 @@ namespace Doanqlchdt.DTO
                 foreach (var items in shop.Values)
                 {
                     string maSP = items.Sanpham.Masp;
-                    int gia =items.Sanpham.Giaban;
+                    int gia = items.Sanpham.Giaban;
                     int soluong = items.Quantity;
-                    int price=soluong*gia;
+                    int price = soluong * gia;
                     chitietdonbandto chitiet = new chitietdonbandto(maHD, maSP, gia, soluong, price);
                     new chitietdonbandao().insert(chitiet);
                 }
@@ -112,13 +114,14 @@ namespace Doanqlchdt.DTO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mhdb = reader.GetString(0);
-                String manv = reader.GetString(1);
-                String makh = reader.GetString(2);
-                String makm = reader.GetString(3);
-                int tongtien = reader.GetInt32(4);
-                DateTime ngaytao = reader.GetDateTime(5);
-                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, makm, tongtien, ngaytao);
+
+                String makh = (String)reader["MaKH"];
+                String manv = (String)reader["MaNV"];
+                String makm = (String)reader["MaKM"];
+                double tongtien = (double)reader["TongTien"];
+                DateTime ngaytao = (DateTime)reader["NgayTao"];
+                int trangthai = (int)reader["TrangThai"];
+                hoadonbandto hd = new hoadonbandto(ma, manv, makh, makm, tongtien, ngaytao, trangthai);
                 ds.Add(hd);
             }
             reader.Close();
@@ -137,13 +140,13 @@ namespace Doanqlchdt.DTO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mhdb = reader.GetString(0);
-                String manv = reader.GetString(1);
-                String makh = reader.GetString(2);
-                String makm = reader.GetString(3);
-                int tongtien = reader.GetInt32(4);
-                DateTime ngaytao = reader.GetDateTime(5);
-                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, makm, tongtien, ngaytao);
+                String mhdb = (String)reader["MaHDB"];
+                String makh = (String)reader["MaKH"];
+                String makm = (String)reader["MaKM"];
+                double tongtien = (double)reader["TongTien"];
+                DateTime ngaytao = (DateTime)reader["NgayTao"];
+                int trangthai = (int)reader["TrangThai"];
+                hoadonbandto hd = new hoadonbandto(mhdb, ma, makh, makm, tongtien, ngaytao, trangthai);
                 ds.Add(hd);
             }
             reader.Close();
@@ -162,13 +165,13 @@ namespace Doanqlchdt.DTO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mhdb = reader.GetString(0);
-                String manv = reader.GetString(1);
-                String makh = reader.GetString(2);
-                String makm = reader.GetString(3);
-                int tongtien = reader.GetInt32(4);
-                DateTime ngaytao = reader.GetDateTime(5);
-                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, makm, tongtien, ngaytao);
+                String mhdb = (String)reader["MaHDB"];
+                String manv = (String)reader["MaNV"];
+                String makm = (String)reader["MaKM"];
+                double tongtien = (double)reader["TongTien"];
+                DateTime ngaytao = (DateTime)reader["NgayTao"];
+                int trangthai = (int)reader["TrangThai"];
+                hoadonbandto hd = new hoadonbandto(mhdb, manv, ma, makm, tongtien, ngaytao, trangthai);
                 ds.Add(hd);
             }
             reader.Close();
@@ -187,13 +190,13 @@ namespace Doanqlchdt.DTO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mhdb = reader.GetString(0);
-                String manv = reader.GetString(1);
-                String makh = reader.GetString(2);
-                String makm = reader.GetString(3);
-                int tongtien = reader.GetInt32(4);
-                DateTime ngaytao = reader.GetDateTime(5);
-                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, makm, tongtien, ngaytao);
+                String mhdb = (String)reader["MaHDB"];
+                String makh = (String)reader["MaKH"];
+                String manv = (String)reader["MaNV"];
+                double tongtien = (double)reader["TongTien"];
+                DateTime ngaytao = (DateTime)reader["NgayTao"];
+                int trangthai = (int)reader["TrangThai"];
+                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, ma, tongtien, ngaytao, trangthai);
                 ds.Add(hd);
             }
             reader.Close();
@@ -212,13 +215,13 @@ namespace Doanqlchdt.DTO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mhdb = reader.GetString(0);
-                String manv = reader.GetString(1);
-                String makh = reader.GetString(2);
-                String makm = reader.GetString(3);
-                int tongtien = reader.GetInt32(4);
-                DateTime ngaytao = reader.GetDateTime(5);
-                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, makm, tongtien, ngaytao);
+                String mhdb = (String)reader["MaHDB"];
+                String makh = (String)reader["MaKH"];
+                String manv = (String)reader["MaNV"];
+                String makm = (String)reader["MaKM"];
+                DateTime ngaytao = (DateTime)reader["NgayTao"];
+                int trangthai = (int)reader["TrangThai"];
+                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, makm, ma, ngaytao, trangthai);
                 ds.Add(hd);
             }
             reader.Close();
@@ -237,18 +240,55 @@ namespace Doanqlchdt.DTO
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())
             {
-                String mhdb = reader.GetString(0);
-                String manv = reader.GetString(1);
-                String makh = reader.GetString(2);
-                String makm = reader.GetString(3);
-                int tongtien = reader.GetInt32(4);
-                DateTime ngaytao = reader.GetDateTime(5);
-                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, makm, tongtien, ngaytao);
+                String mhdb = (String)reader["MaHDB"];
+                String makh = (String)reader["MaKH"];
+                String manv = (String)reader["MaNV"];
+                String makm = (String)reader["MaKM"];
+                double tongtien = (double)reader["TongTien"];
+                int trangthai = (int)reader["TrangThai"];
+                hoadonbandto hd = new hoadonbandto(mhdb, manv, makh, makm, tongtien, ngay, trangthai);
                 ds.Add(hd);
             }
             reader.Close();
             connect.Close();
             return ds;
+        }
+
+        public Boolean delete(string maHD)
+        {
+            if (!String.IsNullOrEmpty(maHD))
+            {
+                new chitietdonbanbus().delete(maHD);
+                using (SqlConnection conn = new connectToan().connection())
+                {
+                    string query = "DELETE FROM HoaDonban WHERE MaHDB = @mahd";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@mahd",maHD);
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        return true;
+                    }
+                    else return false;
+                }
+            }
+            return false;
+        }
+
+        public DateTime getNgayTao(string maHD)
+        {
+            DateTime date = new DateTime();
+                using (SqlConnection conn = new connectToan().connection())
+                {
+                    string query = "Select * FROM HoaDonban WHERE MaHDB = @mahd";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@mahd", maHD);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    date = (DateTime)reader["NgayTao"];
+                }
+            }
+            return date;
         }
 
     }

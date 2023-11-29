@@ -369,7 +369,7 @@
             this.ClientSize = new System.Drawing.Size(1298, 697);
             this.Controls.Add(this.panel1);
             this.Name = "donbaohanhgui";
-            this.Text = "donbaohanhgui";
+            this.Text = " ";
             this.panel2.ResumeLayout(false);
             this.panelfilter.ResumeLayout(false);
             this.panelfilter.PerformLayout();

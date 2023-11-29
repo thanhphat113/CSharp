@@ -15,6 +15,24 @@ namespace Doanqlchdt.DTO
         {
         }
 
+        public Boolean delete(string maHD)
+        {
+            if (!String.IsNullOrEmpty(maHD))
+            {
+                using (SqlConnection conn = new connectToan().connection())
+                {
+                    string query = "DELETE FROM ChiTietDonBan WHERE MaHDB = @mahd";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@mahd", maHD);
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        return true;
+                    }
+                    else return false;
+                }
+            }
+            return false;
+        }
 
         public List<chitietdonbandto> findByCondition(string id)
         {
