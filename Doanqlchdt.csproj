@@ -188,7 +188,12 @@
     <Compile Include="GUI\Messageboxshow\YesOrNo.Designer.cs">
       <DependentUpon>YesOrNo.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+    <Compile Include="GUI\RegisterAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RegisterAccount.designer.cs">
+      <DependentUpon>RegisterAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Thêm\Themdbh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,13 +211,6 @@
     </Compile>
     <Compile Include="GUI\Thêm\themnhacungcap.Designer.cs">
       <DependentUpon>themnhacungcap.cs</DependentUpon>
-=======
-    <Compile Include="GUI\RegisterAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\RegisterAccount.Designer.cs">
-      <DependentUpon>RegisterAccount.cs</DependentUpon>
->>>>>>> 97e495e87b722db33e1ac2418070141fae573b2f
     </Compile>
     <Compile Include="GUI\Thêm\Themsanpham.cs">
       <SubType>Form</SubType>

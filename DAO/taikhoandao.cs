@@ -252,7 +252,7 @@ namespace Doanqlchdt.DAO
             return String.Equals(a, oldPass);
         }
 
-<<<<<<< HEAD
+
         public int selectcount()
         {
             connect.connect cn = new connect.connect();
@@ -410,7 +410,8 @@ namespace Doanqlchdt.DAO
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();
             return kq;
-=======
+
+        }
         public Boolean checkUserID(string id)
         {
             using (SqlConnection conn = new connectToan().connection())
@@ -425,7 +426,8 @@ namespace Doanqlchdt.DAO
                 }
             }
             return false;
->>>>>>> 97e495e87b722db33e1ac2418070141fae573b2f
+
         }
     }
 }
+
