@@ -101,9 +101,11 @@
             // 
             this.dtNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dtNgaySinh.Location = new System.Drawing.Point(220, 358);
+            this.dtNgaySinh.MaxDate = new System.DateTime(2023, 11, 30, 0, 0, 0, 0);
             this.dtNgaySinh.Name = "dtNgaySinh";
             this.dtNgaySinh.Size = new System.Drawing.Size(280, 26);
             this.dtNgaySinh.TabIndex = 6;
+            this.dtNgaySinh.Value = new System.DateTime(2023, 11, 30, 0, 0, 0, 0);
             // 
             // button1
             // 

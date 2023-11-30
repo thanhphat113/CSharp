@@ -204,12 +204,6 @@ C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.Themsanpham.resou
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.khachhanggui.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.sanphamgui.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Edit.EditSP.resources
-<<<<<<< HEAD
-C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.donbaohanhgui.resources
-C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.nhacungcap.resources
-C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.loaisanphamgui.resources
-C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.taikhoangui.resources
-=======
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.Edit.Editkh.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.Edit.EditSP.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.khachhanggui.resources
@@ -220,7 +214,7 @@ C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.sanphamgui.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.Thêm.Themsanpham.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.RegisterAccount.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.RJ.RjTextbox.resources
->>>>>>> 97e495e87b722db33e1ac2418070141fae573b2f
+
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.exe.config
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.exe
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.pdb
@@ -246,6 +240,7 @@ D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.Messageboxshow.Comfrimupdate.resour
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.Messageboxshow.YesOrNo.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.nhacungcap.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.NhanVien.resources
+D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.QuenMatKhau.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.RegisterAccount.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.sanphamgui.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.taikhoangui.resources
@@ -264,4 +259,3 @@ D:\workspace\CSharp\obj\Debug\Doanqlchdt.csproj.CoreCompileInputs.cache
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.csproj.CopyComplete
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.exe
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.pdb
-D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.QuenMatKhau.resources

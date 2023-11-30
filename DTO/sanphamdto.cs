@@ -29,6 +29,13 @@ namespace Doanqlchdt.DTO
             this.Soluong = soluong;
         }
 
+        public sanphamdto(string masp, int soluong)
+        {
+            this.masp=masp;
+            this.soluong = soluong;
+        }
+
+
         public sanphamdto    () { }
 
         public string Masp { get => masp; set => masp = value; }
