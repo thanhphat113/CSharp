@@ -1,5 +1,7 @@
 ﻿using Doanqlchdt.connect;
+using Doanqlchdt.GUI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,6 +12,62 @@ namespace Doanqlchdt.DTO
 {
     public class khuyenmaidao
     {
+
+        public ArrayList GetKM()
+        {
+            ArrayList array = new ArrayList();
+            using (SqlConnection connection = new connectToan().connection())
+            {
+                SqlCommand sql = new SqlCommand("select * from KhuyenMai", connection);
+                SqlDataReader reader = sql.ExecuteReader();
+                while (reader.Read())
+                {
+                    khuyenmaidto kmdto = new khuyenmaidto
+                    {
+                        MaKM = reader.GetString(0),
+                        Tile = reader.GetDouble(1)
+                    };
+                    array.Add(kmdto);
+                }
+            }
+            return array;
+        }
+
+        public bool GetMaKM(string maKM)
+        {
+            using (SqlConnection connection = new connectToan().connection())
+            {
+                SqlCommand sql = new SqlCommand("SELECT COUNT(*) FROM KhuyenMai WHERE MaKM = @maKhuyenMai", connection);
+                sql.Parameters.AddWithValue("@maKhuyenMai", maKM);
+
+                int count = (int)sql.ExecuteScalar();
+                return count > 0; // Nếu count > 0, tức là mã khuyến mãi đã tồn tại
+            }
+        }
+
+        public void AddMaKM(string maKM, double tiLe)
+        {
+            using (SqlConnection connection = new connectToan().connection())
+            {
+                SqlCommand sql = new SqlCommand("Insert into KhuyenMai Values (@maKM, @tiLe)", connection);
+                sql.Parameters.AddWithValue("@maKM", maKM);
+                sql.Parameters.AddWithValue("@tiLe", tiLe);
+
+                sql.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteMaKM(string maKM)
+        {
+            using (SqlConnection connection = new connectToan().connection())
+            {
+                SqlCommand sql = new SqlCommand("DELETE FROM KhuyenMai WHERE MaKM = @maKM", connection);
+                sql.Parameters.AddWithValue("@maKM", maKM);
+
+                sql.ExecuteNonQuery();
+            }
+        }
+
         public Boolean checkKM(string makh,string makm)
         {
             int a = 0;
@@ -57,6 +115,5 @@ namespace Doanqlchdt.DTO
                 cmd.ExecuteNonQuery();
             }
         }
-
     }
 }

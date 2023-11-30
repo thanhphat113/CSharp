@@ -269,7 +269,7 @@
             this.txtRePass.Bordersize = 2;
             this.txtRePass.Location = new System.Drawing.Point(297, 312);
             this.txtRePass.Name = "txtRePass";
-            this.txtRePass.Padding = new System.Windows.Forms.Padding(7);
+            this.txtRePass.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtRePass.PasswordChar = true;
             this.txtRePass.Size = new System.Drawing.Size(209, 28);
             this.txtRePass.TabIndex = 23;
@@ -283,7 +283,7 @@
             this.txtPass.Bordersize = 2;
             this.txtPass.Location = new System.Drawing.Point(44, 312);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Padding = new System.Windows.Forms.Padding(7);
+            this.txtPass.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtPass.PasswordChar = true;
             this.txtPass.Size = new System.Drawing.Size(209, 28);
             this.txtPass.TabIndex = 22;
@@ -298,7 +298,7 @@
             this.txtUser.Bordersize = 2;
             this.txtUser.Location = new System.Drawing.Point(45, 235);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Padding = new System.Windows.Forms.Padding(7);
+            this.txtUser.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtUser.PasswordChar = false;
             this.txtUser.Size = new System.Drawing.Size(209, 28);
             this.txtUser.TabIndex = 21;
@@ -313,7 +313,7 @@
             this.txtEmail.Bordersize = 2;
             this.txtEmail.Location = new System.Drawing.Point(296, 163);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Padding = new System.Windows.Forms.Padding(7);
+            this.txtEmail.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtEmail.PasswordChar = false;
             this.txtEmail.Size = new System.Drawing.Size(209, 28);
             this.txtEmail.TabIndex = 20;
@@ -327,7 +327,7 @@
             this.txtPhone.Bordersize = 2;
             this.txtPhone.Location = new System.Drawing.Point(296, 86);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Padding = new System.Windows.Forms.Padding(7);
+            this.txtPhone.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtPhone.PasswordChar = false;
             this.txtPhone.Size = new System.Drawing.Size(209, 28);
             this.txtPhone.TabIndex = 19;
@@ -341,7 +341,7 @@
             this.txtName.Bordersize = 2;
             this.txtName.Location = new System.Drawing.Point(44, 86);
             this.txtName.Name = "txtName";
-            this.txtName.Padding = new System.Windows.Forms.Padding(7);
+            this.txtName.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtName.PasswordChar = false;
             this.txtName.Size = new System.Drawing.Size(209, 28);
             this.txtName.TabIndex = 18;

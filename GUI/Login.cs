@@ -38,12 +38,16 @@ namespace Doanqlchdt.GUI
                 {
                     this.Visible = false;
                     MessageBox.Show("Bạn đang đăng nhập dưới dạng ADMIN");
-                    Menu frmMenu = new Menu();
-                    frmMenu.ShowDialog();
+                    Manager.Manager frm = new GUI.Manager.Manager();
+                    frm.StartPosition = FormStartPosition.CenterScreen;
+                    frm.ShowDialog();
                 }
                 else if (checkQuyen == 2)
                 {
                     MessageBox.Show("Bạn đang đăng nhập dưới dạng Nhân Viên");
+                    Manager.Manager frm = new GUI.Manager.Manager();
+                    frm.StartPosition = FormStartPosition.CenterScreen;
+                    frm.ShowDialog();
                 }
                 else if (checkQuyen == 3)
                 {
@@ -70,12 +74,24 @@ namespace Doanqlchdt.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            RegisterAccount frmRegis = new RegisterAccount();
+            this.Hide();
+            frmRegis.StartPosition = FormStartPosition.CenterScreen;
+            frmRegis.ShowDialog();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            QuenMatKhau frm = new QuenMatKhau();
+            this.Hide();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
         }
     }
 }

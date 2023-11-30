@@ -166,5 +166,10 @@ namespace Doanqlchdt.GUI.Manager
         {
             ShowFormInPanel(new taikhoangui());
         }
+
+        private void panelmain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
