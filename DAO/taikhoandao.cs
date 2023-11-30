@@ -426,7 +426,74 @@ namespace Doanqlchdt.DAO
                 }
             }
             return false;
+        }
 
+        public int GetSoLuong()
+        {
+            int soLuong = 0;
+            using (SqlConnection connection = new connectToan().connection())
+            {
+                SqlCommand sql = new SqlCommand("SELECT * FROM TaiKhoan", connection);
+                SqlDataReader reader = sql.ExecuteReader();
+                while (reader.Read())
+                {
+                    soLuong++;
+                }
+            }
+            return soLuong;    
+        }
+
+        public int GetSoLuongKH()
+        {
+            int soLuong = 0;
+            using (SqlConnection connection = new connectToan().connection())
+            {
+                SqlCommand sql = new SqlCommand("SELECT * FROM TaiKhoan WHERE Quyen = 3", connection);
+                SqlDataReader reader = sql.ExecuteReader();
+                while (reader.Read())
+                {
+                    soLuong++;
+                }
+            }
+            return soLuong + 1;
+        }
+
+        public void AddAccount(string userid,string username, string password)
+        {
+
+            using (SqlConnection connection = new connectToan().connection())
+            {
+
+                // Thực hiện truy vấn để thêm dữ liệu vào bảng TaiKhoan
+                string query = "INSERT INTO TaiKhoan (UserID, Username, MatKhau, Quyen, TrangThai) VALUES (@UserID ,@Username, @Password, @Quyen, @TrangThai)";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@UserID", userid);
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Password", password);
+                command.Parameters.AddWithValue("@Quyen", 3); // Quyen = 3 (tương ứng với KhachHang)
+                command.Parameters.AddWithValue("@TrangThai", 1); // Trạng thái tài khoản (có thể thay đổi)
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void AddCustomer(int userID, string hoTen, string soDienThoai, string email, string ngaysinh, string gioitinh)
+        {
+            using (SqlConnection connection = new connectToan().connection())
+            {
+
+                string query = "INSERT INTO KhachHang (MaKH ,HoTen, SDT, maTK, Email, NgaySinh, GioiTinh, TrangThai, TinhTrang ) VALUES (@MaKH ,@HoTen, @SDT, @MaTK, @email, @ngaysinh, @gioitinh, 1, 1);";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@HoTen", hoTen);
+                command.Parameters.AddWithValue("@MaKH", GetSoLuongKH());
+                command.Parameters.AddWithValue("@SDT", soDienThoai);
+                command.Parameters.AddWithValue("@MaTK", userID);
+                command.Parameters.AddWithValue("@email", email);
+                command.Parameters.AddWithValue("@ngaysinh", ngaysinh);
+                command.Parameters.AddWithValue("@gioitinh", gioitinh);
+
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

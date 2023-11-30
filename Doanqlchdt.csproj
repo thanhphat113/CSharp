@@ -133,9 +133,15 @@
     <Compile Include="GUI\Chitietdonnhap.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="GUI\Chitietdonnhap.Designer.cs">
       <DependentUpon>Chitietdonnhap.cs</DependentUpon>
     </Compile>
+=======
+	<Compile Include="GUI\Chitietdonnhap.Designer.cs">
+		<DependentUpon>Chitietdonnhap.cs</DependentUpon>
+	</Compile>
+>>>>>>> a35ba19779971fa640f25630591eba398462d0b0
     <Compile Include="GUI\DoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -390,9 +396,15 @@
     <EmbeddedResource Include="GUI\Chitietdonban.resx">
       <DependentUpon>Chitietdonban.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="GUI\Chitietdonnhap.resx">
       <DependentUpon>Chitietdonnhap.cs</DependentUpon>
     </EmbeddedResource>
+=======
+	<EmbeddedResource Include="GUI\Chitietdonnhap.resx">
+		<DependentUpon>Chitietdonnhap.cs</DependentUpon>
+	</EmbeddedResource>
+>>>>>>> a35ba19779971fa640f25630591eba398462d0b0
     <EmbeddedResource Include="GUI\DoiMatKhau.resx">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>

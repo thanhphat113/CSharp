@@ -85,5 +85,10 @@ namespace Doanqlchdt.GUI
             Login loginForm = new Login(); 
             loginForm.Visible = true;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadform(new KhuyenMai());
+        }
     }
 }

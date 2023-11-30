@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Doanqlchdt.GUI.Messageboxshow;
 
 namespace Doanqlchdt.GUI
 {
@@ -110,7 +111,9 @@ namespace Doanqlchdt.GUI
                 try
                 {
                     employeeBUS.UpdateEmployee(employeeDTO);
-                    MessageBox.Show("Cập nhật thành công");
+                    Comfrimupdate comfrimupdate = new Comfrimupdate("Cập Nhật Thành Công");
+                    comfrimupdate.StartPosition = FormStartPosition.CenterScreen;
+                    comfrimupdate.ShowDialog();
                     this.Close();
                 }
                 catch (Exception ex)

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Doanqlchdt.BUS;
 using Doanqlchdt.DTO;
+using Doanqlchdt.GUI.Messageboxshow;
 
 namespace Doanqlchdt.GUI
 {
@@ -106,7 +107,9 @@ namespace Doanqlchdt.GUI
                 try
                 {
                     employeeBUS.AddEmployee(employeeDTO);
-                    MessageBox.Show("Thêm thành công");
+                    Comfrimupdate comfrimupdate = new Comfrimupdate("Thêm Nhân Viên Thành Công");
+                    comfrimupdate.StartPosition = FormStartPosition.CenterScreen;
+                    comfrimupdate.ShowDialog();
                     this.Close();
                 }
                 catch (Exception ex)
@@ -130,6 +133,11 @@ namespace Doanqlchdt.GUI
             {
                 cbNam.Checked = false;
             }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -78,7 +78,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 69);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(280, 433);
+            this.listView1.Size = new System.Drawing.Size(280, 510);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -136,7 +136,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(280, 69);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(372, 54);
@@ -159,8 +158,7 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(280, 300);
+            this.panel3.Location = new System.Drawing.Point(280, 377);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(372, 202);
             this.panel3.TabIndex = 8;
@@ -223,7 +221,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(652, 502);
+            this.ClientSize = new System.Drawing.Size(652, 579);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
