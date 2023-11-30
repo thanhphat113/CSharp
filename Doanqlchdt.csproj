@@ -122,6 +122,18 @@
     <Compile Include="GUI\ChiTiet.Designer.cs">
       <DependentUpon>ChiTiet.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Chitietdonban.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Chitietdonban.Designer.cs">
+      <DependentUpon>Chitietdonban.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Chitietdonnhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Chitietdonnhap.Designer.cs">
+      <DependentUpon>Chitietdonnhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DoiThongTinKH.cs">
       <SubType>Form</SubType>
     </Compile>

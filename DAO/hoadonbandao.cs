@@ -291,5 +291,134 @@ namespace Doanqlchdt.DTO
             return date;
         }
 
+        public int selectcount()
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+
+            sqlcommand.CommandText = "select count (*) from HoaDonBan ";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = (int)sqlcommand.ExecuteScalar();
+
+            connect.Close();
+            return kq;
+        }
+        public ArrayList getdsformpage(int ofset, int record)
+        {
+
+            ArrayList ds = new System.Collections.ArrayList();
+            connect.connect cn = new connect.connect();
+            SqlConnection connect = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = string.Format("select * from HoaDonBan ORDER BY MaHDB ASC OFFSET {0} ROWS FETCH NEXT {1} ROWS ONLY", ofset, record);
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            while (reader.Read())
+            {
+                String mhdb=reader.GetString(1);
+                String mnv = reader.GetString(2);
+                String mkh = reader.GetString(3);
+                String makm = reader.GetString(4);
+                int tongtien=reader.GetInt32(5);
+                DateTime ngay = reader.GetDateTime(6);
+                int trangthai=reader.GetInt32(7);
+                hoadonbandto hdbdto=new hoadonbandto(mhdb,mnv,mkh,makm,tongtien,ngay,trangthai);
+                ds.Add(hdbdto);
+            }
+            reader.Close();
+            connect.Close();
+            return ds;
+        }
+        public int selectcountpagesearch(String ten, String dieukien)
+
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            dieukien = dieukien.Trim();
+            if(ten=="NgayTao")
+            {
+                sqlcommand.CommandText = string.Format("select count (*) from HoaDonBan  Where CONVERT(NVARCHAR(MAX), {0}, 103) LIKE N'%" + dieukien + "%' ", ten);
+
+            }
+            else
+            {
+                sqlcommand.CommandText = string.Format("select count (*) from HoaDonBan  Where {0} LIKE N'%" + dieukien + "%' ", ten);
+
+            }
+
+
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = (int)sqlcommand.ExecuteScalar();
+            connect.Close();
+            return kq;
+        }
+        public ArrayList getdsformpageoder(String ten, String dieukien, String dieukiensx, String loaisx, int ofset, int record)
+        {
+
+            ArrayList ds = new System.Collections.ArrayList();
+            connect.connect cn = new connect.connect();
+            SqlConnection connect = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            if (ten == "NgayTao")
+            {
+                sqlcommand.CommandText = string.Format("select * from HoaDonBan Where CONVERT(NVARCHAR(MAX), {0}, 103)  LIKE N'%" + dieukien + "%' ORDER BY {1} {2} OFFSET {3} ROWS FETCH NEXT {4} ROWS ONLY", ten, dieukiensx, loaisx, ofset, record);
+            }
+            else
+            {
+                sqlcommand.CommandText = string.Format("select * from HoaDonBan Where {0} LIKE N'%" + dieukien + "%' ORDER BY {1} {2} OFFSET {3} ROWS FETCH NEXT {4} ROWS ONLY", ten, dieukiensx, loaisx, ofset, record);
+
+            }
+
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            while (reader.Read())
+            {
+                String mhdb = reader.GetString(1);
+                String mnv = reader.GetString(2);
+                String mkh = reader.GetString(3);
+                String makm = reader.GetString(4);
+                int tongtien = reader.GetInt32(5);
+                DateTime ngay = reader.GetDateTime(6);
+                int trangthai = reader.GetInt32(7);
+                hoadonbandto hdbdto = new hoadonbandto(mhdb, mnv, mkh, makm, tongtien, ngay, trangthai);
+                ds.Add(hdbdto);
+            }
+            reader.Close();
+            connect.Close();
+            return ds;
+        }
+        public ArrayList getdsformpageodersx(String ten, String sx, int ofset, int record)
+        {
+
+            ArrayList ds = new System.Collections.ArrayList();
+            connect.connect cn = new connect.connect();
+            SqlConnection connect = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = string.Format("SELECT * FROM NhaCungCap ORDER BY {0} {1} OFFSET {2} ROWS FETCH NEXT {3} ROWS ONLY", ten, sx, ofset, record);
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            while (reader.Read())
+            {
+                String mhdb = reader.GetString(1);
+                String mnv = reader.GetString(2);
+                String mkh = reader.GetString(3);
+                String makm = reader.GetString(4);
+                int tongtien = reader.GetInt32(5);
+                DateTime ngay = reader.GetDateTime(6);
+                int trangthai = reader.GetInt32(7);
+                hoadonbandto hdbdto = new hoadonbandto(mhdb, mnv, mkh, makm, tongtien, ngay, trangthai);
+                ds.Add(hdbdto);
+            }
+            reader.Close();
+            connect.Close();
+            return ds;
+        }
     }
 }
