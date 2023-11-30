@@ -202,7 +202,7 @@ namespace Doanqlchdt.DTO
             SqlConnection connect = cn.connection();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = string.Format("select * from ChiTietDonNhap where MaHDN = '" + mahd + "' ORDER BY MaHDB ASC OFFSET {0} ROWS FETCH NEXT {1} ROWS ONLY", ofset, record);
+            sqlcommand.CommandText = string.Format("select * from ChiTietDonNhap where MaHDN = '" + mahd + "' ORDER BY MaHDN ASC OFFSET {0} ROWS FETCH NEXT {1} ROWS ONLY", ofset, record);
             sqlcommand.Connection = connect;
             SqlDataReader reader = sqlcommand.ExecuteReader();
             while (reader.Read())

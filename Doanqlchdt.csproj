@@ -206,11 +206,23 @@
     <Compile Include="GUI\RegisterAccount.designer.cs">
       <DependentUpon>RegisterAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Thêm\Hoadonbanxacnhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Thêm\Hoadonbanxacnhan.Designer.cs">
+      <DependentUpon>Hoadonbanxacnhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Thêm\Themdbh.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Thêm\Themdbh.Designer.cs">
       <DependentUpon>Themdbh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Thêm\Themhoadonnhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Thêm\Themhoadonnhap.Designer.cs">
+      <DependentUpon>Themhoadonnhap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Thêm\themloaisp.cs">
       <SubType>Form</SubType>
@@ -349,6 +361,12 @@
     <EmbeddedResource Include="GUI\ChiTiet.resx">
       <DependentUpon>ChiTiet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Chitietdonban.resx">
+      <DependentUpon>Chitietdonban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Chitietdonnhap.resx">
+      <DependentUpon>Chitietdonnhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DoiThongTinKH.resx">
       <DependentUpon>DoiThongTinKH.cs</DependentUpon>
     </EmbeddedResource>
@@ -363,6 +381,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\hoadonbangui.resx">
+      <DependentUpon>hoadonbangui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\hoadonnhapgui.resx">
+      <DependentUpon>hoadonnhapgui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\khachhanggui.resx">
       <DependentUpon>khachhanggui.cs</DependentUpon>
@@ -414,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Thêm\Hoadonbanxacnhan.resx">
+      <DependentUpon>Hoadonbanxacnhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Thêm\Themsanpham.resx">
       <DependentUpon>Themsanpham.cs</DependentUpon>

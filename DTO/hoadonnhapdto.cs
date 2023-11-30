@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace Doanqlchdt.DTO
 {
-    internal class hoadonnhapdto
+    public class hoadonnhapdto
     {
         private String mahdn;
         private String manv;
         private String ncc;
         private int tongtien;
         private DateTime ngaytao;
+
+        public hoadonnhapdto()
+        {
+        }
 
         public hoadonnhapdto(string mahdn, string manv, string ncc, int tongtien, DateTime ngaytao)
         {
