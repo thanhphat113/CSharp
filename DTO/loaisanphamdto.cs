@@ -17,6 +17,10 @@ namespace Doanqlchdt.DTO
             this.Tenloai = tenloai;
         }
 
+        public loaisanphamdto()
+        {
+        }
+
         public string Maloai { get => maloai; set => maloai = value; }
         public string Tenloai { get => tenloai; set => tenloai = value; }
     }

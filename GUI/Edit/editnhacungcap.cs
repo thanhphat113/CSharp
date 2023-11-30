@@ -1,4 +1,5 @@
 ﻿using Doanqlchdt.DTO;
+using Doanqlchdt.GUI.Messageboxshow;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,82 @@ namespace Doanqlchdt.GUI.Edit
         {
             selecteddto = dto;
             InitializeComponent();
+            mousehover();
+            mousehover();
+            txtMa.Text = selecteddto.Mancc;
+            textBoxten.Text = selecteddto.Tenncc;
+            textBoxemail.Text = selecteddto.Email;
+            textBoxdiachi.Text = selecteddto.Diachi;
+            textBoxsdt.Text = selecteddto.Sdt;
+        }
+        public void mousehover()
+        {
+            btnthem.MouseEnter += (sender, e) =>
+            {
+                btnthem.BackColor = Color.DodgerBlue;
+                btnthem.ForeColor = System.Drawing.SystemColors.Window;
+                // Đổi màu nền khi hover
+            };
+            btnthem.MouseLeave += (sender, e) =>
+            {
+                btnthem.BackColor = System.Drawing.SystemColors.Window;
+                btnthem.ForeColor = System.Drawing.SystemColors.HotTrack;
+            };
+            btnHuy.MouseEnter += (sender, e) =>
+            {
+                btnHuy.BackColor = System.Drawing.Color.OrangeRed;
+                btnHuy.ForeColor = System.Drawing.SystemColors.Window;
+                // Đổi màu nền khi hover
+            };
+            btnHuy.MouseLeave += (sender, e) =>
+            {
+                btnHuy.BackColor = System.Drawing.SystemColors.Window;
+                btnHuy.ForeColor = System.Drawing.Color.OrangeRed;
+            };
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            YesOrNo yon = new YesOrNo("Bạn có chắc chắn muốn hủy không");
+            yon.ShowDialog();
+            if (yon.Comfirm == true)
+            {
+                Comfrimupdate cfm = new Comfrimupdate("Bạn hủy thành công");
+                cfm.ShowDialog();
+                this.Close();
+            }
+
+        }
+
+        private void btnthem_Click(object sender, EventArgs e)
+        {
+            nhacungcapdto nccdto = new nhacungcapdto();
+            nccdto.Mancc = txtMa.Text.Trim();
+            nccdto.Tenncc=textBoxten.Text.Trim();
+            nccdto.Email=textBoxemail.Text.Trim();
+            nccdto.Diachi=textBoxdiachi.Text.Trim();
+            nccdto.Sdt=textBoxsdt.Text.Trim();
+            YesOrNo yon = new YesOrNo("Bạn có chắc chắn muốn lưu không");
+            yon.ShowDialog();
+            if (yon.Comfirm == true)
+            {
+                bus.UPDATE(nccdto);
+                Comfrimupdate cfm = new Comfrimupdate("Bạn đã lưu thông tin thành công");
+                cfm.ShowDialog();
+                this.Close();
+            }
+
+
+        }
+
+        private void buttonminimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonexit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

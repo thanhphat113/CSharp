@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,26 @@ namespace Doanqlchdt.DTO
         public ArrayList getdspagesx(String ten, String sx, int ofset, int record)
         {
             return dao.getdsformpageodersx(ten, sx, ofset, record);
+        }
+        public int them(hoadonnhapdto hdndto)
+        {
+            return dao.themhdn(hdndto);
+        }
+        public int themcthdn(chitietdonnhapdto ctdndto)
+        {
+            return dao.themcthdn(ctdndto);
+        }
+        public DataTable gettensp()
+        {
+            return dao.Laytensp();
+        }
+        public sanphamdto getdsgianhap(String masp)
+        {
+            return dao.getdsgianhap(masp);
+        }
+        public DataTable gettenncc()
+        {
+            return dao.Laytenncc();
         }
     }
 }

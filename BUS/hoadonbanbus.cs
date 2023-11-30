@@ -69,6 +69,9 @@ namespace Doanqlchdt.DTO
         {
             return hoadonbanDao.getdsformpageodersx(ten, sx, ofset, record);
         }
-
+        public int update(hoadonbandto hdbdto,int bien)
+        {
+            return hoadonbanDao.UpDate(hdbdto,bien);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Doanqlchdt.DTO;
 using Doanqlchdt.GUI.Edit;
+using Doanqlchdt.GUI.Messageboxshow;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -482,7 +483,7 @@ namespace Doanqlchdt.GUI.Thêm
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                string selectedMa = listView1.SelectedItems[0].SubItems[0].Text.Trim();
+                string selectedMa = listView1.SelectedItems[0].SubItems[0].Text;
                 hoadonbandto hdbdto = null;
                 foreach (hoadonbandto hdonbandto in ds)
                 {
@@ -493,19 +494,60 @@ namespace Doanqlchdt.GUI.Thêm
                 }
                 if (hdbdto != null)
                 {
-                    // truyền thông tin nhân viên được chọn qua form sửa nhân viên
-                    Chitietdonban ct = new Chitietdonban(hdbdto);
+                    
+                    YesOrNoOrCancle yon = new YesOrNoOrCancle("Bạn có muốn xác nhận đơn hàng không");
+                    yon.ShowDialog();
+                    if (yon.Comfirmxn == true)
+                    {
+                        bus.update(hdbdto, 1);
+                        Comfrimupdate cfm = new Comfrimupdate("Bạn đã lưu thông tin thành công");
+                        cfm.ShowDialog();
+                        sx = false;
+                        timkiem = false;
+                        temp = 1;
+                        double totalpagetemp = (double)bus.getcount() / record;
+                        totalpage = (int)Math.Ceiling(totalpagetemp);
+                        setvisiblebutonpage(totalpage, btnarray);
+                        btnarray = new System.Windows.Forms.Button[(int)(totalpage + 2)];
+                        loadtable();
 
-                    ct.StartPosition = FormStartPosition.CenterParent;
-                    ct.ShowDialog();
-                    if (temppage == true)
+                        page();
+
+                        textBoxtimkiem.Text = "";
+                        comboBoxsx.SelectedIndex = 0;
+                        comboBoxsxlc.SelectedIndex = 0;
+                        comboboxtimkiem.SelectedIndex = 0;
+
+                    }
+                    else if(yon.Comfirmhuy == true)
+                    {
+                        bus.update(hdbdto, 2);
+                        Comfrimupdate cfm = new Comfrimupdate("Bạn đã lưu thông tin thành công");
+                        cfm.ShowDialog();
+                        sx = false;
+                        timkiem = false;
+                        temp = 1;
+                        double totalpagetemp = (double)bus.getcount() / record;
+                        totalpage = (int)Math.Ceiling(totalpagetemp);
+                        setvisiblebutonpage(totalpage, btnarray);
+                        btnarray = new System.Windows.Forms.Button[(int)(totalpage + 2)];
+                        loadtable();
+
+                        page();
+
+                        textBoxtimkiem.Text = "";
+                        comboBoxsx.SelectedIndex = 0;
+                        comboBoxsxlc.SelectedIndex = 0;
+                        comboboxtimkiem.SelectedIndex = 0;
+
+                    }
+                    else if(yon.Comfirmexit==true)
                     {
                         loadtable();
                     }
-                    else
-                    {
-                        loadtableod(ten, tempsx, temploaisx, ketquatim);
-                    }
+                        
+                    
+                  
                 }
             }
         }
@@ -1085,11 +1127,7 @@ namespace Doanqlchdt.GUI.Thêm
                 designbutton(a);
             }
         }
-        private void buttonthem_Click(object sender, EventArgs e)
-        {
-            Themhoadonnhap them = new Themhoadonnhap();
-            them.ShowDialog();
-        }
+
         ////////// kết thúc phần code sự kiện tự tạo của form////////////////////////////////////////////////////////////////////////////////////////  
     }
 }

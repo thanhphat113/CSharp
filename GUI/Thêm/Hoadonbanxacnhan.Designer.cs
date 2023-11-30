@@ -43,7 +43,6 @@
             this.comboBoxsxlc = new System.Windows.Forms.ComboBox();
             this.comboBoxsx = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonthem = new System.Windows.Forms.Button();
             this.flowLayoutPanelpage = new System.Windows.Forms.FlowLayoutPanel();
             this.buttondau = new System.Windows.Forms.Button();
             this.buttonpress = new System.Windows.Forms.Button();
@@ -227,7 +226,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.buttonthem);
             this.panel1.Controls.Add(this.flowLayoutPanelpage);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.comboboxtimkiem);
@@ -240,25 +238,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1298, 697);
             this.panel1.TabIndex = 4;
-            // 
-            // buttonthem
-            // 
-            this.buttonthem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonthem.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonthem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonthem.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.buttonthem.FlatAppearance.BorderSize = 3;
-            this.buttonthem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonthem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonthem.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonthem.Location = new System.Drawing.Point(1083, 29);
-            this.buttonthem.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonthem.Name = "buttonthem";
-            this.buttonthem.Size = new System.Drawing.Size(191, 41);
-            this.buttonthem.TabIndex = 36;
-            this.buttonthem.Text = "Thêm";
-            this.buttonthem.UseVisualStyleBackColor = false;
-            this.buttonthem.Click += new System.EventHandler(this.buttonthem_Click);
             // 
             // flowLayoutPanelpage
             // 
@@ -376,7 +355,6 @@
         private System.Windows.Forms.ComboBox comboBoxsxlc;
         private System.Windows.Forms.ComboBox comboBoxsx;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonthem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelpage;
         private System.Windows.Forms.Button buttondau;
         private System.Windows.Forms.Button buttonpress;

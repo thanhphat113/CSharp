@@ -41,8 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDownsoluong = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxmota = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -55,7 +53,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownsoluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +116,7 @@
             // txtgiaban
             // 
             this.txtgiaban.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtgiaban.Location = new System.Drawing.Point(193, 344);
+            this.txtgiaban.Location = new System.Drawing.Point(194, 300);
             this.txtgiaban.Margin = new System.Windows.Forms.Padding(4);
             this.txtgiaban.Name = "txtgiaban";
             this.txtgiaban.Size = new System.Drawing.Size(353, 30);
@@ -194,8 +191,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Window;
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.numericUpDownsoluong);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.textBoxmota);
             this.panel3.Controls.Add(this.pictureBox1);
@@ -218,25 +213,6 @@
             this.panel3.Size = new System.Drawing.Size(906, 874);
             this.panel3.TabIndex = 41;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(16, 277);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 25);
-            this.label8.TabIndex = 66;
-            this.label8.Text = "Số lượng";
-            // 
-            // numericUpDownsoluong
-            // 
-            this.numericUpDownsoluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.numericUpDownsoluong.Location = new System.Drawing.Point(194, 277);
-            this.numericUpDownsoluong.Name = "numericUpDownsoluong";
-            this.numericUpDownsoluong.Size = new System.Drawing.Size(120, 30);
-            this.numericUpDownsoluong.TabIndex = 65;
             // 
             // label7
             // 
@@ -364,7 +340,6 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownsoluong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -396,7 +371,5 @@
         private System.Windows.Forms.TextBox textgianhap;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDownsoluong;
     }
 }

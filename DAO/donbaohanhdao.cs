@@ -376,6 +376,24 @@ namespace Doanqlchdt.DTO
             connect.Close();
             return kq;
         }
+        public DataTable Laymnv()
+        {
+            Database db = new Database();
+            string strSQL = "Select * from NhanVien";
+            DataTable dt = db.Execute(strSQL); return dt;
+        }
+        public DataTable Laykh()
+        {
+            Database db = new Database();
+            string strSQL = "Select * from KhachHang";
+            DataTable dt = db.Execute(strSQL); return dt;
+        }
+        public DataTable Laysp()
+        {
+            Database db = new Database();
+            string strSQL = "Select * from SanPham";
+            DataTable dt = db.Execute(strSQL); return dt;
+        }
 
     }
 }

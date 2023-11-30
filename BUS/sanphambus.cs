@@ -45,5 +45,9 @@ namespace Doanqlchdt.DTO
         {
             return dao.UpDate(spdto);
         }
+        public int UPDATEsoluong(sanphamdto spdto)
+        {
+            return dao.UpDatesoluong(spdto);
+        }
     }
 }

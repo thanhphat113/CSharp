@@ -124,7 +124,6 @@
     <Compile Include="GUI\ChiTiet.Designer.cs">
       <DependentUpon>ChiTiet.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="GUI\Chitietdonban.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,13 +135,12 @@
     </Compile>
     <Compile Include="GUI\Chitietdonnhap.Designer.cs">
       <DependentUpon>Chitietdonnhap.cs</DependentUpon>
-=======
+    </Compile>
     <Compile Include="GUI\DoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\DoiMatKhau.Designer.cs">
+    <Compile Include="GUI\DoiMatKhau.designer.cs">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
->>>>>>> 96b956debde8dab8b738a7af299f75486ef9c388
     </Compile>
     <Compile Include="GUI\DoiThongTinKH.cs">
       <SubType>Form</SubType>
@@ -195,7 +193,7 @@
     <Compile Include="GUI\KhuyenMai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\KhuyenMai.Designer.cs">
+    <Compile Include="GUI\KhuyenMai.designer.cs">
       <DependentUpon>KhuyenMai.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Manager\Manager.cs">
@@ -216,10 +214,16 @@
     <Compile Include="GUI\Messageboxshow\YesOrNo.Designer.cs">
       <DependentUpon>YesOrNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Messageboxshow\YesOrNoOrCancle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Messageboxshow\YesOrNoOrCancle.Designer.cs">
+      <DependentUpon>YesOrNoOrCancle.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\QuenMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\QuenMatKhau.Designer.cs">
+    <Compile Include="GUI\QuenMatKhau.designer.cs">
       <DependentUpon>QuenMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\RegisterAccount.cs">
@@ -383,16 +387,14 @@
     <EmbeddedResource Include="GUI\ChiTiet.resx">
       <DependentUpon>ChiTiet.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="GUI\Chitietdonban.resx">
       <DependentUpon>Chitietdonban.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Chitietdonnhap.resx">
       <DependentUpon>Chitietdonnhap.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DoiMatKhau.resx">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
->>>>>>> 96b956debde8dab8b738a7af299f75486ef9c388
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DoiThongTinKH.resx">
       <DependentUpon>DoiThongTinKH.cs</DependentUpon>
@@ -400,8 +402,17 @@
     <EmbeddedResource Include="GUI\donbaohanhgui.resx">
       <DependentUpon>donbaohanhgui.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Edit\editdbh.resx">
+      <DependentUpon>editdbh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Edit\Editkh.resx">
       <DependentUpon>Editkh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Edit\editloaisp.resx">
+      <DependentUpon>editloaisp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Edit\editnhacungcap.resx">
+      <DependentUpon>editnhacungcap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Edit\EditSP.resx">
       <DependentUpon>EditSP.cs</DependentUpon>
@@ -439,6 +450,9 @@
     <EmbeddedResource Include="GUI\Messageboxshow\YesOrNo.resx">
       <DependentUpon>YesOrNo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Messageboxshow\YesOrNoOrCancle.resx">
+      <DependentUpon>YesOrNoOrCancle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\nhacungcap.resx">
       <DependentUpon>nhacungcap.cs</DependentUpon>
     </EmbeddedResource>
@@ -474,6 +488,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Thêm\Hoadonbanxacnhan.resx">
       <DependentUpon>Hoadonbanxacnhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Thêm\Themdbh.resx">
+      <DependentUpon>Themdbh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Thêm\Themhoadonnhap.resx">
+      <DependentUpon>Themhoadonnhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Thêm\themloaisp.resx">
+      <DependentUpon>themloaisp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Thêm\themnhacungcap.resx">
+      <DependentUpon>themnhacungcap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Thêm\Themsanpham.resx">
       <DependentUpon>Themsanpham.cs</DependentUpon>
@@ -512,9 +538,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="obj\image\forgot_password.jpg" />
     <Content Include="obj\image\padlock_2889676.png" />
-    <None Include="obj\image\resetpass.jpg" />
     <Content Include="obj\IM\Available Updates.png" />
     <Content Include="obj\IM\Close.png" />
     <Content Include="obj\IM\Close1.png" />

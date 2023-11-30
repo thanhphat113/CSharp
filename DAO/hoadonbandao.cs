@@ -606,7 +606,18 @@ namespace Doanqlchdt.DTO
             connect.Close();
             return ds;
         }
-
+        public int UpDate(hoadonbandto hdbdto,int bien)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "UPDATE HoaDonBan SET TrangThai = '"+bien+"' WHERE MaHDB='"+hdbdto.Mhdb+"'";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }
     }
 }
 

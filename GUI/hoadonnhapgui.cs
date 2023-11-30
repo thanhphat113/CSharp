@@ -1013,7 +1013,7 @@ namespace Doanqlchdt.GUI
         }
         private void buttonthem_Click(object sender, EventArgs e)
         {
-            Themhoadonnhap them = new Themhoadonnhap();
+            Themhoadonnhap them = new Themhoadonnhap("01");
             them.ShowDialog();
         }
         ////////// kết thúc phần code sự kiện tự tạo của form////////////////////////////////////////////////////////////////////////////////////////  

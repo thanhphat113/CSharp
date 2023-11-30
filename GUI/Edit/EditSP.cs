@@ -35,9 +35,6 @@ namespace Doanqlchdt.GUI.Edit
             cbbtenmaloai.DisplayMember = "TenLoai";
             cbbtenmaloai.ValueMember = "MaLoai";
             cbbtenmaloai.SelectedValue=Selectedsp.Maloai;
-            int soluong=Selectedsp.Soluong;
-            decimal soluongnumberirc = Convert.ToDecimal(soluong);
-            numericUpDownsoluong.Value = soluongnumberirc;
             mousehover();
         }
         public Image ByteArraytoimage(byte[] b)
@@ -110,8 +107,6 @@ namespace Doanqlchdt.GUI.Edit
             spdto.Mota = textBoxmota.Text.Trim();
             spdto.Hinhanh = ImageToByteArray(pictureBox1.Image);
             spdto.Maloai = cbbtenmaloai.SelectedValue.ToString();
-            decimal numberic = numericUpDownsoluong.Value;
-            spdto.Soluong = Convert.ToInt32(numberic);
             YesOrNo yon = new YesOrNo("Bạn có chắc chắn muốn lưu không");
             yon.ShowDialog();
             if (yon.Comfirm == true)

@@ -25,6 +25,10 @@ namespace Doanqlchdt.DTO
             this.Ngaytra = ngaytra;
         }
 
+        public donbaohanhdto()
+        {
+        }
+
         public string Madonbaohanh { get => madonbaohanh; set => madonbaohanh = value; }
         public string Manv { get => manv; set => manv = value; }
         public string Makh { get => makh; set => makh = value; }

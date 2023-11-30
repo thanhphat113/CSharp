@@ -1198,6 +1198,7 @@ namespace Doanqlchdt.GUI
                 comboBoxtrangthaihoadon.Visible = true;
                 int count = comboBoxsxlc.Items.Count;
                 comboBoxsxlc.Items.RemoveAt(count - 1);
+                textBoxtimkiem.Enabled = false;
             }
             else
             {
@@ -1207,6 +1208,7 @@ namespace Doanqlchdt.GUI
                     comboBoxsxlc.Items.Add("Trạng Thái");
                 }
                 comboBoxtrangthaihoadon.Visible = false;
+                textBoxtimkiem.Enabled = true;
             }
         }
         ////////// kết thúc phần code sự kiện tự tạo của form////////////////////////////////////////////////////////////////////////////////////////  

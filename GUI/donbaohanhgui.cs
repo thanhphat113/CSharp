@@ -504,14 +504,23 @@ namespace Doanqlchdt.GUI
                     editdbh editdon=new editdbh(dbhdto);
                     editdon.StartPosition = FormStartPosition.CenterParent;
                     editdon.ShowDialog();
-                    if (temppage == true)
-                    {
-                        loadtable();
-                    }
-                    else
-                    {
-                        loadtableod(ten, tempsx, temploaisx, ketquatim);
-                    }
+                    sx = false;
+                    timkiem = false;
+                    temp = 1;
+                    double totalpagetemp = (double)bus.getcount() / record;
+                    totalpage = (int)Math.Ceiling(totalpagetemp);
+                    setvisiblebutonpage(totalpage, btnarray);
+                    btnarray = new System.Windows.Forms.Button[(int)(totalpage + 2)];
+                    loadtable();
+
+                    page();
+
+                    textBoxtimkiem.Text = "";
+                    comboBoxsx.SelectedIndex = 0;
+                    comboBoxsxlc.SelectedIndex = 0;
+                    comboboxtimkiem.SelectedIndex = 0;
+
+
                 }
             }
         }
@@ -548,9 +557,11 @@ namespace Doanqlchdt.GUI
             sx = false;
             timkiem = false;
             temp = 1;
+
             loadtable();
             setvisiblebutonpage(totalpage, btnarray);
             page();
+
             textBoxtimkiem.Text = "";
             comboBoxsx.SelectedIndex = 0;
             comboBoxsxlc.SelectedIndex = 0;
@@ -1098,6 +1109,25 @@ namespace Doanqlchdt.GUI
         {
             Themdbh them=new Themdbh();
             them.ShowDialog();
+
+            sx = false;
+            timkiem = false;
+            temp = 1;
+            double totalpagetemp = (double)bus.getcount() / record;
+            totalpage = (int)Math.Ceiling(totalpagetemp);
+            setvisiblebutonpage(totalpage, btnarray);
+            btnarray = new System.Windows.Forms.Button[(int)(totalpage + 2)];
+            loadtable();
+           
+            page();
+
+            textBoxtimkiem.Text = "";
+            comboBoxsx.SelectedIndex = 0;
+            comboBoxsxlc.SelectedIndex = 0;
+            comboboxtimkiem.SelectedIndex = 0;
+
+
+
         }
         ////////// kết thúc phần code sự kiện tự tạo của form////////////////////////////////////////////////////////////////////////////////////////  
     }

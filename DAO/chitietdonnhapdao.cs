@@ -42,7 +42,7 @@ namespace Doanqlchdt.DTO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "insert into ChiTietDonBan values(N'" + ctdndto.Mahdn + "',N'" + ctdndto.Masp + "','" + ctdndto.Dongia + "','" + ctdndto.Soluong + "','" + ctdndto.Tongtien + "')";
+            sqlcommand.CommandText = "insert into ChiTietDonNhap values(N'" + ctdndto.Mahdn + "',N'" + ctdndto.Masp + "','" + ctdndto.Dongia + "','" + ctdndto.Soluong + "','" + ctdndto.Tongtien + "')";
             SqlConnection connect = cn.connection();
             int kq = sqlcommand.ExecuteNonQuery();
             connect.Close();

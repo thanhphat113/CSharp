@@ -298,7 +298,7 @@ namespace Doanqlchdt.DTO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "insert into SanPham values (@masp,@tensp,@maloai,@gianhap,@giaban,@mota,@hinhanh,@soluong)";
+            sqlcommand.CommandText = "insert into SanPham values (@masp,@tensp,@maloai,@gianhap,@giaban,@mota,@hinhanh)";
             SqlConnection connect = cn.connection();
             sqlcommand.Connection = connect;
             sqlcommand.Parameters.Add("@masp",spdto.Masp);
@@ -308,7 +308,6 @@ namespace Doanqlchdt.DTO
             sqlcommand.Parameters.Add("@giaban",spdto.Giaban);
             sqlcommand.Parameters.Add("@mota",spdto.Mota);
             sqlcommand.Parameters.Add("@hinhanh",spdto.Hinhanh);
-            sqlcommand.Parameters.Add("@soluong",spdto.Soluong);
             int kq=sqlcommand.ExecuteNonQuery();
             connect.Close();
             return kq;
@@ -437,7 +436,7 @@ namespace Doanqlchdt.DTO
             connect.connect cn = new connect.connect();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.CommandType = System.Data.CommandType.Text;
-            sqlcommand.CommandText = "UPDATE SanPham SET TenSP = @TenSP, MaLoai = @MaLoai, GiaNhap = @GiaNhap, GiaBan = @GiaBan, MoTa = @MoTa, HinhAnh = @HinhAnh, SoLuong = @SoLuong WHERE MaSP = @MaSP";
+            sqlcommand.CommandText = "UPDATE SanPham SET TenSP = @TenSP, MaLoai = @MaLoai, GiaNhap = @GiaNhap, GiaBan = @GiaBan, MoTa = @MoTa, HinhAnh = @HinhAnh WHERE MaSP = @MaSP";
             SqlConnection connect = cn.connection();
             sqlcommand.Connection = connect;
             sqlcommand.Parameters.AddWithValue("@TenSP", spdto.Tensp);
@@ -446,6 +445,19 @@ namespace Doanqlchdt.DTO
             sqlcommand.Parameters.AddWithValue("@GiaBan", spdto.Giaban);
             sqlcommand.Parameters.AddWithValue("@MoTa", spdto.Mota);
             sqlcommand.Parameters.AddWithValue("@HinhAnh", spdto.Hinhanh);
+            sqlcommand.Parameters.AddWithValue("@MaSP", spdto.Masp);
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }
+        public int UpDatesoluong(sanphamdto spdto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "UPDATE SanPham SET SoLuong = @SoLuong WHERE MaSP = @MaSP";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
             sqlcommand.Parameters.AddWithValue("@SoLuong", spdto.Soluong);
             sqlcommand.Parameters.AddWithValue("@MaSP", spdto.Masp);
             int kq = sqlcommand.ExecuteNonQuery();

@@ -278,3 +278,14 @@ D:\workspace\CSharp\obj\Debug\Doanqlchdt.pdb
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.DoiMatKhau.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.KhuyenMai.resources
 >>>>>>> 96b956debde8dab8b738a7af299f75486ef9c388
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.DoiMatKhau.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.KhuyenMai.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.QuenMatKhau.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Edit.editdbh.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Edit.editloaisp.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Edit.editnhacungcap.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.Themdbh.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.Themhoadonnhap.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.themloaisp.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.themnhacungcap.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Messageboxshow.YesOrNoOrCancle.resources

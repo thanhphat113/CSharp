@@ -55,5 +55,18 @@ namespace Doanqlchdt.DTO
         {
             return dao.UpDate(dbhdto);
         }
+        public DataTable getnv()
+        {
+            return dao.Laymnv();
+        }
+        public DataTable getsp()
+        {
+            return dao.Laysp();
+        }
+        public DataTable getkh()
+        {
+            return dao.Laykh();
+        }
+ 
     }
 }

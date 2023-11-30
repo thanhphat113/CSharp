@@ -43,20 +43,24 @@ namespace Doanqlchdt.GUI.Thêm
             spdto.Mota=textBoxmota.Text.Trim();
             spdto.Hinhanh = ImageToByteArray(pictureBox1.Image);
             spdto.Maloai = cbbtenmaloai.SelectedValue.ToString();
-            decimal numberic = numericUpDownsoluong.Value;
-            spdto.Soluong = Convert.ToInt32(numberic);
-            spb.themsp(spdto);
-            Messageboxshow.Comfrimupdate cfm=new Messageboxshow.Comfrimupdate("Lưu thông tin thành công");
-            cfm.ShowDialog();
-            textBox1tensp.Text = "";
-            textBoxmota.Text = "";
-            textgianhap.Text = "";
-            txtgiaban.Text = "";
-            pictureBox1.Image = null;
-            cbbtenmaloai.SelectedIndex = 0;
-            numericUpDownsoluong.Value = 0;
-            so = spb.getcount();
-            txtMasp.Text = kiemtrathemma(so);
+            YesOrNo yon = new YesOrNo("Bạn có chắc chắn muốn thêm không");
+            yon.ShowDialog();
+            if (yon.Comfirm == true)
+            {
+                spb.themsp(spdto);
+                Comfrimupdate cfm = new Comfrimupdate("Bạn đã lưu thông tin thành công");
+                cfm.ShowDialog();
+                textBox1tensp.Text = "";
+                textBoxmota.Text = "";
+                textgianhap.Text = "";
+                txtgiaban.Text = "";
+                pictureBox1.Image = null;
+                cbbtenmaloai.SelectedIndex = 0;
+                so = spb.getcount();
+                txtMasp.Text = kiemtrathemma(so);
+            }
+           
+        
 
 
         }

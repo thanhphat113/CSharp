@@ -1,6 +1,8 @@
-﻿using System;
+﻿using BTCSDLNCTUAN;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -303,5 +305,69 @@ namespace Doanqlchdt.DTO
             connect.Close();
             return ds;
         }
+        public int themhdn(hoadonnhapdto hdndto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "insert into HoaDonNhap values(N'" + hdndto.Mahdn + "',N'" + hdndto.Manv + "',N'" + hdndto.Ncc + "','" + hdndto.Tongtien + "','" + hdndto.Ngaytao + "')";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }
+        public int themcthdn(chitietdonnhapdto ctdndto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "insert into ChiTietDonNhap values(N'" + ctdndto.Mahdn + "',N'" + ctdndto.Masp + "','" + ctdndto.Dongia + "','" + ctdndto.Soluong + "','" + ctdndto.Tongtien + "')";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }
+        public sanphamdto getdsgianhap(String msp)
+        {
+            sanphamdto spdto = null;
+            connect.connect cn = new connect.connect();
+            SqlConnection connect = cn.connection();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "select * from SanPham where MaSP = '" +msp+ "'";
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            while (reader.Read())
+            {
+                String masp = reader.GetString(0);
+                String tensp = reader.GetString(1);
+                String maloai = reader.GetString(2);
+                int gianhap = reader.GetInt32(3);
+                int giaban = (int)reader["GiaBan"];
+                byte[] hinhanh = (byte[])reader["HinhAnh"];
+                string mota = (string)reader["MoTa"];
+                int soluong = (int)reader["SoLuong"];
+                spdto = new sanphamdto(masp, tensp, maloai, gianhap, giaban, hinhanh, mota, soluong);
+
+            }
+            reader.Close();
+            connect.Close();
+            return spdto;
+        }
+        public DataTable Laytensp()
+        {
+            Database db = new Database();
+            string strSQL = "Select * from SanPham";
+            DataTable dt = db.Execute(strSQL); return dt;
+        }
+        public DataTable Laytenncc()
+        {
+            Database db = new Database();
+            string strSQL = "Select * from NhaCungCap";
+            DataTable dt = db.Execute(strSQL); return dt;
+        }
+
     }
 }

@@ -24,6 +24,10 @@ namespace Doanqlchdt.DTO
             this.Tongtien = tongtien;
         }
 
+        public chitietdonnhapdto()
+        {
+        }
+
         public string Mahdn { get => mahdn; set => mahdn = value; }
         public string Masp { get => masp; set => masp = value; }
         public int Dongia { get => dongia; set => dongia = value; }

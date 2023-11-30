@@ -23,6 +23,10 @@ namespace Doanqlchdt.DTO
             this.Diachi = diachi;
         }
 
+        public nhacungcapdto()
+        {
+        }
+
         public string Mancc { get => mancc; set => mancc = value; }
         public string Tenncc { get => tenncc; set => tenncc = value; }
         public string Sdt { get => sdt; set => sdt = value; }
