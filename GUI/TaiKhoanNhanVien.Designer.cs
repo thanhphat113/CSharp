@@ -67,7 +67,7 @@
             // 
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(81, 293);
+            this.listView1.Location = new System.Drawing.Point(12, 338);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(623, 249);
             this.listView1.TabIndex = 2;
@@ -76,7 +76,7 @@
             // txtTaiKhoan
             // 
             this.txtTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtTaiKhoan.Location = new System.Drawing.Point(307, 97);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(290, 97);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(163, 26);
             this.txtTaiKhoan.TabIndex = 3;
@@ -84,7 +84,7 @@
             // txtMatKhau
             // 
             this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtMatKhau.Location = new System.Drawing.Point(307, 145);
+            this.txtMatKhau.Location = new System.Drawing.Point(290, 145);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(163, 26);
             this.txtMatKhau.TabIndex = 4;
@@ -92,7 +92,7 @@
             // txtNhapLai
             // 
             this.txtNhapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtNhapLai.Location = new System.Drawing.Point(307, 191);
+            this.txtNhapLai.Location = new System.Drawing.Point(290, 191);
             this.txtNhapLai.Name = "txtNhapLai";
             this.txtNhapLai.Size = new System.Drawing.Size(163, 26);
             this.txtNhapLai.TabIndex = 6;
@@ -112,9 +112,9 @@
             this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(549, 183);
+            this.btnThem.Location = new System.Drawing.Point(249, 283);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(85, 34);
+            this.btnThem.Size = new System.Drawing.Size(141, 49);
             this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm ";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -124,7 +124,7 @@
             // 
             this.cbPsw.AutoSize = true;
             this.cbPsw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbPsw.Location = new System.Drawing.Point(307, 237);
+            this.cbPsw.Location = new System.Drawing.Point(253, 242);
             this.cbPsw.Name = "cbPsw";
             this.cbPsw.Size = new System.Drawing.Size(133, 24);
             this.cbPsw.TabIndex = 8;
@@ -148,7 +148,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(204, 16);
+            this.label5.Location = new System.Drawing.Point(128, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(393, 42);
             this.label5.TabIndex = 10;
@@ -160,7 +160,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(801, 79);
+            this.panel1.Size = new System.Drawing.Size(651, 79);
             this.panel1.TabIndex = 11;
             // 
             // TaiKhoanNhanVien
@@ -169,7 +169,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 613);
+            this.ClientSize = new System.Drawing.Size(649, 613);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbPsw);
             this.Controls.Add(this.btnThem);

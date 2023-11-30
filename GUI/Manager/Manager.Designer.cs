@@ -71,7 +71,7 @@
             this.panelside.Controls.Add(this.menuButton);
             this.panelside.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelside.Location = new System.Drawing.Point(0, 0);
-            this.panelside.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelside.Margin = new System.Windows.Forms.Padding(2);
             this.panelside.MaximumSize = new System.Drawing.Size(200, 0);
             this.panelside.MinimumSize = new System.Drawing.Size(57, 0);
             this.panelside.Name = "panelside";
@@ -116,7 +116,7 @@
             this.panelsideduoi.Controls.Add(this.buttondon);
             this.panelsideduoi.Controls.Add(this.buttonsidehoadon);
             this.panelsideduoi.Location = new System.Drawing.Point(2, 495);
-            this.panelsideduoi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelsideduoi.Margin = new System.Windows.Forms.Padding(2);
             this.panelsideduoi.Name = "panelsideduoi";
             this.panelsideduoi.Size = new System.Drawing.Size(197, 236);
             this.panelsideduoi.TabIndex = 13;
@@ -127,7 +127,7 @@
             this.panelsidehoadon.Controls.Add(this.button2);
             this.panelsidehoadon.Controls.Add(this.button4);
             this.panelsidehoadon.Location = new System.Drawing.Point(1, 50);
-            this.panelsidehoadon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelsidehoadon.Margin = new System.Windows.Forms.Padding(2);
             this.panelsidehoadon.MaximumSize = new System.Drawing.Size(196, 124);
             this.panelsidehoadon.Name = "panelsidehoadon";
             this.panelsidehoadon.Size = new System.Drawing.Size(196, 0);
@@ -205,7 +205,7 @@
             this.panelsidesanpham.Controls.Add(this.button6);
             this.panelsidesanpham.Controls.Add(this.button7);
             this.panelsidesanpham.Location = new System.Drawing.Point(3, 483);
-            this.panelsidesanpham.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelsidesanpham.Margin = new System.Windows.Forms.Padding(2);
             this.panelsidesanpham.MaximumSize = new System.Drawing.Size(196, 121);
             this.panelsidesanpham.Name = "panelsidesanpham";
             this.panelsidesanpham.Size = new System.Drawing.Size(196, 0);
@@ -273,6 +273,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Nhân viên";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -288,6 +289,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Khuyến mãi";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnQLNV
             // 
@@ -321,7 +323,7 @@
             // 
             this.panelmain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelmain.Location = new System.Drawing.Point(200, 0);
-            this.panelmain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelmain.Margin = new System.Windows.Forms.Padding(2);
             this.panelmain.Name = "panelmain";
             this.panelmain.Size = new System.Drawing.Size(656, 857);
             this.panelmain.TabIndex = 1;
@@ -349,7 +351,7 @@
             this.ClientSize = new System.Drawing.Size(856, 857);
             this.Controls.Add(this.panelmain);
             this.Controls.Add(this.panelside);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Manager";
             this.Text = "Manager";
