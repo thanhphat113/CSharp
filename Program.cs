@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Doanqlchdt.GUI.Manager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,8 +17,14 @@ namespace Doanqlchdt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
            Application.Run(new GUI.Login());
            // Application.Run(new GUI.Thêm.Themsanpham());
+=======
+            Application.Run(new GUI.Login());
+            Application.Run(new GUI.KhuyenMai());
+            // Application.Run(new GUI.Thêm.Themsanpham());
+>>>>>>> 28e3c420b034514e4c6ca31096e03644583cdec7
         }
     }
 }

@@ -214,6 +214,23 @@ C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.sanphamgui.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.Thêm.Themsanpham.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.RegisterAccount.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.RJ.RjTextbox.resources
+<<<<<<< HEAD
+C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.donbaohanhgui.resources
+C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.loaisanphamgui.resources
+C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.nhacungcap.resources
+C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.taikhoangui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Chitietdonban.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Chitietdonnhap.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.donbaohanhgui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.hoadonbangui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.hoadonnhapgui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.loaisanphamgui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.nhacungcap.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.RegisterAccount.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.taikhoangui.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.Hoadonbanxacnhan.resources
+C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.RJ.RjTextbox.resources
+=======
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.exe.config
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.exe
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.pdb
@@ -260,3 +277,4 @@ D:\workspace\CSharp\obj\Debug\Doanqlchdt.exe
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.pdb
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.DoiMatKhau.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.KhuyenMai.resources
+>>>>>>> 96b956debde8dab8b738a7af299f75486ef9c388

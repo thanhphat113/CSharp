@@ -475,7 +475,7 @@ namespace Doanqlchdt.GUI
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                string selectedMa = listView1.SelectedItems[0].SubItems[0].Text.Trim();
+                string selectedMa = listView1.SelectedItems[0].SubItems[0].Text;
                 loaisanphamdto lspdto = null;
                 foreach (loaisanphamdto loaispdto in ds)
                 {

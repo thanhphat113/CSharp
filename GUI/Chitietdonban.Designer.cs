@@ -1,6 +1,6 @@
 ﻿namespace Doanqlchdt.GUI
 {
-    partial class hoadonbangui
+    partial class Chitietdonban
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hoadonbangui));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Chitietdonban));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboboxtimkiem = new System.Windows.Forms.ComboBox();
             this.buttontimkiemm = new System.Windows.Forms.Button();
@@ -43,7 +43,6 @@
             this.comboBoxsxlc = new System.Windows.Forms.ComboBox();
             this.comboBoxsx = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxtrangthaihoadon = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanelpage = new System.Windows.Forms.FlowLayoutPanel();
             this.buttondau = new System.Windows.Forms.Button();
             this.buttonpress = new System.Windows.Forms.Button();
@@ -51,6 +50,7 @@
             this.buttoncuoi = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.labelchitiet = new System.Windows.Forms.Label();
             this.panelfilter.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanelpage.SuspendLayout();
@@ -67,18 +67,14 @@
             this.comboboxtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.comboboxtimkiem.FormattingEnabled = true;
             this.comboboxtimkiem.Items.AddRange(new object[] {
-            "Mã HDB",
-            "Mã NV",
-            "Mã KH",
-            "Mã KM",
-            "Tổng tiền",
-            "Ngày tạo",
-            "Trạng Thái"});
-            this.comboboxtimkiem.Location = new System.Drawing.Point(381, 69);
+            "Mã Sản Phẩm",
+            "Đơn Giá",
+            "Số Lượng",
+            "Tổng Tiền"});
+            this.comboboxtimkiem.Location = new System.Drawing.Point(365, 32);
             this.comboboxtimkiem.Name = "comboboxtimkiem";
             this.comboboxtimkiem.Size = new System.Drawing.Size(174, 33);
             this.comboboxtimkiem.TabIndex = 16;
-            this.comboboxtimkiem.SelectedIndexChanged += new System.EventHandler(this.comboboxtimkiem_SelectedIndexChanged);
             // 
             // buttontimkiemm
             // 
@@ -87,7 +83,7 @@
             this.buttontimkiemm.FlatAppearance.BorderSize = 0;
             this.buttontimkiemm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttontimkiemm.Image = ((System.Drawing.Image)(resources.GetObject("buttontimkiemm.Image")));
-            this.buttontimkiemm.Location = new System.Drawing.Point(260, 68);
+            this.buttontimkiemm.Location = new System.Drawing.Point(244, 31);
             this.buttontimkiemm.Name = "buttontimkiemm";
             this.buttontimkiemm.Size = new System.Drawing.Size(49, 36);
             this.buttontimkiemm.TabIndex = 7;
@@ -101,17 +97,17 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(327, 68);
+            this.button1.Location = new System.Drawing.Point(311, 31);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(48, 36);
             this.button1.TabIndex = 6;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.buttonrefresh_Click);
+            this.button1.Click += new System.EventHandler(this.buttonfilter_Click);
             // 
             // textBoxtimkiem
             // 
             this.textBoxtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxtimkiem.Location = new System.Drawing.Point(28, 69);
+            this.textBoxtimkiem.Location = new System.Drawing.Point(12, 32);
             this.textBoxtimkiem.Multiline = true;
             this.textBoxtimkiem.Name = "textBoxtimkiem";
             this.textBoxtimkiem.Size = new System.Drawing.Size(238, 33);
@@ -145,14 +141,13 @@
             this.listView1.Location = new System.Drawing.Point(53, 262);
             this.listView1.Name = "listView1";
             this.listView1.OwnerDraw = true;
-            this.listView1.Size = new System.Drawing.Size(1210, 306);
+            this.listView1.Size = new System.Drawing.Size(1324, 306);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listView1_DrawColumnHeader);
             this.listView1.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listView1_DrawItem);
             this.listView1.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.listView1_DrawSubItem);
-            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
             // 
             // panelfilter
             // 
@@ -202,13 +197,10 @@
             this.comboBoxsxlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.comboBoxsxlc.FormattingEnabled = true;
             this.comboBoxsxlc.Items.AddRange(new object[] {
-            "Mã HDB",
-            "Mã NV",
-            "Mã KH",
-            "Mã KM",
-            "Tổng tiền",
-            "Ngày tạo",
-            "Trạng Thái"});
+            "Mã Sản Phẩm",
+            "Đơn Giá",
+            "Số Lượng",
+            "Tổng Tiền"});
             this.comboBoxsxlc.Location = new System.Drawing.Point(3, 53);
             this.comboBoxsxlc.Name = "comboBoxsxlc";
             this.comboBoxsxlc.Size = new System.Drawing.Size(220, 33);
@@ -231,7 +223,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.comboBoxtrangthaihoadon);
+            this.panel1.Controls.Add(this.labelchitiet);
             this.panel1.Controls.Add(this.flowLayoutPanelpage);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.comboboxtimkiem);
@@ -242,20 +234,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1298, 697);
+            this.panel1.Size = new System.Drawing.Size(1412, 697);
             this.panel1.TabIndex = 4;
-            // 
-            // comboBoxtrangthaihoadon
-            // 
-            this.comboBoxtrangthaihoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.comboBoxtrangthaihoadon.FormattingEnabled = true;
-            this.comboBoxtrangthaihoadon.Items.AddRange(new object[] {
-            "Đã xác nhận",
-            "Hủy"});
-            this.comboBoxtrangthaihoadon.Location = new System.Drawing.Point(381, 121);
-            this.comboBoxtrangthaihoadon.Name = "comboBoxtrangthaihoadon";
-            this.comboBoxtrangthaihoadon.Size = new System.Drawing.Size(174, 33);
-            this.comboBoxtrangthaihoadon.TabIndex = 37;
             // 
             // flowLayoutPanelpage
             // 
@@ -264,9 +244,9 @@
             this.flowLayoutPanelpage.Controls.Add(this.buttonpress);
             this.flowLayoutPanelpage.Controls.Add(this.buttonnext);
             this.flowLayoutPanelpage.Controls.Add(this.buttoncuoi);
-            this.flowLayoutPanelpage.Location = new System.Drawing.Point(785, 574);
+            this.flowLayoutPanelpage.Location = new System.Drawing.Point(985, 574);
             this.flowLayoutPanelpage.Name = "flowLayoutPanelpage";
-            this.flowLayoutPanelpage.Size = new System.Drawing.Size(478, 123);
+            this.flowLayoutPanelpage.Size = new System.Drawing.Size(392, 123);
             this.flowLayoutPanelpage.TabIndex = 21;
             this.flowLayoutPanelpage.Visible = false;
             // 
@@ -335,19 +315,29 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.panelfilter);
             this.panel2.Controls.Add(this.buttonfilter);
-            this.panel2.Location = new System.Drawing.Point(731, 25);
+            this.panel2.Location = new System.Drawing.Point(868, 25);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(496, 231);
             this.panel2.TabIndex = 19;
             // 
-            // hoadonbangui
+            // labelchitiet
+            // 
+            this.labelchitiet.AutoSize = true;
+            this.labelchitiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.labelchitiet.Location = new System.Drawing.Point(569, 40);
+            this.labelchitiet.Name = "labelchitiet";
+            this.labelchitiet.Size = new System.Drawing.Size(70, 25);
+            this.labelchitiet.TabIndex = 5;
+            this.labelchitiet.Text = "label2";
+            // 
+            // Chitietdonban
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 697);
+            this.ClientSize = new System.Drawing.Size(1412, 697);
             this.Controls.Add(this.panel1);
-            this.Name = "hoadonbangui";
-            this.Text = "hoadonbangui";
+            this.Name = "Chitietdonban";
+            this.Text = "Chitietdonban";
             this.panelfilter.ResumeLayout(false);
             this.panelfilter.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -380,6 +370,6 @@
         private System.Windows.Forms.Button buttoncuoi;
         private System.Windows.Forms.Panel panel2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ComboBox comboBoxtrangthaihoadon;
+        private System.Windows.Forms.Label labelchitiet;
     }
 }

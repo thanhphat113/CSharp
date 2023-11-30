@@ -1,6 +1,4 @@
 ﻿using Doanqlchdt.DTO;
-using Doanqlchdt.GUI.Edit;
-using Doanqlchdt.GUI.Thêm;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,15 +12,17 @@ using System.Windows.Forms;
 
 namespace Doanqlchdt.GUI
 {
-    public partial class nhacungcap : Form
+    public partial class Chitietdonnhap : Form
     {
-        static nhacungcapbus bus = new nhacungcapbus();
+        static chitietdonnhapbus bus = new chitietdonnhapbus();
+        static hoadonnhapdto hdndto = null;
+        private String ma = null;
         private Boolean timkiem = false;
         private Boolean sx = false;
         private Boolean temppage = true;
         private Boolean side = false;
         private int totalpage = 0;
-        private static int record = 23;
+        private static int record = 1;
         private static int temp = 1;
         private static int ofset = (temp - 1) * record;
         private String tenlcsx = "";
@@ -33,16 +33,20 @@ namespace Doanqlchdt.GUI
         private String ketquatim = "";
         private String ten = "";
         private int totalpageorder = 0;
-        private static int recordorder = 23;
+        private static int recordorder = 1;
         private static int temporder = 1;
         private static int ofsetorder = (temporder - 1) * recordorder;
-        private ArrayList ds = bus.getdsfrompage(ofset, record);
+        private ArrayList ds = null;
         private System.Windows.Forms.Button[] btnarray;
         private System.Windows.Forms.Button[] btnarrayod;
-        public nhacungcap()
+        public Chitietdonnhap(hoadonnhapdto selectedhd)
         {
             InitializeComponent();
-            double totalpagetemp = (double)bus.getcount() / record;
+            hdndto = selectedhd;
+            ma = hdndto.Mahdn;
+            labelchitiet.Text = "Mã Hóa Đơn: " + ma;
+            ds = bus.getdsfrompage(ofset, record, ma);
+            double totalpagetemp = (double)bus.getcount(ma) / record;
             totalpage = (int)Math.Ceiling(totalpagetemp);
             btnarray = new System.Windows.Forms.Button[(int)(totalpage + 2)];
             comboBoxsx.SelectedIndex = 0;
@@ -59,11 +63,10 @@ namespace Doanqlchdt.GUI
         public void loadlistview()
         {
             //listView1.Columns.Add("", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("Mã NCC", 100, HorizontalAlignment.Left); // Thêm các cột vào ListView
-            listView1.Columns.Add("Tên NCC", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("SDT", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Email", 200, HorizontalAlignment.Left);
-            listView1.Columns.Add("Địa chỉ", 100, HorizontalAlignment.Left);
+            listView1.Columns.Add("Mã SP", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Đơn Giá", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Số Lượng", 200, HorizontalAlignment.Left);
+            listView1.Columns.Add("Tổng Tiền", 100, HorizontalAlignment.Left);
 
             Graphics g = listView1.CreateGraphics();
 
@@ -84,21 +87,20 @@ namespace Doanqlchdt.GUI
             ds.Clear();
             if (sx == false)
             {
-                ds = bus.getdsfrompage(ofset, record);
+                ds = bus.getdsfrompage(ofset, record, ma);
             }
             else
             {
-                ds = bus.getdspagesx(tenlcsx, loaisx, ofset, record);
+                ds = bus.getdspagesx(tenlcsx, loaisx, ofset, record, ma);
             }
             listView1.Items.Clear();
-            foreach (nhacungcapdto nccdto in ds)
+            foreach (chitietdonnhapdto ct in ds)
             {
 
-                ListViewItem ls = new ListViewItem(nccdto.Mancc);
-                ls.SubItems.Add(nccdto.Tenncc);
-                ls.SubItems.Add(nccdto.Sdt);
-                ls.SubItems.Add(nccdto.Email);
-                ls.SubItems.Add(nccdto.Diachi);
+                ListViewItem ls = new ListViewItem(ct.Masp);
+                ls.SubItems.Add(ct.Dongia.ToString());
+                ls.SubItems.Add(ct.Soluong.ToString());
+                ls.SubItems.Add(ct.Tongtien.ToString());
                 listView1.Items.Add(ls);
 
             }
@@ -109,16 +111,15 @@ namespace Doanqlchdt.GUI
         {
             ofsetorder = (temporder - 1) * recordorder;
             ds.Clear();
-            ds = bus.getdspageoder(ten, dieukien, Dieukiensx, Loaisx, ofsetorder, recordorder);
+            ds = bus.getdspageoder(ten, dieukien, Dieukiensx, Loaisx, ofsetorder, recordorder, ma);
             listView1.Items.Clear();
-            foreach (nhacungcapdto nccdto in ds)
+            foreach (chitietdonnhapdto ct in ds)
             {
 
-                ListViewItem ls = new ListViewItem(nccdto.Mancc);
-                ls.SubItems.Add(nccdto.Tenncc);
-                ls.SubItems.Add(nccdto.Sdt);
-                ls.SubItems.Add(nccdto.Email);
-                ls.SubItems.Add(nccdto.Diachi);
+                ListViewItem ls = new ListViewItem(ct.Masp);
+                ls.SubItems.Add(ct.Dongia.ToString());
+                ls.SubItems.Add(ct.Soluong.ToString());
+                ls.SubItems.Add(ct.Tongtien.ToString());
                 listView1.Items.Add(ls);
 
             }
@@ -138,23 +139,13 @@ namespace Doanqlchdt.GUI
                 btnxem.BackColor = System.Drawing.SystemColors.Window;
                 btnxem.ForeColor = System.Drawing.SystemColors.HotTrack;
             };
-            buttonxoa.MouseEnter += (sender, e) =>
-            {
-                buttonxoa.BackColor = Color.OrangeRed;
-                buttonxoa.ForeColor = System.Drawing.SystemColors.Window;
-                // Đổi màu nền khi hover
-            };
-            buttonxoa.MouseLeave += (sender, e) =>
-            {
-                buttonxoa.BackColor = System.Drawing.SystemColors.Window;
-                buttonxoa.ForeColor = Color.OrangeRed;
-            };
+
         }
-        //KHÔNG THAY ĐÔI phân trang listview cho tất cả
+        //THAY ĐÔI phân trang listview cho tất cả
         public void page()
         {
             temppage = true;
-            int kq = bus.getcount();
+            int kq = bus.getcount(ma);
             int count = flowLayoutPanelpage.Controls.Count;
             if (kq > record)
             {
@@ -284,11 +275,11 @@ namespace Doanqlchdt.GUI
             }
 
         }
-        //KHÔNG THAY ĐỔI phân trang listview dành cho việc tìm kiếm và sắp xếp
+        //THAY ĐỔI phân trang listview dành cho việc tìm kiếm và sắp xếp
         public void pageorder(String ten, String ketquatim, int tongpage)
         {
             temppage = false;
-            int kq = bus.selectcountoder(ten, ketquatim);
+            int kq = bus.selectcountoder(ten, ketquatim, ma);
             int count = flowLayoutPanelpage.Controls.Count;
             if (kq > recordorder)
             {
@@ -479,37 +470,6 @@ namespace Doanqlchdt.GUI
         {
             e.DrawDefault = true;
         }
-        //THAY ĐỔI double click chuột vào bảng
-        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                string selectedMa = listView1.SelectedItems[0].SubItems[0].Text;
-                nhacungcapdto nccdto = null; 
-                foreach (nhacungcapdto nhaccdto in ds)
-                {
-                    if (nhaccdto.Mancc == selectedMa)
-                    {
-                        nccdto=nhaccdto;
-                    }
-                }
-                if (nccdto != null)
-                {
-                    // truyền thông tin nhân viên được chọn qua form sửa nhân viên
-                    editnhacungcap editncc=new editnhacungcap(nccdto);
-                    editncc.StartPosition = FormStartPosition.CenterParent;
-                    editncc.ShowDialog();
-                    if (temppage == true)
-                    {
-                        loadtable();
-                    }
-                    else
-                    {
-                        loadtableod(ten, tempsx, temploaisx, ketquatim);
-                    }
-                }
-            }
-        }
         //KHÔNG THAY ĐỔI buton filter
         private void buttonfilter_Click(object sender, EventArgs e)
         {
@@ -564,9 +524,9 @@ namespace Doanqlchdt.GUI
             if (comboboxtimkiem.SelectedIndex == 0)
             {
                 setvisiblebutonpage(totalpageorder, btnarrayod);
-                ten = "MaNCC";
+                ten = "MaSP";
                 int ketquacoutoder = 0;
-                ketquacoutoder = bus.selectcountoder(ten, ketquatim);
+                ketquacoutoder = bus.selectcountoder(ten, ketquatim, ma);
                 totalpagetempoder = (double)ketquacoutoder / recordorder;
                 totalpageorder = (int)Math.Ceiling(totalpagetempoder);
                 int count = flowLayoutPanelpage.Controls.Count;
@@ -579,7 +539,7 @@ namespace Doanqlchdt.GUI
                 }
                 else
                 {
-                    tempsx = "MaNCC";
+                    tempsx = "MaSP";
                     temploaisx = "ASC";
                     loadtableod(ten, tempsx, temploaisx, ketquatim);
                 }
@@ -590,9 +550,9 @@ namespace Doanqlchdt.GUI
             else if (comboboxtimkiem.SelectedIndex == 1)
             {
                 setvisiblebutonpage(totalpageorder, btnarrayod);
-                ten = "TenNCC";
+                ten = "DonGia";
                 int ketquacoutoder = 0;
-                ketquacoutoder = bus.selectcountoder(ten, ketquatim);
+                ketquacoutoder = bus.selectcountoder(ten, ketquatim, ma);
                 totalpagetempoder = (double)ketquacoutoder / recordorder;
                 totalpageorder = (int)Math.Ceiling(totalpagetempoder);
                 int count = flowLayoutPanelpage.Controls.Count;
@@ -605,7 +565,7 @@ namespace Doanqlchdt.GUI
                 }
                 else
                 {
-                    tempsx = "TenNCC";
+                    tempsx = "DonGia";
                     temploaisx = "ASC";
                     loadtableod(ten, tempsx, temploaisx, ketquatim);
                 }
@@ -614,9 +574,9 @@ namespace Doanqlchdt.GUI
             else if (comboboxtimkiem.SelectedIndex == 2)
             {
                 setvisiblebutonpage(totalpageorder, btnarrayod);
-                ten = "SDT";
+                ten = "SoLuong";
                 int ketquacoutoder = 0;
-                ketquacoutoder = bus.selectcountoder(ten, ketquatim);
+                ketquacoutoder = bus.selectcountoder(ten, ketquatim, ma);
                 totalpagetempoder = (double)ketquacoutoder / recordorder;
                 totalpageorder = (int)Math.Ceiling(totalpagetempoder);
                 int count = flowLayoutPanelpage.Controls.Count;
@@ -629,7 +589,7 @@ namespace Doanqlchdt.GUI
                 }
                 else
                 {
-                    tempsx = "SDT";
+                    tempsx = "SoLuong";
                     temploaisx = "ASC";
                     loadtableod(ten, tempsx, temploaisx, ketquatim);
                 }
@@ -638,9 +598,9 @@ namespace Doanqlchdt.GUI
             else if (comboboxtimkiem.SelectedIndex == 3)
             {
                 setvisiblebutonpage(totalpageorder, btnarrayod);
-                ten = "Email";
+                ten = "TongTien";
                 int ketquacoutoder = 0;
-                ketquacoutoder = bus.selectcountoder(ten, ketquatim);
+                ketquacoutoder = bus.selectcountoder(ten, ketquatim, ma);
                 totalpagetempoder = (double)ketquacoutoder / recordorder;
                 totalpageorder = (int)Math.Ceiling(totalpagetempoder);
                 int count = flowLayoutPanelpage.Controls.Count;
@@ -653,36 +613,13 @@ namespace Doanqlchdt.GUI
                 }
                 else
                 {
-                    tempsx = "Email";
+                    tempsx = "TongTien";
                     temploaisx = "ASC";
                     loadtableod(ten, tempsx, temploaisx, ketquatim);
                 }
                 pageorder(ten, ketquatim, totalpageorder);
             }
-            else if (comboboxtimkiem.SelectedIndex == 4)
-            {
-                setvisiblebutonpage(totalpageorder, btnarrayod);
-                ten = "DiaChi";
-                int ketquacoutoder = 0;
-                ketquacoutoder = bus.selectcountoder(ten, ketquatim);
-                totalpagetempoder = (double)ketquacoutoder / recordorder;
-                totalpageorder = (int)Math.Ceiling(totalpagetempoder);
-                int count = flowLayoutPanelpage.Controls.Count;
-                btnarrayod = new System.Windows.Forms.Button[(int)(totalpageorder + 2)];
-                if (sx == true)
-                {
-                    tempsx = tenlcsx;
-                    temploaisx = loaisx;
-                    loadtableod(ten, tempsx, temploaisx, ketquatim);
-                }
-                else
-                {
-                    tempsx = "DiaChi";
-                    temploaisx = "ASC";
-                    loadtableod(ten, tempsx, temploaisx, ketquatim);
-                }
-                pageorder(ten, ketquatim, totalpageorder);
-            }
+
 
 
         }
@@ -724,7 +661,7 @@ namespace Doanqlchdt.GUI
                 //tăng dần
                 if (comboBoxsxlc.SelectedIndex == 0)
                 {
-                    tenlcsx = "MaNCC";
+                    tenlcsx = "MaSP";
                     loaisx = "ASC";
                     if (timkiem == false)
                     {
@@ -741,12 +678,12 @@ namespace Doanqlchdt.GUI
                         pageorder(ten, ketquatim, totalpageorder);
 
                     }
-                    //mancc
+                    //masp
 
                 }
                 else if (comboBoxsxlc.SelectedIndex == 1)
                 {
-                    tenlcsx = "TenNCC";
+                    tenlcsx = "DonGia";
                     loaisx = "ASC";
                     if (timkiem == false)
                     {
@@ -762,11 +699,11 @@ namespace Doanqlchdt.GUI
                         setvisiblebutonpage(totalpageorder, btnarrayod);
                         pageorder(ten, ketquatim, totalpageorder);
                     }
-                    //tenncc
+                    //dongia
                 }
                 else if (comboBoxsxlc.SelectedIndex == 2)
                 {
-                    tenlcsx = "SDT";
+                    tenlcsx = "SoLuong";
                     loaisx = "ASC";
                     if (timkiem == false)
                     {
@@ -782,11 +719,11 @@ namespace Doanqlchdt.GUI
                         setvisiblebutonpage(totalpageorder, btnarrayod);
                         pageorder(ten, ketquatim, totalpageorder);
                     }
-                    //SDT
+                    //soluong
                 }
                 else if (comboBoxsxlc.SelectedIndex == 3)
                 {
-                    tenlcsx = "Email";
+                    tenlcsx = "TongTien";
                     loaisx = "ASC";
                     if (timkiem == false)
                     {
@@ -802,28 +739,9 @@ namespace Doanqlchdt.GUI
                         setvisiblebutonpage(totalpageorder, btnarrayod);
                         pageorder(ten, ketquatim, totalpageorder);
                     }
-                    //email
+                    //tongtien
                 }
-                else if (comboBoxsxlc.SelectedIndex == 4)
-                {
-                    tenlcsx = "DiaChi";
-                    loaisx = "ASC";
-                    if (timkiem == false)
-                    {
-                        loadtable();
-                        setvisiblebutonpage(totalpage, btnarray);
-                        page();
-                    }
-                    else
-                    {
-                        tempsx = tenlcsx;
-                        temploaisx = loaisx;
-                        loadtableod(ten, tenlcsx, loaisx, ketquatim);
-                        setvisiblebutonpage(totalpageorder, btnarrayod);
-                        pageorder(ten, ketquatim, totalpageorder);
-                    }
-                    //Diachi
-                }
+
 
             }
             else if (comboBoxsx.SelectedIndex == 2)
@@ -832,7 +750,7 @@ namespace Doanqlchdt.GUI
                 // giảm dần
                 if (comboBoxsxlc.SelectedIndex == 0)
                 {
-                    tenlcsx = "MaNCC";
+                    tenlcsx = "MaSP";
                     loaisx = "DESC";
                     if (timkiem == false)
                     {
@@ -849,12 +767,12 @@ namespace Doanqlchdt.GUI
                         pageorder(ten, ketquatim, totalpageorder);
 
                     }
-                    //mancc
+                    //masp
 
                 }
                 else if (comboBoxsxlc.SelectedIndex == 1)
                 {
-                    tenlcsx = "TenNCC";
+                    tenlcsx = "DonGia";
                     loaisx = "DESC";
                     if (timkiem == false)
                     {
@@ -870,12 +788,12 @@ namespace Doanqlchdt.GUI
                         setvisiblebutonpage(totalpageorder, btnarrayod);
                         pageorder(ten, ketquatim, totalpageorder);
                     }
-                    //tenncc
+                    //dongia
                 }
                 else if (comboBoxsxlc.SelectedIndex == 2)
                 {
-                    tenlcsx = "SDT";
-                    loaisx = "DeSC";
+                    tenlcsx = "SoLuong";
+                    loaisx = "DESC";
                     if (timkiem == false)
                     {
                         loadtable();
@@ -890,11 +808,11 @@ namespace Doanqlchdt.GUI
                         setvisiblebutonpage(totalpageorder, btnarrayod);
                         pageorder(ten, ketquatim, totalpageorder);
                     }
-                    //SDT
+                    //soluong
                 }
                 else if (comboBoxsxlc.SelectedIndex == 3)
                 {
-                    tenlcsx = "Email";
+                    tenlcsx = "TongTien";
                     loaisx = "DESC";
                     if (timkiem == false)
                     {
@@ -910,27 +828,7 @@ namespace Doanqlchdt.GUI
                         setvisiblebutonpage(totalpageorder, btnarrayod);
                         pageorder(ten, ketquatim, totalpageorder);
                     }
-                    //email
-                }
-                else if (comboBoxsxlc.SelectedIndex == 4)
-                {
-                    tenlcsx = "DiaChi";
-                    loaisx = "DESC";
-                    if (timkiem == false)
-                    {
-                        loadtable();
-                        setvisiblebutonpage(totalpage, btnarray);
-                        page();
-                    }
-                    else
-                    {
-                        tempsx = tenlcsx;
-                        temploaisx = loaisx;
-                        loadtableod(ten, tenlcsx, loaisx, ketquatim);
-                        setvisiblebutonpage(totalpageorder, btnarrayod);
-                        pageorder(ten, ketquatim, totalpageorder);
-                    }
-                    //Diachi
+                    //tongtien
                 }
             }
         }
@@ -1020,17 +918,7 @@ namespace Doanqlchdt.GUI
             }
         }
         //buton xóa
-        private void buttonxoa_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void buttonthem_Click(object sender, EventArgs e)
-        {
-            themnhacungcap them = new themnhacungcap();
-            them.ShowDialog();
-        }
         ////////// kết thúc phần code sự kiện tự tạo của form////////////////////////////////////////////////////////////////////////////////////////  
-
     }
 }

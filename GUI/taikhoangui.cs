@@ -474,7 +474,7 @@ namespace Doanqlchdt.GUI
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                string selectedMa = listView1.SelectedItems[0].SubItems[0].Text.Trim();
+                string selectedMa = listView1.SelectedItems[0].SubItems[0].Text;
                 TAIKHOANDTO tkdto = null;
                 foreach (TAIKHOANDTO taikhoandto in ds)
                 {
