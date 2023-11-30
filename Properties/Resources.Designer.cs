@@ -133,6 +133,16 @@ namespace Doanqlchdt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap forgot_password {
+            get {
+                object obj = ResourceManager.GetObject("forgot_password", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap khachhang {
             get {
                 object obj = ResourceManager.GetObject("khachhang", resourceCulture);

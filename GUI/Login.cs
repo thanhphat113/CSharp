@@ -70,12 +70,24 @@ namespace Doanqlchdt.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            RegisterAccount frmRegis = new RegisterAccount();
+            this.Hide();
+            frmRegis.StartPosition = FormStartPosition.CenterScreen;
+            frmRegis.ShowDialog();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            QuenMatKhau frm = new QuenMatKhau();
+            this.Hide();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
         }
     }
 }

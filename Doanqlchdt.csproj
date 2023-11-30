@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\nhanvienbus.cs" />
+    <Compile Include="BUS\QuenMatKhauBUS.cs" />
     <Compile Include="BUS\taikhoanbus.cs" />
     <Compile Include="BUS\TaiKhoanNhanVienBUS.cs" />
     <Compile Include="BUS\ThongKeBUS.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="connect\Database.cs" />
     <Compile Include="DAO\chitietdonbandao.cs" />
     <Compile Include="DAO\chitietdonnhapdao.cs" />
+    <Compile Include="DAO\QuenMatKhauDAO.cs" />
     <Compile Include="DAO\TaiKhoanNhanVienDAO.cs" />
     <Compile Include="DAO\donbaohanhdao.cs" />
     <Compile Include="DAO\hoadonbandao.cs" />
@@ -187,6 +189,12 @@
     </Compile>
     <Compile Include="GUI\Messageboxshow\YesOrNo.Designer.cs">
       <DependentUpon>YesOrNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuenMatKhau.Designer.cs">
+      <DependentUpon>QuenMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\RegisterAccount.cs">
       <SubType>Form</SubType>
@@ -379,6 +387,9 @@
     <EmbeddedResource Include="GUI\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuenMatKhau.resx">
+      <DependentUpon>QuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\RegisterAccount.resx">
       <DependentUpon>RegisterAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,6 +451,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="obj\image\forgot_password.jpg" />
     <Content Include="obj\image\padlock_2889676.png" />
     <Content Include="obj\IM\Available Updates.png" />
     <Content Include="obj\IM\Close.png" />
