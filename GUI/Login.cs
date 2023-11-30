@@ -44,7 +44,7 @@ namespace Doanqlchdt.GUI
                 }
                 else if (checkQuyen == 2)
                 {
-                    MessageBox.Show("Bạn đang đăng nhập dưới dạng Nhân Viên");
+                    MessageBox.Show("Bạn đang đăng nhập dưới dạng Nhân Viên Quản Lý Nhân Sự");
                     Manager.Manager frm = new GUI.Manager.Manager();
                     frm.StartPosition = FormStartPosition.CenterScreen;
                     frm.ShowDialog();
@@ -58,6 +58,13 @@ namespace Doanqlchdt.GUI
                     UserGui userGui = new UserGui(kh);
                     userGui.Show();
                     userGui.FormClosed += (s, args) => this.ShowLogin();
+                }
+                else if(checkQuyen == 4)
+                {
+                    MessageBox.Show("Bạn đang đăng nhập dưới dạng Nhân Viên Quản Lý Kho");
+                    Manager.Manager frm = new GUI.Manager.Manager();
+                    frm.StartPosition = FormStartPosition.CenterScreen;
+                    frm.ShowDialog();
                 }
             }
             else
