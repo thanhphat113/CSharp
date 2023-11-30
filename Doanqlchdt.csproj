@@ -124,6 +124,12 @@
     <Compile Include="GUI\ChiTiet.Designer.cs">
       <DependentUpon>ChiTiet.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DoiThongTinKH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,12 @@
     </Compile>
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\KhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\KhuyenMai.Designer.cs">
+      <DependentUpon>KhuyenMai.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Manager\Manager.cs">
       <SubType>Form</SubType>
@@ -345,6 +357,9 @@
     <EmbeddedResource Include="GUI\ChiTiet.resx">
       <DependentUpon>ChiTiet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DoiThongTinKH.resx">
       <DependentUpon>DoiThongTinKH.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\khachhanggui.resx">
       <DependentUpon>khachhanggui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\KhuyenMai.resx">
+      <DependentUpon>KhuyenMai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\loaisanphamgui.resx">
       <DependentUpon>loaisanphamgui.cs</DependentUpon>
@@ -453,6 +471,7 @@
   <ItemGroup>
     <None Include="obj\image\forgot_password.jpg" />
     <Content Include="obj\image\padlock_2889676.png" />
+    <None Include="obj\image\resetpass.jpg" />
     <Content Include="obj\IM\Available Updates.png" />
     <Content Include="obj\IM\Close.png" />
     <Content Include="obj\IM\Close1.png" />

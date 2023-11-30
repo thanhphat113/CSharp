@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
@@ -37,18 +36,9 @@
             this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Doanqlchdt.Properties.Resources.forgot_password;
-            this.pictureBox1.Location = new System.Drawing.Point(104, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(304, 222);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -59,6 +49,7 @@
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtUsername
             // 
@@ -76,6 +67,7 @@
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(168, 26);
             this.txtSoDienThoai.TabIndex = 4;
+            this.txtSoDienThoai.TextChanged += new System.EventHandler(this.txtSoDienThoai_TextChanged);
             // 
             // label2
             // 
@@ -86,6 +78,7 @@
             this.label2.Size = new System.Drawing.Size(109, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Số Điện Thoại";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -96,16 +89,19 @@
             this.label3.Size = new System.Drawing.Size(81, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Ngày Sinh";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // dtNgaySinh
             // 
             this.dtNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtNgaySinh.Location = new System.Drawing.Point(220, 358);
             this.dtNgaySinh.MaxDate = new System.DateTime(2023, 11, 30, 0, 0, 0, 0);
             this.dtNgaySinh.Name = "dtNgaySinh";
-            this.dtNgaySinh.Size = new System.Drawing.Size(280, 26);
+            this.dtNgaySinh.Size = new System.Drawing.Size(168, 26);
             this.dtNgaySinh.TabIndex = 6;
             this.dtNgaySinh.Value = new System.DateTime(2023, 11, 30, 0, 0, 0, 0);
+            this.dtNgaySinh.ValueChanged += new System.EventHandler(this.dtNgaySinh_ValueChanged);
             // 
             // button1
             // 
@@ -133,8 +129,20 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Doanqlchdt.Properties.Resources.forgot_password;
+            this.pictureBox1.Location = new System.Drawing.Point(104, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(304, 222);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // QuenMatKhau
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

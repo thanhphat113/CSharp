@@ -38,12 +38,16 @@ namespace Doanqlchdt.GUI
                 {
                     this.Visible = false;
                     MessageBox.Show("Bạn đang đăng nhập dưới dạng ADMIN");
-                    Menu frmMenu = new Menu();
-                    frmMenu.ShowDialog();
+                    Manager.Manager frm = new GUI.Manager.Manager();
+                    frm.StartPosition = FormStartPosition.CenterScreen;
+                    frm.ShowDialog();
                 }
                 else if (checkQuyen == 2)
                 {
                     MessageBox.Show("Bạn đang đăng nhập dưới dạng Nhân Viên");
+                    Manager.Manager frm = new GUI.Manager.Manager();
+                    frm.StartPosition = FormStartPosition.CenterScreen;
+                    frm.ShowDialog();
                 }
                 else if (checkQuyen == 3)
                 {

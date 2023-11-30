@@ -214,7 +214,6 @@ C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.sanphamgui.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.Thêm.Themsanpham.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.GUI.RegisterAccount.resources
 C:\Users\Admin\source\repos\DoAnC-\obj\Debug\Doanqlchdt.RJ.RjTextbox.resources
-
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.exe.config
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.exe
 D:\workspace\CSharp\bin\Debug\Doanqlchdt.pdb
@@ -259,3 +258,5 @@ D:\workspace\CSharp\obj\Debug\Doanqlchdt.csproj.CoreCompileInputs.cache
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.csproj.CopyComplete
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.exe
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.pdb
+D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.DoiMatKhau.resources
+D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.KhuyenMai.resources

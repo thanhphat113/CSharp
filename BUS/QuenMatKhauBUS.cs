@@ -14,5 +14,10 @@ namespace Doanqlchdt.BUS
         {
             return quenMatKhauDAO.GetUserInfo(username);
         }
+
+        public void ChangePassWord(string username, string password)
+        {
+            quenMatKhauDAO.ChangePassWord(username, password);
+        }
     }
 }

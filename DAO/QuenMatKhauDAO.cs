@@ -38,6 +38,18 @@ namespace Doanqlchdt.DAO
 
             return userList;
         }
+
+        public void ChangePassWord(string username, string password)
+        {
+            using (SqlConnection connection = connectObj.connection())
+            {
+                SqlCommand sql = new SqlCommand("UPDATE TaiKhoan SET MatKhau = @password WHERE Username = @username", connection);
+                sql.Parameters.AddWithValue("@username", username);
+                sql.Parameters.AddWithValue ("Password", password);
+
+                sql.ExecuteNonQuery();
+            }
+        }
     }
     public class UserInfo
     {

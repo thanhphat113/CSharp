@@ -21,6 +21,7 @@ namespace Doanqlchdt.GUI
         public QuenMatKhau()
         {
             InitializeComponent();
+            dtNgaySinh.Value = DateTime.Today.Date;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -48,25 +49,24 @@ namespace Doanqlchdt.GUI
             {
                 string username = txtUsername.Text;
                 string phoneNumber = txtSoDienThoai.Text;
-                DateTime dateWithNoonTime = DateTime.Today.AddHours(24);
-                dtNgaySinh.Value = dateWithNoonTime;
                 DateTime dateTime1 = dtNgaySinh.Value;
                 string dateTime = dateTime1.ToString();
-                // Gọi phương thức từ BUS để lấy thông tin người dùng
                 List<UserInfo> userInfoList = quenMatKhauBUS.GetUserName(username);
 
-                // Kiểm tra xem danh sách thông tin người dùng có trống không
                 if (userInfoList != null && userInfoList.Count > 0)
                 {
                     foreach (UserInfo userInfo in userInfoList)
                     {
                         if (phoneNumber == userInfo.PhoneNumber && dateTime == userInfo.Birthday)
                         {
-                            MessageBox.Show("hehe");
+                            DoiMatKhau frm = new DoiMatKhau(txtUsername.Text);
+                            frm.StartPosition = FormStartPosition.CenterScreen;
+                            this.Visible = false;
+                            frm.ShowDialog();
                         } 
                         else if(phoneNumber == userInfo.PhoneNumber && dateTime != userInfo.Birthday)
                         {
-                            Comfrimupdate comfrimupdate = new Comfrimupdate(dateTime + "       " + userInfo.Birthday);
+                            Comfrimupdate comfrimupdate = new Comfrimupdate("Ngày Sinh Không Đúng!");
                             comfrimupdate.StartPosition = FormStartPosition.CenterScreen;
                             comfrimupdate.ShowDialog();
                         }
@@ -100,6 +100,36 @@ namespace Doanqlchdt.GUI
             Login frm = new Login();
             frm.Visible = true;
             Close();
+        }
+
+        private void dtNgaySinh_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoDienThoai_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
