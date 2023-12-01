@@ -278,7 +278,6 @@ D:\workspace\CSharp\obj\Debug\Doanqlchdt.pdb
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.DoiMatKhau.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.KhuyenMai.resources
 >>>>>>> 96b956debde8dab8b738a7af299f75486ef9c388
-<<<<<<< HEAD
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.DoiMatKhau.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.KhuyenMai.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.QuenMatKhau.resources
@@ -290,7 +289,6 @@ C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.Themhoadonnhap.re
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.themloaisp.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Thêm.themnhacungcap.resources
 C:\Users\hi\source\repos\CSharp\obj\Debug\Doanqlchdt.GUI.Messageboxshow.YesOrNoOrCancle.resources
-=======
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.Chitietdonban.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.Chitietdonnhap.resources
 D:\workspace\CSharp\obj\Debug\Doanqlchdt.GUI.hoadonbangui.resources

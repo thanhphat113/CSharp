@@ -223,7 +223,18 @@ namespace Doanqlchdt.DTO
             connect.Close();
             return kq;
         }
-
+        public int delete(loaisanphamdto lspdto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "DELETE FROM LoaiSanPham WHERE  ";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }
 
     }
 }

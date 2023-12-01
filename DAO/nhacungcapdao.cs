@@ -313,5 +313,35 @@ namespace Doanqlchdt.DTO
             connect.Close();
             return kq;
         }
+    
+        public int delete(nhacungcapdto nccdto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "DELETE FROM NhaCungCap WHERE MaNCC = '"+nccdto.Mancc+"' ";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }
+        public Boolean KTdelete(nhacungcapdto nccdto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "SELECT * FROM NhaCungCap NCC,HoaDonNhap HDN WHERE NCC.MaNCC = HDN.NhaCungCap ";
+
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            SqlDataReader reader = sqlcommand.ExecuteReader();
+            if(reader.Read())
+            {
+                return false;
+            }
+            connect.Close();
+            return true;
+        }
     }
 }

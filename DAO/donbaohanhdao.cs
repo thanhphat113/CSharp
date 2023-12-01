@@ -394,6 +394,17 @@ namespace Doanqlchdt.DTO
             string strSQL = "Select * from SanPham";
             DataTable dt = db.Execute(strSQL); return dt;
         }
-
+        public int delete(donbaohanhdto dbhdto)
+        {
+            connect.connect cn = new connect.connect();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.CommandType = System.Data.CommandType.Text;
+            sqlcommand.CommandText = "DELETE FROM DonBaoHanh WHERE  ";
+            SqlConnection connect = cn.connection();
+            sqlcommand.Connection = connect;
+            int kq = sqlcommand.ExecuteNonQuery();
+            connect.Close();
+            return kq;
+        }
     }
 }
